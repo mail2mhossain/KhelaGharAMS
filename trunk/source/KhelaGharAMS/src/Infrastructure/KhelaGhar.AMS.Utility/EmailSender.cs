@@ -20,37 +20,6 @@ namespace KhelaGhar.AMS.Utility
         public string[] BccList { get; set; }
         public Attachment[] Files { get; set; }
 
-        //public static bool SendEmail(string to, string from, string subject, string body)
-        //{
-        //    try
-        //    {
-        //        string param = to + "&from=" + from + "&subject=" + subject + "&body=" + body;
-        //        param = param + "&smtpAddress=" + SmtpAddress;
-        //        param = param + "&smtpPassword=" + Password;
-
-        //        var httpReq = (HttpWebRequest)WebRequest.Create("http://emailservice.azurewebsites.net/EmailService.svc/SendMail?to=" + param);
-        //        httpReq.Method = "POST";
-        //        httpReq.ContentType = "application/x-www-form-urlencoded";
-        //        httpReq.ContentLength = 0;
-
-        //        var response = (HttpWebResponse)httpReq.GetResponse();
-        //        string responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-
-        //        if (responseString.Contains("Success"))
-        //        {
-        //            return true;
-        //        }
-        //        else
-        //        {
-        //            return false;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return false;
-        //    }
-        //}
-
         public bool Sendmail()
         {
             MailMessage mailMessage = new MailMessage();
