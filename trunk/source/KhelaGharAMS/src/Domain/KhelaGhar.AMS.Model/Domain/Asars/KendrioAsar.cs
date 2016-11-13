@@ -80,6 +80,71 @@ namespace KhelaGhar.AMS.Model.Domain.Asars
 		////	}
 		////}
 		#endregion
+
+		#region সক্রিয় আসরসমূহ
+		[MemberOrder(110), NotMapped]
+		//[Eagerly(EagerlyAttribute.Do.Rendering)]
+		[DisplayName("সক্রিয় আসরসমূহ")]
+		[TableView(true, "Name", "DateOfEstablishment", "TotalMembers", "Workers", "CommitteeType")]
+		public IList<ShakhaAsar> AllActiveAsars
+		{
+			get
+			{
+				List<int> allchildrenids = AsarRepository.GetAllChildrenIds();
+
+				return Container.Instances<ShakhaAsar>().Where(d => allchildrenids.Contains(d.Area.AreaId) && (int)d.AsarStatus == (int)ShakhaAsar.StatusOfAsar.সচল).OrderBy(o => o.Name).ToList();
+			}
+		}
+		#endregion
+
+		#region নতুন আসরসমূহ
+		[MemberOrder(120), NotMapped]
+		//[Eagerly(EagerlyAttribute.Do.Rendering)]
+		[DisplayName("নতুন আসরসমূহ")]
+		[TableView(true, "Name", "DateOfEstablishment", "TotalMembers", "Kormies", "CommitteeType")]
+		public IList<ShakhaAsar> AllNewAsars
+		{
+			get
+			{
+				List<int> allchildrenids = AsarRepository.GetAllChildrenIds();
+
+				return Container.Instances<ShakhaAsar>().Where(d => allchildrenids.Contains(d.Area.AreaId) && (int)d.AsarStatus == (int)ShakhaAsar.StatusOfAsar.নতুন).OrderBy(o => o.Name).ToList();
+			}
+		}
+		#endregion
+
+		#region পুনর্জাগরিত আসরসমূহ
+		[MemberOrder(130), NotMapped]
+		//[Eagerly(EagerlyAttribute.Do.Rendering)]
+		[DisplayName("পুনর্জাগরিত আসরসমূহ")]
+		[TableView(true, "Name", "DateOfEstablishment", "TotalMembers", "Kormies", "CommitteeType")]
+		public IList<ShakhaAsar> AllRevivedAsars
+		{
+			get
+			{
+				List<int> allchildrenids = AsarRepository.GetAllChildrenIds();
+
+				return Container.Instances<ShakhaAsar>().Where(d => allchildrenids.Contains(d.Area.AreaId) && (int)d.AsarStatus == (int)ShakhaAsar.StatusOfAsar.পুনর্জাগরণ).OrderBy(o => o.Name).ToList();
+			}
+		}
+		#endregion
+
+		#region নিষ্ক্রিয় আসরসমূহ
+		[MemberOrder(140), NotMapped]
+		//[Eagerly(EagerlyAttribute.Do.Rendering)]
+		[DisplayName("নিষ্ক্রিয় আসরসমূহ")]
+		[TableView(true, "Name", "DateOfEstablishment", "TotalMembers", "Kormies", "CommitteeType")]
+		public IList<ShakhaAsar> AllInactiveAsars
+		{
+			get
+			{
+				List<int> allchildrenids = AsarRepository.GetAllChildrenIds();
+
+				return Container.Instances<ShakhaAsar>().Where(d => allchildrenids.Contains(d.Area.AreaId) && (int)d.AsarStatus == (int)ShakhaAsar.StatusOfAsar.নিষ্ক্রিয়).OrderBy(o => o.Name).ToList();
+			}
+		}
+		#endregion
+
 		#endregion
 
 		#region Menu
