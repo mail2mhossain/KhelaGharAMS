@@ -1,0 +1,151 @@
+<html lang="en" class=" js no-flexbox flexbox-legacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><head><meta charset="utf-8"><title>Untitled Division</title>
+        <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+        <link href="/Content/dataTables/demo_table.css" rel="stylesheet" type="text/css">
+        <link href="/Content/tree/style.css" rel="stylesheet" type="text/css">
+        <meta name="viewport" content="width=device-width"><link href="/Content/site.css" rel="stylesheet">
+<link href="/Content/themes/base/jquery.ui.core.css" rel="stylesheet">
+<link href="/Content/themes/base/jquery.ui.resizable.css" rel="stylesheet">
+<link href="/Content/themes/base/jquery.ui.selectable.css" rel="stylesheet">
+<link href="/Content/themes/base/jquery.ui.accordion.css" rel="stylesheet">
+<link href="/Content/themes/base/jquery.ui.autocomplete.css" rel="stylesheet">
+<link href="/Content/themes/base/jquery.ui.button.css" rel="stylesheet">
+<link href="/Content/themes/base/jquery.ui.dialog.css" rel="stylesheet">
+<link href="/Content/themes/base/jquery.ui.slider.css" rel="stylesheet">
+<link href="/Content/themes/base/jquery.ui.tabs.css" rel="stylesheet">
+<link href="/Content/themes/base/jquery.ui.datepicker.css" rel="stylesheet">
+<link href="/Content/themes/base/jquery.ui.progressbar.css" rel="stylesheet">
+<link href="/Content/themes/base/jquery.ui.theme.css" rel="stylesheet">
+<link href="/Content/NakedObjects.css" rel="stylesheet">
+<script src="/Scripts/modernizr-2.5.3.js"></script>
+  
+        <script>window.$q = []; window.$ = window.jQuery = function (a) { window.$q.push(a); };</script>     
+    </head>
+    <body style="cursor: auto;">
+        <header>
+						<div class="siteTitle">
+							<h2><b>????????? ?????? ???</b></h2>
+							<h3>KENDRIO KHELAGHAR ASAR</h3>
+							
+						</div>			
+		
+                
+                <div class="content-wrapper">
+                    <div class="float-left">
+                        <p class="site-title">????????? ?????? ???</p>
+                    </div>
+                    <div id="fiscal" style="float:left;">
+                        <div class="fiscal_status">
+                        <span style="Font-size:18px; font-weight:bold; color:#E2E2E2; padding-bottom: 10px;">????????? ?????? ???</span>
+                        <span id="fiscalText"></span>
+                        </div>
+                    </div>
+					
+					
+				
+					
+                    <div class="float-right">
+
+                        <section id="login">
+                            
+    Hello, <a class="username" href="/Account/Manage" title="Manage">mhossain</a>!
+<form action="/Account/LogOff" id="logoutForm" method="post" novalidate="novalidate"><input name="__RequestVerificationToken" type="hidden" value="hdBkBmB-o_7CBKtpL3YC8X8pykJFBhf1UdmtW266sCfPRHjLYu6y40DGRmHs-laCRYAo4Cd-Oq6r7ZTng7LJ47c7I8IVyO1IXo2ySc3hc7UVwT4AyGtKalPb2Ny8pL9qDgTtYhLrbmBqyzeePdR0AA5s6m12t1TuYLGTsehjKvc1">        <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+</form>
+                        </section>
+
+						
+                        <nav>
+                            <ul id="menu">
+                                <li></li>
+                            </ul>
+                            
+                        </nav>
+                    </div>
+                    <div class="nof-servicelist"><div class="nof-menu" id="SetupRepository"><div class="nof-menuname">Setup</div><div class="nof-menuitems">
+<div class="nof-submenu" id="SetupRepository-Authorization"><div class="nof-menuname">Authorization</div><div class="nof-submenuitems"><form action="/SetupRepository/Action/ChangePassword?id=KhelaGhar.AMS.Model.Repository.SetupRepository%3B1%3BSystem.Int32%3B0%3BFalse%3B%3B0" class="nof-action" id="SetupRepository-ChangePassword" method="post" novalidate="novalidate"><div><button name="InvokeAction" title="Change Password" type="submit" value="action=action">Change Password</button></div></form>
+<form action="/SetupRepository/Action/CreateRole?id=KhelaGhar.AMS.Model.Repository.SetupRepository%3B1%3BSystem.Int32%3B0%3BFalse%3B%3B0" class="nof-action" id="SetupRepository-CreateRole" method="post" novalidate="novalidate"><div><button name="InvokeAction" title="Create Role" type="submit" value="action=action">Create Role</button></div></form>
+<form action="/SetupRepository/Action/ShowAllRoles?id=KhelaGhar.AMS.Model.Repository.SetupRepository%3B1%3BSystem.Int32%3B0%3BFalse%3B%3B0" class="nof-action" id="SetupRepository-ShowAllRoles" method="post" novalidate="novalidate"><div><button name="InvokeAction" title="Show All Roles" type="submit" value="action=action">Show All Roles</button></div></form>
+<form action="/SetupRepository/Action/CreateUser?id=KhelaGhar.AMS.Model.Repository.SetupRepository%3B1%3BSystem.Int32%3B0%3BFalse%3B%3B0" class="nof-action" id="SetupRepository-CreateUser" method="post" novalidate="novalidate"><div><button name="InvokeAction" title="Create User" type="submit" value="action=action">Create User</button></div></form>
+<form action="/SetupRepository/Action/ShowAllUsers?id=KhelaGhar.AMS.Model.Repository.SetupRepository%3B1%3BSystem.Int32%3B0%3BFalse%3B%3B0" class="nof-action" id="SetupRepository-ShowAllUsers" method="post" novalidate="novalidate"><div><button name="InvokeAction" title="Show All Users" type="submit" value="action=action">Show All Users</button></div></form>
+</div>
+</div>
+<div class="nof-submenu" id="SetupRepository-Division"><div class="nof-menuname">Division</div><div class="nof-submenuitems"><form action="/SetupRepository/Action/CreateDivision?id=KhelaGhar.AMS.Model.Repository.SetupRepository%3B1%3BSystem.Int32%3B0%3BFalse%3B%3B0" class="nof-action" id="SetupRepository-CreateDivision" method="post" novalidate="novalidate"><div><button name="InvokeAction" title="Create Division" type="submit" value="action=action">Create Division</button></div></form>
+<form action="/SetupRepository/Action/AllDivision?id=KhelaGhar.AMS.Model.Repository.SetupRepository%3B1%3BSystem.Int32%3B0%3BFalse%3B%3B0" class="nof-action" id="SetupRepository-AllDivision" method="post" novalidate="novalidate"><div><button name="InvokeAction" title="All Division" type="submit" value="action=action" class="nof-lastClicked" style="">All Division</button></div></form>
+</div>
+</div>
+</div></div></div>
+                </div>
+            
+            <div class="no-home-path" style="display: none"><a href="/System">Home</a></div>
+        </header>
+        <div id="body">
+            
+            <section class="content-wrapper main-content clear-fix">
+                
+    <div class="nof-tabbed-history"><div class="nof-tab active">
+  <img alt="Division" src="/Images/Default.png">
+  <a href="/Division/Details?id=KhelaGhar.AMS.Model.Domain.Division%3B1%3BSystem.Int32%3B1%3BFalse%3B%3B0" title="Untitled Division">Untitled Division</a>
+  <form action="/System/ClearHistoryItem?id=KhelaGhar.AMS.Model.Domain.Division%3B1%3BSystem.Int32%3B1%3BFalse%3B%3B0" class="nof-action" method="post" novalidate="novalidate">
+    <div>
+      <input id="ClearHistoryItem-displayFormats" name="ClearHistoryItem-displayFormats" type="hidden" value="">
+      <button class="nof-clear-item" name="" title="" type="submit" value="id=KhelaGhar.AMS.Model.Domain.Division;1;System.Int32;1;False;;0&amp;nextId=&amp;page=&amp;pageSize=&amp;format="></button>
+    </div>
+  </form>
+  <form action="/System/ClearHistory?clearAll=True" class="nof-action" method="post" novalidate="novalidate">
+    <div>
+      <input id="ClearHistory-displayFormats" name="ClearHistory-displayFormats" type="hidden" value="">
+      <button class="nof-clear" name="" title="" type="submit" value="clearAll=True" style="display: none;"></button>
+    </div>
+  </form>
+</div></div>   
+    <div class="nof-objectview" id="KhelaGhar-AMS-Model-Domain-Division">
+        
+        <div class="nof-menu" id="Division-Actions" title="No Actions Available"><div class="nof-menuname">Actions</div><div class="nof-menuitems">
+</div></div>
+            <div class="nof-propertylist" id="Division-PropertyList">
+<div class="nof-property" id="Division-Name"><div class="nof-label">Name:</div><div class="nof-value" title="">????</div></div>
+<div class="nof-property" id="Division-Description"><div class="nof-label">Description:</div><div class="nof-value multiline" title="">???? ?????</div></div>
+<form action="/Division/EditObject?id=KhelaGhar.AMS.Model.Domain.Division%3B1%3BSystem.Int32%3B1%3BFalse%3B%3B0" class="nof-action" method="post" novalidate="novalidate"><div><input id="EditObject-displayFormats" name="EditObject-displayFormats" type="hidden" value=""><button class="nof-edit" name="" title="Edit" type="submit" value="id=KhelaGhar.AMS.Model.Domain.Division;1;System.Int32;1;False;;0">Edit</button></div></form></div>   
+            
+    </div>
+
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>© 2014 - ????????? ?????? ???</p>
+                </div>
+            </div>
+        </footer>
+        
+        <!--AJAX:  Replace nakedobjectsajax with nakedobjectsbasic bundle if non-ajax is required -->
+        <!--DATE FORMATS:   The jquerydatepicker bundle specifies that the JQuery DatePicker uses the en-GB date format (dd/mm/yy).
+        To use the US format (mm/dd/yy) just remove the bundle. Or to use another locale, specify the appropriate
+        version of jquery.ui.datepicker in the bundle config -->
+        <script src="/Scripts/jquery-2.0.3.js"></script>
+<script src="/Scripts/jquery-ui-1.10.4.js"></script>
+<script src="/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script src="/Scripts/jquery.validate.js"></script>
+<script src="/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="/Scripts/jquery.address-1.6.js"></script>
+<script src="/Scripts/jquery.json-2.2.js"></script>
+<script src="/Scripts/jstorage.js"></script>
+<script src="/Scripts/NakedObjects-Ajax.js"></script>
+       
+        
+        <script type="text/javascript" src="/Scripts/custom/bank.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="/Scripts/custom/BankPayment.js"></script>
+        <script type="text/javascript" src="/Scripts/custom/Common.js"></script>
+        <script type="text/javascript" src="/Scripts/custom/DynamicElements.js"></script>
+        <script type="text/javascript" src="/Scripts/custom/Utility.js"></script>
+        <script type="text/javascript" src="/Scripts/custom/BankReceipt.js"></script>
+        <script type="text/javascript" src="/Scripts/custom/Contra.js"></script>
+        <script type="text/javascript" src="/Scripts/custom/CashReceipt.js"></script>
+        <script type="text/javascript" src="/Scripts/custom/OtherJournal.js"></script>
+        <script type="text/javascript" src="/Scripts/custom/tree/jstree.js"></script>
+        <script type="text/javascript" src="/Scripts/custom/tree/docs.js"></script>
+        <script> $.each($q, function (i, f) { $(f) }); $q = null;</script>
+             
+    
+</body></html>

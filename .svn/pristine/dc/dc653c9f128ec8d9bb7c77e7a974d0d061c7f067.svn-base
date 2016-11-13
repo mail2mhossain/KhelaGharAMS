@@ -1,0 +1,43 @@
+﻿@using NakedObjects.Core.Context
+@using NakedObjects.Web.Mvc.Html
+
+@{
+    Layout = "~/Views/Shared/_NofLayout.cshtml";
+    ViewBag.Title = "খেলাঘর";
+}
+
+<div id="body">
+    <section class="main-content" >
+        @{ MvcHtmlString messages = Html.SystemMessages(); }
+        @if (!string.IsNullOrWhiteSpace(messages.ToString())) {
+            <h2>@(messages)</h2>
+        }
+        @Html.UserMessages()
+        <br/>
+        
+
+        @{ string[] warnings = NakedObjectsContext.InitialisationWarnings; }
+        @if (warnings.Any()) {
+            <h3>The following warnings were raised during initialisation of Naked Objects: </h3>
+            <ul>
+                @foreach (string warning in warnings) {
+                    <li><b>@(warning)</b></li>
+                }
+            </ul>
+        }
+    </section>
+  @*<section class="content-wrapper main-content clear-fix">
+    <ol class="round">
+      @{ Html.RenderAction("Chart"); }
+    </ol>
+  </section>*@
+</div>
+
+@section scripts
+{
+  <script type="text/javascript">
+	function myfunction(number) {
+		alert("clicked on point number " + number);
+	}
+  </script>
+}

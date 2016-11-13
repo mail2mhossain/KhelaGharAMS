@@ -1,0 +1,475 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0054)http://msdn.microsoft.com/en-us/data/jj591621#enabling -->
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+    <meta name="search.content.shortId" content="jj591621">
+    <meta name="ms.shortidmsdn" content="jj591621">
+    <meta name="search.content.locale" content="en-us">
+    <meta name="MN" content="4B9B1F31-1:48:56 AM">
+    <meta http-equiv="content-language" content="en">
+    
+      <link rel="canonical" href="http://msdn.microsoft.com/en-us/data/jj591621.aspx">
+      
+      <meta name="NormalizedUrl" content="http://msdn.microsoft.com/en-us/data/jj591621(d=default,l=en-us,v=MSDN.10).aspx">
+      <meta name="ms.normalizedurl" content="http://msdn.microsoft.com/en-us/data/jj591621(d=default,l=en-us,v=MSDN.10).aspx">
+    
+        <meta name="Title" content="Entity Framework Code First Migrations">
+    
+        <meta name="description" content="This walkthrough will provide an overview Coed First Migrations in Entity Framework. You can either complete the entire walkthrough or skip to the topic you are interested in.">
+    
+        <meta name="PTSearchTitle" content="Entity Framework Code First Migrations">
+    
+        <meta name="Search.MSCategory" content="aa937736">
+    
+        <meta name="Search.MSCategory" content="aa937737">
+    
+        <meta name="Search.MSCategory" content="ee722004">
+    
+        <meta name="Search.MSCategory" content="hh913623">
+    
+        <meta name="Search.MSCategory" content="dn481499">
+    
+        <meta name="Search.TocNodeId" content="dn481499">
+    
+        <meta name="ROBOTS" content="INDEX,FOLLOW">
+    
+    <script type="text/javascript" async="" src="./Entity Framework Code First Migrations_files/ga.js"></script><script type="text/javascript" async="" src="./Entity Framework Code First Migrations_files/ms2.js"></script><script type="text/javascript" src="./Entity Framework Code First Migrations_files/ai.js" async=""></script><script type="text/javascript" src="./Entity Framework Code First Migrations_files/jquery-1.8.2.min.js" data-do-not-move="true" data-provides="jQuery"></script>
+    <script type="text/javascript" src="./Entity Framework Code First Migrations_files/jquery.partial.js" data-do-not-move="true" data-requires="jQuery" data-provides="jQuery.partial"></script>
+    
+    
+            <script type="text/javascript" src="./Entity Framework Code First Migrations_files/modernizr2.js" data-do-not-move="true" data-provides="modernizr, modernizr2, yepnope">
+    </script>
+    
+    
+    <script type="text/javascript" data-do-not-move="true">
+        //<![CDATA[
+        
+        window.appInsightsId = '60854590-027a-4ae4-98be-2741a40f355f';
+        //]]>
+    </script>
+    
+
+    <title>Entity Framework Code First Migrations</title>
+    <link rel="stylesheet" type="text/css" href="./Entity Framework Code First Migrations_files/Combined.css"><script class="mtps-injected">try {
+/**/
+(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { 
+	"image": "http://i.msdn.microsoft.com", 
+	"js": "http://i2.msdn.microsoft.com", 
+	"css": "http://i3.msdn.microsoft.com", 
+	"xap": "http://msdn.microsoft.com"
+});
+/**/
+} finally { MTPS._injectNextScript_0 && MTPS._injectNextScript_0(); }</script><script class="mtps-injected" src="./Entity Framework Code First Migrations_files/Combined.js"></script><script class="mtps-injected">try {
+$("#c_10d002a55f6b4e5eb293760dc88234d3").chili();
+    $(".CodeHighlighter pre").unbind("mousedown").unbind("mouseup");
+} finally { MTPS._injectNextScript_2 && MTPS._injectNextScript_2(); }</script><style type="text/css">/* Chili -- cs */
+.cs__mlcom { color: #4040c2; }
+.cs__com { color: green; }
+.cs__string { color: teal; }
+.cs__preproc { color: red; }
+.cs__number { color: red; }
+.cs__keyword { color: navy; font-weight: bold; }</style><script class="mtps-injected">try {
+$("#c_bd6d81bc480544f39768b1a21248b496").chili();
+    $(".CodeHighlighter pre").unbind("mousedown").unbind("mouseup");
+} finally { MTPS._injectNextScript_3 && MTPS._injectNextScript_3(); }</script><script class="mtps-injected">try {
+$("#c_5aaa9ba72ee0450da6a6b92b58399bee").chili();
+    $(".CodeHighlighter pre").unbind("mousedown").unbind("mouseup");
+} finally { MTPS._injectNextScript_4 && MTPS._injectNextScript_4(); }</script><script class="mtps-injected">try {
+$("#c_9153529389484713b405b279a46b66f1").chili();
+    $(".CodeHighlighter pre").unbind("mousedown").unbind("mouseup");
+} finally { MTPS._injectNextScript_5 && MTPS._injectNextScript_5(); }</script><script class="mtps-injected">try {
+$("#c_7c435af8a26b4e50bb3007f2f915d371").chili();
+    $(".CodeHighlighter pre").unbind("mousedown").unbind("mouseup");
+} finally { MTPS._injectNextScript_6 && MTPS._injectNextScript_6(); }</script><script class="mtps-injected">try {
+$("#c_1d4f8cc4e16f4f53a853c65d1c8de43d").chili();
+    $(".CodeHighlighter pre").unbind("mousedown").unbind("mouseup");
+} finally { MTPS._injectNextScript_7 && MTPS._injectNextScript_7(); }</script><script class="mtps-injected">try {
+$("#c_fc9b65cce5ad4ca997ead3949a778c9c").chili();
+    $(".CodeHighlighter pre").unbind("mousedown").unbind("mouseup");
+} finally { MTPS._injectNextScript_8 && MTPS._injectNextScript_8(); }</script><script class="mtps-injected">try {
+$("#c_f8347f497dcd49c480a4557827c9738c").chili();
+    $(".CodeHighlighter pre").unbind("mousedown").unbind("mouseup");
+} finally { MTPS._injectNextScript_9 && MTPS._injectNextScript_9(); }</script><script class="mtps-injected">try {
+$("#c_fc108b17bc754fcd9877fdf7afdc11a0").chili();
+    $(".CodeHighlighter pre").unbind("mousedown").unbind("mouseup");
+} finally { MTPS._injectNextScript_10 && MTPS._injectNextScript_10(); }</script><script class="mtps-injected">try {
+$("#c_bc3006aaf8704e46bf65eb84386308fb").chili();
+    $(".CodeHighlighter pre").unbind("mousedown").unbind("mouseup");
+} finally { MTPS._injectNextScript_11 && MTPS._injectNextScript_11(); }</script><script class="mtps-injected">try {
+$("#c_7ed5de40dc944f91bea016dd221a53fe").chili();
+    $(".CodeHighlighter pre").unbind("mousedown").unbind("mouseup");
+} finally { MTPS._injectNextScript_12 && MTPS._injectNextScript_12(); }</script><script class="mtps-injected" src="./Entity Framework Code First Migrations_files/AppInsightsPerf.js"></script><script class="mtps-injected">try {
+//
+    function SearchClick() {
+        window.location = "http://social.msdn.microsoft.com/search/en-us/?query=" + document.getElementById("HeaderSearchTextBox").value();
+    }
+
+    function SearchClientClick() {
+        if (document.getElementById("HeaderSearchTextBox").value == document.getElementById("HeaderSearchTextBox").title) return false;
+        document.HeaderSearchForm.submit();return true;
+    }
+//
+} finally { MTPS._injectNextScript_14 && MTPS._injectNextScript_14(); }</script><script class="mtps-injected">try {
+//
+            $(document).ready(function () {
+                var scriptElem = document.createElement('script');
+                scriptElem.src = "http://i4.services.social.microsoft.com/search/Widgets/SearchBox.jss?boxid=HeaderSearchTextBox\u0026btnid=HeaderSearchButton\u0026brand=MSDN\u0026loc=en-us\u0026Refinement=95\u0026watermark=Data\u0026focusOnInit=false";
+                scriptElem.id = "mscom.srch.searchBox";
+                scriptElem.defer="defer";
+                document.getElementsByTagName('head')[0].appendChild(scriptElem);
+            });
+        //
+} finally { MTPS._injectNextScript_15 && MTPS._injectNextScript_15(); }</script><script src="./Entity Framework Code First Migrations_files/SearchBox.jss" id="mscom.srch.searchBox" defer=""></script><script class="mtps-injected" src="./Entity Framework Code First Migrations_files/SiteFeedback.js"></script><script class="mtps-injected">try {
+/**/
+    
+      var wt_nvr_ru = "WT_NVR_RU";
+      var wt_fpcdom = ".microsoft.com";
+      var wt_domlist = "msdn.microsoft.com";
+      var wt_pathlist = "";var wt_paramlist = "DCSext.mtps_devcenter";
+      var wt_siteid = "MSDN";
+      var gDomain="m.webtrends.com";
+    var gDcsId = "dcsmgru7m99k7mqmgrhudo0k8_8c6m";
+    var gFpc = "WT_FPC";
+    if (document.cookie.indexOf(gFpc + "=") == -1) {
+        var scriptElem = document.createElement('script');
+        scriptElem.src = "http" + (window.location.protocol.indexOf('https:') == 0 ? 's' : '') + "://" + gDomain + "/" + gDcsId + "/wtid.js";
+        document.getElementsByTagName('head')[0].appendChild(scriptElem);
+    }
+    var detectedLocale = "en-us";
+    var wtsp = "_data_";
+    var gTrackEvents = "1";
+    /**/
+} finally { MTPS._injectNextScript_17 && MTPS._injectNextScript_17(); }</script><script class="mtps-injected" src="./Entity Framework Code First Migrations_files/webtrendsscript.js"></script><script class="mtps-injected">try {
+var omni_guid = 'c_42ef0bd57dcc451b8c28b45aae33e33e';
+} finally { MTPS._injectNextScript_19 && MTPS._injectNextScript_19(); }</script><script class="mtps-injected" src="./Entity Framework Code First Migrations_files/omni_rsid.js"></script><script class="mtps-injected" src="./Entity Framework Code First Migrations_files/broker.js"></script><script class="mtps-injected">try {
+//
+    if (!$.Microsoft) $.Microsoft = {};
+    if (!$.Microsoft.Mtps) $.Microsoft.Mtps = {};
+    if (!$.Microsoft.Mtps.NetReflectorInit)
+        $.Microsoft.Mtps.NetReflectorInit = {
+            surveyUrl: "http://vp-nri.com/take?i=163849&h=H41J2551cej2lQalR7bf-g ",
+            throttleRate: "15",
+            privacyStatementText: "Privacy Statement",
+            trackerWindowText: "Please do not close this window.<br /><br />Thank you! The survey will appear here when you've completed your visit, so please do not close this window.",
+            brandId: 'msdn'
+        };
+//
+} finally { MTPS._injectNextScript_22 && MTPS._injectNextScript_22(); }</script><script class="mtps-injected" src="./Entity Framework Code First Migrations_files/NetReflector.js"></script><script type="text/javascript" src="./Entity Framework Code First Migrations_files/loader.js"></script><script type="text/javascript" src="./Entity Framework Code First Migrations_files/coupons_support2.js"></script><script src="./Entity Framework Code First Migrations_files/deals"></script><script type="text/javascript" src="./Entity Framework Code First Migrations_files/loader.js"></script><script src="./Entity Framework Code First Migrations_files/deals(1)"></script><script type="text/javascript" src="./Entity Framework Code First Migrations_files/loader.js"></script><script type="text/javascript" src="./Entity Framework Code First Migrations_files/loader.js"></script></head>
+    
+    <body id="MTPS_Body" class="MsdnPageBody">
+        
+        <div id="BodyBackground">
+            <div id="JelloSizer">
+                <div id="JelloExpander">
+                    <div id="JelloWrapper">
+                        <div class="Clear"> </div>
+                        <span class="skipnav"><a href="http://msdn.microsoft.com/en-us/data/jj591621#MainContent">Skip to main content</a></span>
+                        
+<div class="Masthead">
+    
+<div class="BrandLogo">
+  <a title="Data Developer Center" href="http://msdn.microsoft.com/en-us/data">
+    <span>
+      Data Developer Center
+    </span>
+  </a>
+</div>
+
+
+<div class="Search">    
+    <div class="SearchBox">
+    <form name="HeaderSearchForm" method="get" action="http://social.technet.microsoft.com/search/">
+        <input type="hidden" name="SearchAction" value="search">
+        <input id="HeaderSearchTextBox" name="query" class="TextBoxSearch" type="text" title="Search Data with Bing" autocomplete="off" style="color: rgb(170, 170, 170); font-style: italic;">
+        <input id="HeaderSearchButton" onclick="if (document.getElementById(&#39;HeaderSearchTextBox&#39;).value != document.getElementById(&#39;HeaderSearchTextBox&#39;).title) {window.location = &#39;http://social.msdn.microsoft.com/search/en-us/?query=&#39; + document.getElementById(&#39;HeaderSearchTextBox&#39;).value; return true;} else return false;" class="SearchButton" type="button" alt="Click here to search" title="Search Data with Bing">
+        <span class="Bing"></span>
+        
+    <div id="SearchFlyoutContainer" style="display: none; text-align: left; border: 1px solid buttonshadow; position: absolute; z-index: 1000; padding: 2px; color: rgb(0, 0, 0); font-family: Arial; font-size: 13px; background-color: rgb(255, 255, 255);"><div id="SuggestionContainer"><ul style="list-style: none; padding: 4px 2px 0px 1px; cursor: pointer; margin: 1px; white-space: nowrap;"></ul></div></div></form>
+    </div>
+</div>
+
+    <div class="GlobalBar">
+        
+<div class="PassportScarab">
+    <a id="idPPScarab" href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=12&ct=1405846136&rver=6.0.5276.0&wp=MCLBI&wlcxt=msdn%24msdn%24msdn&wreply=http%3a%2f%2fmsdn.microsoft.com%2fen-us%2fdata%2fjj591621&lc=1033&id=254354&mkt=en-US"><span id="idPPScarabSIT">Sign in</span></a>
+</div>
+<div id="LocaleSelector">
+    <form id="ChangeLocaleForm" action="http://msdn.microsoft.com/en-us/data/SelectLocale?pageid=jj591621">    
+        <input type="hidden" name="fromPage" value="/en-us/data/jj591621">
+        <div id="FlyoutTop">
+            <a title="Change your language" href="http://msdn.microsoft.com/en-us/data/jj591621#Change your language" onclick="$(&#39;#ChangeLocaleForm&#39;).submit();return false;" id="LinkCountryLanguage" class="LocaleManagementFlyoutStaticLink">
+                    United States (English)
+                </a>
+        </div>
+    </form>
+</div>
+
+        <div class="Clear">
+        </div>
+        
+    </div>
+    <div class="Clear">
+    </div>
+    
+<div class="networkTagLineArea NetworkLogo">
+  
+        <a title="Microsoft Developer Network" href="http://msdn.microsoft.com/en-us"></a>
+   
+</div>
+
+<div class="leftcap"></div>
+    <div class="internav">
+    
+<a href="http://msdn.microsoft.com/en-us/data/default" class="normal" title="Home">
+Home</a>
+<a href="http://msdn.microsoft.com/library/951h6we4.aspx" class="normal" title="Library">
+Library</a>
+<a href="http://msdn.microsoft.com/en-us/data/aa937721" class="active" title="Learn">
+Learn</a>
+<a href="http://msdn.microsoft.com/en-us/data/aa937695" class="normal" title="Downloads">
+Downloads</a>
+<a href="http://msdn.microsoft.com/en-us/data/aa937735" class="normal" title="Support">
+Support</a>
+<a href="http://msdn.microsoft.com/en-us/data/aa937688" class="normal" title="Community">
+Community</a>
+<a href="http://social.msdn.microsoft.com/Forums/en-US/category/dataplatformdev" class="normal" title="Forums">
+Forums</a>
+</div>
+<div class="rightcap"></div>
+<div class="Clear"></div>
+
+<div class="LocalNavigation">
+    <div class="localleftcap"></div>
+    <div class="HeaderTabs">
+    <div class="TabOff">
+<a href="http://msdn.microsoft.com/en-us/data/bb419139" class="normal" title="Documentation">
+Documentation</a></div><div class="TabOff">
+<a href="http://msdn.microsoft.com/en-us/data/cc300162" class="normal" title="Videos">
+Videos</a></div><div class="TabOff">
+<a href="http://msdn.microsoft.com/en-us/data/aa937699" class="normal" title="Articles">
+Articles</a></div><div class="TabOff">
+<a href="http://msdn.microsoft.com/en-us/data/aa937716" class="normal" title="Books">
+Books</a></div><div class="TabOff">
+<a href="http://msdn.microsoft.com/en-us/data/gg427655" class="normal" title="Hands-on Labs">
+Hands-on Labs</a></div><div class="TabOff">
+<a href="http://msdn.microsoft.com/en-us/data/aa937693" class="normal" title="Webcasts">
+Webcasts</a></div>
+    </div>
+    <div class="localrightcap"></div>
+</div>
+
+</div>
+
+
+                        <div class="Clear"> </div>
+                        <div class="topleftcorner"> </div>
+                        <div class="toprightcorner"> </div>
+                        <div class="alley">
+                            <div class="wrapper">
+                                <div class="inner">
+                                  
+                                    <div class="Clear"> </div>
+                                    <div class="BreadCrumb"><div class="BreadCrumbInner EyebrowContainer">
+<a href="http://msdn.microsoft.com/en-us/data/default" class="EyebrowLink" title="Data Developer Center">
+Data Developer Center</a> &gt; 
+<a href="http://msdn.microsoft.com/en-us/data/aa937721" class="EyebrowLink" title="Learn">
+Learn</a> &gt; 
+<a href="http://msdn.microsoft.com/en-us/data/aa937723" class="EyebrowLink" title="Entity Framework">
+Entity Framework</a> &gt; 
+<a href="http://msdn.microsoft.com/en-us/data/ee712907" class="EyebrowLink" title="Get Started">
+Get Started</a> &gt; <span class="EyebrowElement">Code First Migrations</span>
+    
+    </div></div>
+                                    <a name="MainContent"></a>
+                                    <div class="BostonPostCard"><h1>Code First Migrations</h1><p>This walkthrough will provide an overview Code First Migrations in Entity Framework. You can either complete the entire walkthrough or skip to the topic you are interested in. The following topics are covered:</p><ul><li><a href="http://msdn.microsoft.com/en-us/data/jj591621#model">Building an Initial Model &amp; Database</a></li><li><a href="./Entity Framework Code First Migrations_files/Entity Framework Code First Migrations.htm">Enabling Migrations</a><ul><li><a href="http://msdn.microsoft.com/en-us/data/jj591621#multiple">Multiple Models Targeting the Same Database</a></li></ul></li><li><a href="http://msdn.microsoft.com/en-us/data/jj591621#generating">Generating &amp; Running Migrations</a></li><li><a href="http://msdn.microsoft.com/en-us/data/jj591621#customizing">Customizing Migrations</a></li><li><a href="http://msdn.microsoft.com/en-us/data/jj591621#sql">Data Motion &amp; Custom SQL</a></li><li><a href="http://msdn.microsoft.com/en-us/data/jj591621#specific">Migrating to a Specific Version (Including Downgrade)</a></li><li><a href="http://msdn.microsoft.com/en-us/data/jj591621#script">Generating a SQL Script</a><ul><li><a href="http://msdn.microsoft.com/en-us/data/jj591621#idempotent">Generating Idempotent Scripts (EF6 onwards)</a></li></ul></li><li><a href="http://msdn.microsoft.com/en-us/data/jj591621#initializer">Automatically Upgrading on Application Startup (MigrateDatabaseToLatestVersion Initializer)</a></li></ul><p>&nbsp;</p><h2 id="model">Building an Initial Model &amp; Database</h2><p>Before we start using migrations we need a project and a Code First model to work with. For this walkthrough we are going to use the canonical <strong>Blog</strong> and <strong>Post</strong> model.</p><ul><li>Create a new <strong>MigrationsDemo</strong> Console application</li><li>Add the latest version of the <strong>EntityFramework</strong> NuGet package to the project <ul><li><strong>Tools –&gt; Library Package Manager –&gt; Package Manager Console</strong></li><li>Run the <strong>Install-Package EntityFramework</strong> command</li></ul></li><li>Add a <strong>Model.cs</strong> file with the code shown below. This code defines a single <strong>Blog</strong> class that makes up our domain model and a <strong>BlogContext</strong> class that is our EF Code First context</li></ul></div>
+
+
+
+<div class="CodeHighlighter">
+  <pre><code id="c_10d002a55f6b4e5eb293760dc88234d3" class="csharp"><span class="cs__keyword">using</span>&nbsp;System.Data.Entity;&nbsp;<br><span class="cs__keyword">using</span>&nbsp;System.Collections.Generic;&nbsp;<br><span class="cs__keyword">using</span>&nbsp;System.ComponentModel.DataAnnotations;&nbsp;<br><span class="cs__keyword">using</span>&nbsp;System.Data.Entity.Infrastructure;&nbsp;<br>&nbsp;<br><span class="cs__keyword">namespace</span>&nbsp;MigrationsDemo&nbsp;<br>{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">class</span>&nbsp;BlogContext&nbsp;:&nbsp;DbContext&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;DbSet&lt;Blog&gt;&nbsp;Blogs&nbsp;{&nbsp;get;&nbsp;set;&nbsp;}&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">class</span>&nbsp;Blog&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">int</span>&nbsp;BlogId&nbsp;{&nbsp;get;&nbsp;set;&nbsp;}&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">string</span>&nbsp;Name&nbsp;{&nbsp;get;&nbsp;set;&nbsp;}&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br>}</code></pre>
+</div>
+
+<div class="BostonPostCard"><ul><li>Now that we have a model it’s time to use it to perform data access. Update the <strong>Program.cs</strong> file with the code shown below.</li></ul></div>
+
+
+
+<div class="CodeHighlighter">
+  <pre><code id="c_bd6d81bc480544f39768b1a21248b496" class="csharp"><span class="cs__keyword">using</span>&nbsp;System;&nbsp;<br><span class="cs__keyword">using</span>&nbsp;System.Collections.Generic;&nbsp;<br><span class="cs__keyword">using</span>&nbsp;System.Linq;&nbsp;<br><span class="cs__keyword">using</span>&nbsp;System.Text;&nbsp;<br>&nbsp;<br><span class="cs__keyword">namespace</span>&nbsp;MigrationsDemo&nbsp;<br>{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">class</span>&nbsp;Program&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">static</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;Main(<span class="cs__keyword">string</span>[]&nbsp;args)&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">using</span>&nbsp;(var&nbsp;db&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;BlogContext())&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db.Blogs.Add(<span class="cs__keyword">new</span>&nbsp;Blog&nbsp;{&nbsp;Name&nbsp;=&nbsp;<span class="cs__string">"Another&nbsp;Blog&nbsp;"</span>&nbsp;});&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db.SaveChanges();&nbsp;<br>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">foreach</span>&nbsp;(var&nbsp;blog&nbsp;<span class="cs__keyword">in</span>&nbsp;db.Blogs)&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(blog.Name);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(<span class="cs__string">"Press&nbsp;any&nbsp;key&nbsp;to&nbsp;exit..."</span>);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.ReadKey();&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br>}</code></pre>
+</div>
+
+<div class="BostonPostCard"><ul><li>Run your application and you will see that a <strong>MigrationsCodeDemo.BlogContext</strong> database is created for you. <br><br><em>If SQL Express is installed (included in Visual Studio 2010) then the database is created on your local SQL Express instance (<strong>.\SQLEXPRESS</strong>). If SQL Express is not installed then Code First will try and use LocalDb (<strong>(localdb)\v11.0</strong>) - LocalDb is included with Visual Studio 2012.<br><br><strong>Note:</strong> SQL Express will always get precedence if it is installed, even if you are using Visual Studio 2012</em><br><br><img alt="" src="./Entity Framework Code First Migrations_files/jj591621.DatabaseLocalDb(en-us,MSDN.10).png" title=""><br>(LocaDb Database)<br><br><img alt="" src="./Entity Framework Code First Migrations_files/jj591621.DatabaseExpress(en-us,MSDN.10).png" title=""><br>(SQL Express Database)</li></ul><p>&nbsp;</p><h2 id="enabling">Enabling Migrations</h2><p>It’s time to make some more changes to our model.</p><ul><li>Let’s introduce a Url property to the Blog class.</li></ul></div>
+
+
+
+<div class="CodeHighlighter">
+  <pre><code id="c_5aaa9ba72ee0450da6a6b92b58399bee" class="csharp"><span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">string</span>&nbsp;Url&nbsp;{&nbsp;get;&nbsp;set;&nbsp;}</code></pre>
+</div>
+
+<div class="BostonPostCard"><p>If you were to run the application again you would get an InvalidOperationException stating <em>The model backing the 'BlogContext' context has changed since the database was created. Consider using Code First Migrations to update the database (</em>
+<a href="http://go.microsoft.com/fwlink/?LinkId=238269">
+<em>http://go.microsoft.com/fwlink/?LinkId=238269</em></a><em>).</em></p><p>As the exception suggests, it’s time to start using Code First Migrations. The first step is to enable migrations for our context.</p><ul><li>Run the <strong>Enable-Migrations</strong> command in Package Manager Console</li></ul><p>This command has added a <strong>Migrations</strong> folder to our project, this new folder contains two files:</p><ul><li><strong>The Configuration class.</strong> This class allows you to configure how Migrations behaves for your context. For this walkthrough we will just use the default configuration.<br><em>Because there is just a single Code First context in your project, Enable-Migrations has automatically filled in the context type this configuration applies to.</em></li><li><strong>An InitialCreate migration</strong>. This migration was generated because we already had Code First create a database for us, before we enabled migrations. The code in this scaffolded migration represents the objects that have already been created in the database. In our case that is the <strong>Blog</strong> table with a <strong>BlogId</strong> and <strong>Name</strong> columns. The filename includes a timestamp to help with ordering.<br><em>If the database had not already been created this InitialCreate migration would not have been added to the project. Instead, the first time we call Add-Migration the code to create these tables would be scaffolded to a new migration.</em></li></ul><h3 id="multiple">Multiple Models Targeting the Same Database</h3><p>When using versions prior to EF6, only one Code First model could be used to generate/manage the schema of a database. This is the result of a single <strong>__MigrationsHistory</strong> table per database with no way to identify which entries belong to which model.</p><p>Starting with EF6, the <strong>Configuration</strong> class includes a <strong>ContextKey</strong> property. This acts as a unique identifier for each Code First model. A corresponding column in the <strong>__MigrationsHistory</strong> table allows entries from multiple models to share the table. By default, this property is set to the fully qualified name of your context.</p><p>&nbsp;</p><h2 id="generating">Generating &amp; Running Migrations</h2><p>Code First Migrations has two primary commands that you are going to become familiar with.</p><ul><li><strong>Add-Migration</strong> will scaffold the next migration based on changes you have made to your model since the last migration was created</li><li><strong>Update-Database</strong> will apply any pending migrations to the database</li></ul><p>We need to scaffold a migration to take care of the new Url property we have added. The <strong>Add-Migration</strong> command allows us to give these migrations a name, let’s just call ours <strong>AddBlogUrl</strong>.</p><ul><li>Run the <strong>Add-Migration AddBlogUrl</strong> command in Package Manager Console</li><li>In the <strong>Migrations</strong> folder we now have a new <strong>AddBlogUrl</strong> migration. The migration filename is pre-fixed with a timestamp to help with ordering</li></ul></div>
+
+
+
+<div class="CodeHighlighter">
+  <pre><code id="c_9153529389484713b405b279a46b66f1" class="csharp"><span class="cs__keyword">namespace</span>&nbsp;MigrationsDemo.Migrations&nbsp;<br>{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">using</span>&nbsp;System;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">using</span>&nbsp;System.Data.Entity.Migrations;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;partial&nbsp;<span class="cs__keyword">class</span>&nbsp;AddBlogUrl&nbsp;:&nbsp;DbMigration&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">override</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;Up()&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AddColumn(<span class="cs__string">"dbo.Blogs"</span>,&nbsp;<span class="cs__string">"Url"</span>,&nbsp;c&nbsp;=&gt;&nbsp;c.String());&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">override</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;Down()&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DropColumn(<span class="cs__string">"dbo.Blogs"</span>,&nbsp;<span class="cs__string">"Url"</span>);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br>}</code></pre>
+</div>
+
+<div class="BostonPostCard"><p>We could now edit or add to this migration but everything looks pretty good. Let’s use <strong>Update-Database</strong> to apply this migration to the database.</p><ul><li>Run the <strong>Update-Database</strong> command in Package Manager Console</li><li>Code First Migrations will compare the migrations in our <strong>Migrations</strong> folder with the ones that have been applied to the database. It will see that the <strong>AddBlogUrl</strong> migration needs to be applied, and run it.</li></ul><p>The <strong>MigrationsDemo.BlogContext</strong> database is now updated to include the <strong>Url</strong> column in the <strong>Blogs</strong> table.</p><p>&nbsp;</p><h2 id="customizing">Customizing Migrations</h2><p>So far we’ve generated and run a migration without making any changes. Now let’s look at editing the code that gets generated by default.</p><ul><li>It’s time to make some more changes to our model, let’s add a new <strong>Rating</strong> property to the <strong>Blog</strong> class</li></ul></div>
+
+
+
+<div class="CodeHighlighter">
+  <pre><code id="c_7c435af8a26b4e50bb3007f2f915d371" class="csharp"><span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">int</span>&nbsp;Rating&nbsp;{&nbsp;get;&nbsp;set;&nbsp;}</code></pre>
+</div>
+
+<ul><li>Let's also add a new <strong>Post</strong> class</li></ul>
+
+
+
+<div class="CodeHighlighter">
+  <pre><code id="c_1d4f8cc4e16f4f53a853c65d1c8de43d" class="csharp"><span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">class</span>&nbsp;Post&nbsp;<br>{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">int</span>&nbsp;PostId&nbsp;{&nbsp;get;&nbsp;set;&nbsp;}&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;[MaxLength(<span class="cs__number">200</span>)]&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">string</span>&nbsp;Title&nbsp;{&nbsp;get;&nbsp;set;&nbsp;}&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">string</span>&nbsp;Content&nbsp;{&nbsp;get;&nbsp;set;&nbsp;}&nbsp;<br>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">int</span>&nbsp;BlogId&nbsp;{&nbsp;get;&nbsp;set;&nbsp;}&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;Blog&nbsp;Blog&nbsp;{&nbsp;get;&nbsp;set;&nbsp;}&nbsp;<br>}</code></pre>
+</div>
+
+<ul><li>We'll also add a <strong>Posts</strong> collection to the <strong>Blog</strong> class to form the other end of the relationship between <strong>Blog</strong> and <strong>Post</strong></li></ul>
+
+
+
+<div class="CodeHighlighter">
+  <pre><code id="c_fc9b65cce5ad4ca997ead3949a778c9c" class="csharp"><span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">virtual</span>&nbsp;List&lt;Post&gt;&nbsp;Posts&nbsp;{&nbsp;get;&nbsp;set;&nbsp;}</code></pre>
+</div>
+
+<div class="BostonPostCard"><p>We'll use the <strong>Add-Migration</strong> command to let Code First Migrations scaffold its best guess at the migration for us. We’re going to call this migration <strong>AddPostClass</strong>.</p><ul><li>Run the <strong>Add-Migration AddPostClass</strong> command in Package Manager Console.<br></li></ul><p>Code First Migrations did a pretty good job of scaffolding these changes, but there are some things we might want to change:</p><ol><li>First up, let’s add a unique index to <strong>Posts.Title</strong> column <br>(Adding in line 22 &amp; 29 in the code below).</li><li>We’re also adding a non-nullable <strong>Blogs.Rating</strong> column. If there is any existing data in the table it will get assigned the CLR default of the data type for new column (Rating is integer, so that would be <strong>0</strong>). But we want to specify a default value of <strong>3</strong> so that existing rows in the <strong>Blogs</strong> table will start with a decent rating.<br>(You can see the default value specified on line 24 of the code below)</li></ol></div>
+
+
+
+<div class="CodeHighlighter">
+  <pre><code id="c_f8347f497dcd49c480a4557827c9738c" class="csharp"><span class="cs__keyword">namespace</span>&nbsp;MigrationsDemo.Migrations&nbsp;<br>{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">using</span>&nbsp;System;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">using</span>&nbsp;System.Data.Entity.Migrations;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;partial&nbsp;<span class="cs__keyword">class</span>&nbsp;AddPostClass&nbsp;:&nbsp;DbMigration&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">override</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;Up()&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CreateTable(&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__string">"dbo.Posts"</span>,&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c&nbsp;=&gt;&nbsp;<span class="cs__keyword">new</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PostId&nbsp;=&nbsp;c.Int(nullable:&nbsp;<span class="cs__keyword">false</span>,&nbsp;identity:&nbsp;<span class="cs__keyword">true</span>),&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title&nbsp;=&nbsp;c.String(maxLength:&nbsp;<span class="cs__number">200</span>),&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Content&nbsp;=&nbsp;c.String(),&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BlogId&nbsp;=&nbsp;c.Int(nullable:&nbsp;<span class="cs__keyword">false</span>),&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;})&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.PrimaryKey(t&nbsp;=&gt;&nbsp;t.PostId)&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.ForeignKey(<span class="cs__string">"dbo.Blogs"</span>,&nbsp;t&nbsp;=&gt;&nbsp;t.BlogId,&nbsp;cascadeDelete:&nbsp;<span class="cs__keyword">true</span>)&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Index(t&nbsp;=&gt;&nbsp;t.BlogId)&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Index(p&nbsp;=&gt;&nbsp;p.Title,&nbsp;unique:&nbsp;<span class="cs__keyword">true</span>);&nbsp;<br>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AddColumn(<span class="cs__string">"dbo.Blogs"</span>,&nbsp;<span class="cs__string">"Rating"</span>,&nbsp;c&nbsp;=&gt;&nbsp;c.Int(nullable:&nbsp;<span class="cs__keyword">false</span>,&nbsp;defaultValue:&nbsp;<span class="cs__number">3</span>));&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">override</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;Down()&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DropIndex(<span class="cs__string">"dbo.Posts"</span>,&nbsp;<span class="cs__keyword">new</span>[]&nbsp;{&nbsp;<span class="cs__string">"Title"</span>&nbsp;});&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DropIndex(<span class="cs__string">"dbo.Posts"</span>,&nbsp;<span class="cs__keyword">new</span>[]&nbsp;{&nbsp;<span class="cs__string">"BlogId"</span>&nbsp;});&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DropForeignKey(<span class="cs__string">"dbo.Posts"</span>,&nbsp;<span class="cs__string">"BlogId"</span>,&nbsp;<span class="cs__string">"dbo.Blogs"</span>);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DropColumn(<span class="cs__string">"dbo.Blogs"</span>,&nbsp;<span class="cs__string">"Rating"</span>);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DropTable(<span class="cs__string">"dbo.Posts"</span>);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br>}</code></pre>
+</div>
+
+<div class="BostonPostCard"><p>Our edited migration is ready to go, so let’s use <strong>Update-Database</strong> to bring the database up-to-date. This time let’s specify the <strong>–Verbose</strong> flag so that you can see the SQL that Code First Migrations is running.</p><ul><li>Run the <strong>Update-Database –Verbose</strong> command in Package Manager Console.</li></ul><p>&nbsp;</p><h2 id="sql">Data Motion / Custom SQL</h2><p>So far we have looked at migration operations that don’t change or move any data, now let’s look at something that needs to move some data around. There is no native support for data motion yet, but we can run some arbitrary SQL commands at any point in our script.</p><ul><li>Let’s add a <strong>Post.Abstract</strong> property to our model. Later, we’re going to pre-populate the <strong>Abstract</strong> for existing posts using some text from the start of the <strong>Content</strong> column.</li></ul></div>
+
+
+
+<div class="CodeHighlighter">
+  <pre><code id="c_fc108b17bc754fcd9877fdf7afdc11a0" class="csharp"><span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">string</span>&nbsp;Abstract&nbsp;{&nbsp;get;&nbsp;set;&nbsp;}</code></pre>
+</div>
+
+<div class="BostonPostCard"><p>We'll use the <strong>Add-Migration</strong> command to let Code First Migrations scaffold its best guess at the migration for us.</p><ul><li>Run the <strong>Add-Migration AddPostAbstract</strong> command in Package Manager Console.</li><li>The generated migration takes care of the schema changes but we also want to pre-populate the <strong>Abstract</strong> column using the first 100 characters of content for each post. We can do this by dropping down to SQL and running an <strong>UPDATE</strong> statement after the column is added.<br>(Adding in line 12 in the code below)</li></ul></div>
+
+
+
+<div class="CodeHighlighter">
+  <pre><code id="c_bc3006aaf8704e46bf65eb84386308fb" class="csharp"><span class="cs__keyword">namespace</span>&nbsp;MigrationsDemo.Migrations&nbsp;<br>{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">using</span>&nbsp;System;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">using</span>&nbsp;System.Data.Entity.Migrations;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;partial&nbsp;<span class="cs__keyword">class</span>&nbsp;AddPostAbstract&nbsp;:&nbsp;DbMigration&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">override</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;Up()&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AddColumn(<span class="cs__string">"dbo.Posts"</span>,&nbsp;<span class="cs__string">"Abstract"</span>,&nbsp;c&nbsp;=&gt;&nbsp;c.String());&nbsp;<br>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sql(<span class="cs__string">"UPDATE&nbsp;dbo.Posts&nbsp;SET&nbsp;Abstract&nbsp;=&nbsp;LEFT(Content,&nbsp;100)&nbsp;WHERE&nbsp;Abstract&nbsp;IS&nbsp;NULL"</span>);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">override</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;Down()&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DropColumn(<span class="cs__string">"dbo.Posts"</span>,&nbsp;<span class="cs__string">"Abstract"</span>);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br>}</code></pre>
+</div>
+
+<div class="BostonPostCard"><p>Our edited migration looks good, so let’s use <strong>Update-Database</strong> to bring the database up-to-date. We’ll specify the <strong>–Verbose</strong> flag so that we can see the SQL being run against the database.</p><ul><li>Run the <strong>Update-Database –Verbose</strong> command in Package Manager Console.</li></ul><p>&nbsp;</p><h2 id="specific">Migrate to a Specific Version (Including Downgrade)</h2><p>So far we have always upgraded to the latest migration, but there may be times when you want upgrade/downgrade to a specific migration.</p><p>Let’s say we want to migrate our database to the state it was in after running our <strong>AddBlogUrl</strong> migration. We can use the <strong>–TargetMigration</strong> switch to downgrade to this migration.</p><ul><li>Run the <strong>Update-Database –TargetMigration: AddBlogUrl</strong> command in Package Manager Console.</li></ul><p>This command will run the Down script for our <strong>AddBlogAbstract</strong> and <strong>AddPostClass</strong> migrations.</p><p>If you want to roll all the way back to an empty database then you can use the <strong>Update-Database –TargetMigration: $InitialDatabase</strong> command.</p><p>&nbsp;</p><h2 id="script">Getting a SQL Script</h2><p>If another developer wants these changes on their machine they can just sync once we check our changes into source control. Once they have our new migrations they can just run the Update-Database command to have the changes applied locally. However if we want to push these changes out to a test server, and eventually production, we probably want a SQL script we can hand off to our DBA.</p><ul><li>Run the <strong>Update-Database</strong> command but this time specify the <strong>–Script</strong> flag so that changes are written to a script rather than applied. We’ll also specify a source and target migration to generate the script for. We want a script to go from an empty database (<strong>$InitialDatabase</strong>) to the latest version (migration <strong>AddPostAbstract</strong>).<br><em>If you don’t specify a target migration, Migrations will use the latest migration as the target. If you don't specify a source migrations, Migrations will use the current state of the database.</em><br></li><li>Run the <strong>Update-Database -Script -SourceMigration: $InitialDatabase -TargetMigration: AddPostAbstract</strong> command in Package Manager Console</li></ul><p>Code First Migrations will run the migration pipeline but instead of actually applying the changes it will write them out to a .sql file for you. Once the script is generated, it is opened for you in Visual Studio, ready for you to view or save.</p><h3 id="idempotent">Generating Idempotent Scripts (EF6 onwards)</h3><p>Starting with EF6, if you specify <strong>–SourceMigration $InitialDatabase</strong> then the generated script will be ‘idempotent’. Idempotent scripts can upgrade a database currently at any version to the latest version (or the specified version if you use <strong>–TargetMigration</strong>). The generated script includes logic to check the <strong>__MigrationsHistory</strong> table and only apply changes that haven't been previously applied.</p><p>&nbsp;</p><h2 id="initializer">Automatically Upgrading on Application Startup (MigrateDatabaseToLatestVersion Initializer)</h2><p>If you are deploying your application you may want it to automatically upgrade the database (by applying any pending migrations) when the application launches. You can do this by registering the <strong>MigrateDatabaseToLatestVersion</strong> database initializer. A database initializer simply contains some logic that is used to make sure the database is setup correctly. This logic is run the first time the context is used within the application process (<strong>AppDomain</strong>).</p><p>We can update the <strong>Program.cs</strong> file, as shown below, to set the <strong>MigrateDatabaseToLatestVersion</strong> initializer for BlogContext before we use the context (Line 14). Note that you also need to add a using statement for the <strong>System.Data.Entity</strong> namespace (Line 5).</p><p><em>When we create an instance of this initializer we need to specify the context type (<strong>BlogContext</strong>) and the migrations configuration (<strong>Configuration</strong>) - the migrations configuration is the class that got added to our <strong>Migrations</strong> folder when we enabled Migrations.</em></p></div>
+
+
+
+<div class="CodeHighlighter">
+  <pre><code id="c_7ed5de40dc944f91bea016dd221a53fe" class="csharp"><span class="cs__keyword">using</span>&nbsp;System;&nbsp;<br><span class="cs__keyword">using</span>&nbsp;System.Collections.Generic;&nbsp;<br><span class="cs__keyword">using</span>&nbsp;System.Linq;&nbsp;<br><span class="cs__keyword">using</span>&nbsp;System.Text;&nbsp;<br><span class="cs__keyword">using</span>&nbsp;System.Data.Entity;&nbsp;<br><span class="cs__keyword">using</span>&nbsp;MigrationsDemo.Migrations;&nbsp;<br>&nbsp;<br><span class="cs__keyword">namespace</span>&nbsp;MigrationsDemo&nbsp;<br>{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">class</span>&nbsp;Program&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">static</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;Main(<span class="cs__keyword">string</span>[]&nbsp;args)&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Database.SetInitializer(<span class="cs__keyword">new</span>&nbsp;MigrateDatabaseToLatestVersion&lt;BlogContext,&nbsp;Configuration&gt;());&nbsp;<br>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">using</span>&nbsp;(var&nbsp;db&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;BlogContext())&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db.Blogs.Add(<span class="cs__keyword">new</span>&nbsp;Blog&nbsp;{&nbsp;Name&nbsp;=&nbsp;<span class="cs__string">"Another&nbsp;Blog&nbsp;"</span>&nbsp;});&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db.SaveChanges();&nbsp;<br>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">foreach</span>&nbsp;(var&nbsp;blog&nbsp;<span class="cs__keyword">in</span>&nbsp;db.Blogs)&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(blog.Name);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(<span class="cs__string">"Press&nbsp;any&nbsp;key&nbsp;to&nbsp;exit..."</span>);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.ReadKey();&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br>}</code></pre>
+</div>
+
+<div class="BostonPostCard"><p>Now whenever our application runs it will first check if the database it is targeting is up-to-date, and apply any pending migrations if it is not.</p></div>
+                                     
+    <div id="footerAd" style="margin-left:auto;margin-right:auto;display:table">
+        <div><p></p></div>
+    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ClearBottom"> </div>
+                        <div class="bottomleftcorner"> </div>
+                        <div class="bottomrightcorner"> </div>  
+                      <div class="FooterLinks"><span class="FooterCopyright" title="© 2012 Microsoft. All rights reserved.">© 2014 Microsoft. All rights reserved.</span>
+<a href="http://msdn.microsoft.com/cc300389.aspx" title="Terms of Use">
+Terms of Use</a><span class="Pipe">&nbsp;|&nbsp;</span>
+<a href="http://www.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx" title="Trademarks">
+Trademarks</a><span class="Pipe">&nbsp;|&nbsp;</span>
+<a href="http://go.microsoft.com/fwlink/?LinkId=248681" title="Privacy Statement">
+Privacy Statement</a>&nbsp;<span style="list-style-type:none;display:inline-block;">
+<li>
+    
+    <span class="Pipe"> | </span>
+    <a target="_blank" id="bottomsitefeedbacklink" title="Site Feedback" href="https://lab.msdn.microsoft.com/mailform/contactus.aspx?refurl=http%3a%2f%2fmsdn.microsoft.com%2fen-us%2fdata%2fjj591621.aspx&loc=en-us">Site Feedback</a>
+</li>
+</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
+<noscript>
+&lt;img alt="DCSIMG" width="1" height="1" src="http://m.webtrends.com/dcsmgru7m99k7mqmgrhudo0k8_8c6m/njs.gif?dcsuri=/nojavascript&amp;amp;WT.js=No" /&gt;
+</noscript>
+
+
+<noscript>&lt;a href="http://www.omniture.com" title="Web Analytics"&gt;
+&lt;img src="http://msstonojsmsdn.112.2o7.net/b/ss/msstonojsmsdn/1/H.20.2--NS/0" height="1" width="1" border="0" alt="" /&gt;
+&lt;/a&gt;</noscript>
+
+
+
+<div class="NetReflectorMain">
+  <div class="NRHeader"></div>
+  <div class="NRCloseButton">
+  </div>
+  <div class="NRTopStripe"></div>
+  <div class="NRNotification">
+    <div>Microsoft is conducting an online survey to understand your opinion of the MSDN Web site. If you choose to participate, the online survey will be presented to you when you leave the MSDN Web site.<br><br>Would you like to participate?
+    </div>
+    <input class="NRSubmit" type="button" value="Yes">
+    <input class="NRCancel" type="button" value="No">
+    <div class="PrivacyStatement"><a id="PrivacyStatement" href="javascript:void(0)">Privacy Statement</a></div>
+  </div>
+  <div class="NRBottomStripe"></div>
+</div>
+
+
+
+
+
+
+    <script type="text/javascript" class="mtps-injected">
+/*<![CDATA[*/
+(function(window,document){"use strict";function preload(scripts){for(var result=[],script,e,i=0;i<scripts.length;i++)script=scripts[i],script.hasOwnProperty("url")&&(e=document.createElement("script"),e.src=script.url,script.throwaway=e),result.push(script);return result}function inject(scripts,index){var script,elem;if(index>=scripts.length){delete mtps.injectScripts;return}script=scripts[index];elem=document.createElement("script");elem.className="mtps-injected";elem.async=!1;var isLoaded=!1,timeoutId=0,injectNextFnName="",injectNext=elem.onerror=function(){isLoaded||(isLoaded=!0,inject(scripts,index+1),window.clearTimeout(timeoutId),elem.onload=elem.onerror=elem.onreadystatechange=null,injectNextFnName&&delete mtps[injectNextFnName],elem.removeEventListener&&elem.removeEventListener("load",injectNext,!1))};elem.addEventListener?elem.addEventListener("load",injectNext,!1):elem.readyState==="uninitialized"?elem.onreadystatechange=function(){(this.readyState==="loaded"||this.readyState==="complete")&&injectNext()}:elem.onload=injectNext;script.hasOwnProperty("url")?(timeoutId=window.setTimeout(injectNext,12e4),elem.src=script.url):(injectNextFnName="_injectNextScript_"+index,mtps[injectNextFnName]=injectNext,timeoutId=window.setTimeout(injectNext,2e3),elem.text="try {\n"+script.txt+"\n} finally { MTPS."+injectNextFnName+" && MTPS."+injectNextFnName+"(); }");parent.appendChild(elem)}var mtps=window.MTPS||(window.MTPS={}),parent=document.getElementsByTagName("head")[0];mtps.injectScripts=function(scripts){inject(preload(scripts),0)}})(window,document);
+MTPS.injectScripts([
+	{ txt: "/**/\r\n(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { \r\n\t\"image\": \"http://i.msdn.microsoft.com\", \r\n\t\"js\": \"http://i2.msdn.microsoft.com\", \r\n\t\"css\": \"http://i3.msdn.microsoft.com\", \r\n\t\"xap\": \"http://msdn.microsoft.com\"\r\n});\r\n/**/" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:jquery.cookie,0:jquery.chili-2.2,0:recipes;/Areas/Sto/Content/Scripts:0\u0026amp;hashKey=F3244639EB50DFB374A90650DE3D4662" },
+	{ txt: "$(\"#c_10d002a55f6b4e5eb293760dc88234d3\").chili();\n    $(\".CodeHighlighter pre\").unbind(\"mousedown\").unbind(\"mouseup\");" },
+	{ txt: "$(\"#c_bd6d81bc480544f39768b1a21248b496\").chili();\n    $(\".CodeHighlighter pre\").unbind(\"mousedown\").unbind(\"mouseup\");" },
+	{ txt: "$(\"#c_5aaa9ba72ee0450da6a6b92b58399bee\").chili();\n    $(\".CodeHighlighter pre\").unbind(\"mousedown\").unbind(\"mouseup\");" },
+	{ txt: "$(\"#c_9153529389484713b405b279a46b66f1\").chili();\n    $(\".CodeHighlighter pre\").unbind(\"mousedown\").unbind(\"mouseup\");" },
+	{ txt: "$(\"#c_7c435af8a26b4e50bb3007f2f915d371\").chili();\n    $(\".CodeHighlighter pre\").unbind(\"mousedown\").unbind(\"mouseup\");" },
+	{ txt: "$(\"#c_1d4f8cc4e16f4f53a853c65d1c8de43d\").chili();\n    $(\".CodeHighlighter pre\").unbind(\"mousedown\").unbind(\"mouseup\");" },
+	{ txt: "$(\"#c_fc9b65cce5ad4ca997ead3949a778c9c\").chili();\n    $(\".CodeHighlighter pre\").unbind(\"mousedown\").unbind(\"mouseup\");" },
+	{ txt: "$(\"#c_f8347f497dcd49c480a4557827c9738c\").chili();\n    $(\".CodeHighlighter pre\").unbind(\"mousedown\").unbind(\"mouseup\");" },
+	{ txt: "$(\"#c_fc108b17bc754fcd9877fdf7afdc11a0\").chili();\n    $(\".CodeHighlighter pre\").unbind(\"mousedown\").unbind(\"mouseup\");" },
+	{ txt: "$(\"#c_bc3006aaf8704e46bf65eb84386308fb\").chili();\n    $(\".CodeHighlighter pre\").unbind(\"mousedown\").unbind(\"mouseup\");" },
+	{ txt: "$(\"#c_7ed5de40dc944f91bea016dd221a53fe\").chili();\n    $(\".CodeHighlighter pre\").unbind(\"mousedown\").unbind(\"mouseup\");" },
+	{ url: "http://i2.msdn.microsoft.com/Areas/Epx/Content/Scripts/AppInsightsPerf.js" },
+	{ txt: "//\n    function SearchClick() {\n        window.location = \"http://social.msdn.microsoft.com/search/en-us/?query=\" + document.getElementById(\"HeaderSearchTextBox\").value();\n    }\n\n    function SearchClientClick() {\n        if (document.getElementById(\"HeaderSearchTextBox\").value == document.getElementById(\"HeaderSearchTextBox\").title) return false;\n        document.HeaderSearchForm.submit();return true;\n    }\n//" },
+	{ txt: "//\n            $(document).ready(function () {\n                var scriptElem = document.createElement(\u0027script\u0027);\n                scriptElem.src = \"http://i4.services.social.microsoft.com/search/Widgets/SearchBox.jss?boxid=HeaderSearchTextBox\\u0026btnid=HeaderSearchButton\\u0026brand=MSDN\\u0026loc=en-us\\u0026Refinement=95\\u0026watermark=Data\\u0026focusOnInit=false\";\n                scriptElem.id = \"mscom.srch.searchBox\";\n                scriptElem.defer=\"defer\";\n                document.getElementsByTagName(\u0027head\u0027)[0].appendChild(scriptElem);\n            });\n        //" },
+	{ url: "http://i2.msdn.microsoft.com/Areas/Sto/Content/Scripts/SiteFeedback.js" },
+	{ txt: "/**/\n    \n      var wt_nvr_ru = \"WT_NVR_RU\";\n      var wt_fpcdom = \".microsoft.com\";\n      var wt_domlist = \"msdn.microsoft.com\";\n      var wt_pathlist = \"\";var wt_paramlist = \"DCSext.mtps_devcenter\";\n      var wt_siteid = \"MSDN\";\n      var gDomain=\"m.webtrends.com\";\n    var gDcsId = \"dcsmgru7m99k7mqmgrhudo0k8_8c6m\";\n    var gFpc = \"WT_FPC\";\n    if (document.cookie.indexOf(gFpc + \"=\") == -1) {\n        var scriptElem = document.createElement(\u0027script\u0027);\n        scriptElem.src = \"http\" + (window.location.protocol.indexOf(\u0027https:\u0027) == 0 ? \u0027s\u0027 : \u0027\u0027) + \"://\" + gDomain + \"/\" + gDcsId + \"/wtid.js\";\n        document.getElementsByTagName(\u0027head\u0027)[0].appendChild(scriptElem);\n    }\n    var detectedLocale = \"en-us\";\n    var wtsp = \"_data_\";\n    var gTrackEvents = \"1\";\n    /**/" },
+	{ url: "http://i2.msdn.microsoft.com/Areas/Sto/Content/Scripts/webtrendsscript.js" },
+	{ txt: "var omni_guid = \u0027c_42ef0bd57dcc451b8c28b45aae33e33e\u0027;" },
+	{ url: "http://i2.msdn.microsoft.com/Areas/Sto/Content/Scripts/omni_rsid.js" },
+	{ url: "http://js.microsoft.com/library/svy/sto/broker.js" },
+	{ txt: "//\n    if (!$.Microsoft) $.Microsoft = {};\n    if (!$.Microsoft.Mtps) $.Microsoft.Mtps = {};\n    if (!$.Microsoft.Mtps.NetReflectorInit)\n        $.Microsoft.Mtps.NetReflectorInit = {\n            surveyUrl: \"http://vp-nri.com/take?i=163849\u0026h=H41J2551cej2lQalR7bf-g \",\n            throttleRate: \"15\",\n            privacyStatementText: \"Privacy Statement\",\n            trackerWindowText: \"Please do not close this window.\u003cbr /\u003e\u003cbr /\u003eThank you! The survey will appear here when you\u0027ve completed your visit, so please do not close this window.\",\n            brandId: \u0027msdn\u0027\n        };\n//" },
+	{ url: "http://i2.msdn.microsoft.com/Areas/Sto/Content/Scripts/NetReflector.js" }
+]);
+
+/*]]>*/
+</script>
+
+    
+<!--[CDATA[     
+Third party scripts and code linked to or referenced from this website are licensed to you by the parties that own such code, not by Microsoft.  See ASP.NET Ajax CDN Terms of Use – http://www.asp.net/ajaxlibrary/CDN.ashx.
+]]-->
+
+<script src="./Entity Framework Code First Migrations_files/broker-config.js"></script><div id="_WEDCSInsertedData" style="display: none;"><iframe id="_msnFrame" src="./Entity Framework Code First Migrations_files/c.gif" style="z-index:-1;height:1px;width:1px;display:none;visibility:hidden;" onload="javascript:MscomBeacon();"></iframe></div><div id="pAdId-29450171161"><script type="text/javascript" src="./Entity Framework Code First Migrations_files/ajs.php"></script></div></body></html>

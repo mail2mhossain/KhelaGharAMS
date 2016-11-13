@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BB43AB7D-D263-4AFA-8787-7A1862DA5C96}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KhelaGhar.AMS.Model</RootNamespace>
+    <AssemblyName>KhelaGhar.AMS.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NakedObjects.Attributes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NakedObjects.ProgrammingModel.7.0.0\lib\net40\NakedObjects.Attributes.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NakedObjects.Helpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NakedObjects.ProgrammingModel.7.0.0\lib\net40\NakedObjects.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NakedObjects.PMResources, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NakedObjects.ProgrammingModel.7.0.0\lib\net40\NakedObjects.PMResources.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NakedObjects.Types, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NakedObjects.ProgrammingModel.7.0.0\lib\net40\NakedObjects.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DbAccess\KhelaGharAMSAuditContext.cs" />
+    <Compile Include="DbAccess\KhelaGharAMSDbContext.cs" />
+    <Compile Include="DbAccess\KhelaGharAMSDbInitialiser.cs" />
+    <Compile Include="Domain\Activities\Activity.cs" />
+    <Compile Include="Domain\Activities\Attachment.cs" />
+    <Compile Include="Domain\Activities\Meeting.cs" />
+    <Compile Include="Domain\Activities\Note.cs" />
+    <Compile Include="Domain\Activities\OrganizationalTour.cs" />
+    <Compile Include="Domain\Activities\WeeklyActivity.cs" />
+    <Compile Include="Domain\AllEnums.cs" />
+    <Compile Include="Domain\Areas\Area.cs" />
+    <Compile Include="Domain\Areas\District.cs" />
+    <Compile Include="Domain\Areas\Division.cs" />
+    <Compile Include="Domain\Areas\MetropolitanCity.cs" />
+    <Compile Include="Domain\Areas\SubDistrict.cs" />
+    <Compile Include="Domain\Asars\Asar.cs" />
+    <Compile Include="Domain\Asars\JelaAsar.cs" />
+    <Compile Include="Domain\Asars\KendrioAsar.cs" />
+    <Compile Include="Domain\Asars\MohanagarAsar.cs" />
+    <Compile Include="Domain\Asars\ShakhaAsar.cs" />
+    <Compile Include="Domain\Asars\UpojelaAsar.cs" />
+    <Compile Include="Domain\Committees\Committee.cs" />
+    <Compile Include="Domain\Committees\CommitteeMember.cs" />
+    <Compile Include="Domain\Committees\ConvenerCommittee.cs" />
+    <Compile Include="Domain\Committees\FullCommittee.cs" />
+    <Compile Include="Domain\Conferences\Conference.cs" />
+    <Compile Include="Domain\Conferences\ConferenceDelegate.cs" />
+    <Compile Include="Domain\MasterData\MasterActivity.cs" />
+    <Compile Include="Domain\MasterData\Designation.cs" />
+    <Compile Include="Domain\Features\Feature.cs" />
+    <Compile Include="Domain\Features\FeatureType.cs" />
+    <Compile Include="Domain\Features\RoleFeatures.cs" />
+    <Compile Include="Domain\Members\Member.cs" />
+    <Compile Include="Domain\Shared\AuditFields.cs" />
+    <Compile Include="Domain\Workers\Worker.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\AsarRepository.cs" />
+    <Compile Include="Repository\CentralKhelaGharRepository.cs" />
+    <Compile Include="Repository\ChartRepository.cs" />
+    <Compile Include="Repository\LoggedInUserInfoRepository.cs" />
+    <Compile Include="Repository\SetupRepository.cs" />
+    <Compile Include="Domain\UserAccounts\LoginUser.cs" />
+    <Compile Include="Domain\UserAccounts\Role.cs" />
+    <Compile Include="Domain\UserAccounts\UserClaims.cs" />
+    <Compile Include="Domain\UserAccounts\UserLogins.cs" />
+    <Compile Include="Domain\UserAccounts\UserRoles.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="KhelaGharAMSAudit\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\KhelaGhar.AMS.Utility\KhelaGhar.AMS.Utility.csproj">
+      <Project>{cd675848-4361-4c5e-a057-f9baedc51cd7}</Project>
+      <Name>KhelaGhar.AMS.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

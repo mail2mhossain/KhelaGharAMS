@@ -1,0 +1,91 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using NakedObjects;
+using System.ComponentModel;
+
+namespace KhelaGhar.AMS.Model.Domain
+{
+  [DisplayName("কার্য দিবস")]
+  public class AsarRoutine
+  {
+    #region Injected Services
+    // This region should contain properties to hold references to any services required by the
+    // object.  Use the 'injs' shortcut to add a new service; 'injc' to add an injected Container
+    public IDomainObjectContainer Container { set; protected get; }
+
+    #endregion
+
+    #region Life Cycle Methods
+    // This region should contain any of the 'life cycle' convention methods (such as
+    // Created(), Persisted() etc) called by the framework at specified stages in the lifecycle.
+
+    public virtual void Persisting()
+    {
+      AuditFields.InsertedBy = Container.Principal.Identity.Name;
+      AuditFields.InsertedDateTime = DateTime.Now;
+      AuditFields.LastUpdatedBy = Container.Principal.Identity.Name;
+      AuditFields.LastUpdatedDateTime = DateTime.Now;
+    }
+    public virtual void Updating()
+    {
+      AuditFields.LastUpdatedBy = Container.Principal.Identity.Name;
+      AuditFields.LastUpdatedDateTime = DateTime.Now;
+    }
+    #endregion
+
+    #region Primitive Properties
+    [Key, NakedObjectsIgnore]
+    public virtual int AsarRoutineId { get; set; }
+
+    [MemberOrder(20)]
+    [DisplayName("দিন"), Required]
+    [EnumDataType(typeof(AllEnums.WeekDays))]
+    public virtual int Day { get; set; }
+
+    [MemberOrder(30)]
+    [DisplayName("শুরুর সময়"), Required]
+    public virtual string StartTime { get; set; }
+
+    [MemberOrder(40)]
+    [DisplayName("শেষ সময়"), Required]
+    public virtual string EndTime { get; set; }
+
+    #endregion
+
+    #region Complex Properties
+    #region AuditFields (AuditFields)
+
+    private AuditFields _auditFields = new AuditFields();
+
+    [MemberOrder(250)]
+    [Required, Hidden]
+    public virtual AuditFields AuditFields
+    {
+      get
+      {
+        return _auditFields;
+      }
+      set
+      {
+        _auditFields = value;
+      }
+    }
+
+    #endregion
+
+    #endregion
+
+    #region Navigation Properties
+    [MemberOrder(50)]
+    [Required, NakedObjectsIgnore]
+    public virtual Asar Asar { get; set; }
+
+    #endregion
+
+    //Add properties with 'propv', collections with 'coll', actions with 'act' shortcuts
+
+  }
+}
+

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>NakedObjects.Surface.Nof4</id>
+    <version>2.4.1</version>
+    <authors>Naked Objects Group Ltd</authors>
+    <owners>Naked Objects Group Ltd</owners>
+    <licenseUrl>http://www.opensource.org/licenses/ms-pl</licenseUrl>
+    <projectUrl>http://nakedobjects.codeplex.com/</projectUrl>
+    <iconUrl>http://www.nakedobjects.net/images/nakedobjects.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Implementation of Surface facade for Nof4 version of the NO framework</description>
+    <dependencies>
+      <dependency id="NakedObjects.Framework" version="5.7.1" />
+      <dependency id="NakedObjects.Surface" version="2.4.1" />
+    </dependencies>
+  </metadata>
+</package>

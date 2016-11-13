@@ -1,0 +1,9 @@
+E:\MHossain\Source\MySource\NO7\KhelaGharAMS\src\Infrastructure\KhelaGhar.AMS.Utility\bin\Debug\KhelaGhar.AMS.Utility.dll
+E:\MHossain\Source\MySource\NO7\KhelaGharAMS\src\Infrastructure\KhelaGhar.AMS.Utility\bin\Debug\KhelaGhar.AMS.Utility.pdb
+E:\MHossain\Source\MySource\NO7\KhelaGharAMS\src\Infrastructure\KhelaGhar.AMS.Utility\obj\Debug\KhelaGhar.AMS.Utility.csprojResolveAssemblyReference.cache
+E:\MHossain\Source\MySource\NO7\KhelaGharAMS\src\Infrastructure\KhelaGhar.AMS.Utility\obj\Debug\KhelaGhar.AMS.Utility.dll
+E:\MHossain\Source\MySource\NO7\KhelaGharAMS\src\Infrastructure\KhelaGhar.AMS.Utility\obj\Debug\KhelaGhar.AMS.Utility.pdb
+D:\Source\KhelaGharAMS\trunk\source\KhelaGharAMS\src\Infrastructure\KhelaGhar.AMS.Utility\bin\Debug\KhelaGhar.AMS.Utility.dll
+D:\Source\KhelaGharAMS\trunk\source\KhelaGharAMS\src\Infrastructure\KhelaGhar.AMS.Utility\bin\Debug\KhelaGhar.AMS.Utility.pdb
+D:\Source\KhelaGharAMS\trunk\source\KhelaGharAMS\src\Infrastructure\KhelaGhar.AMS.Utility\obj\Debug\KhelaGhar.AMS.Utility.dll
+D:\Source\KhelaGharAMS\trunk\source\KhelaGharAMS\src\Infrastructure\KhelaGhar.AMS.Utility\obj\Debug\KhelaGhar.AMS.Utility.pdb

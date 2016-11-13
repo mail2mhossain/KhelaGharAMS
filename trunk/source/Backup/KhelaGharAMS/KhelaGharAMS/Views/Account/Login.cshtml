@@ -1,0 +1,62 @@
+﻿@model KhelaGharAMS.Models.LoginModel
+
+@{
+    ViewBag.Title = "Log in";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+</hgroup>
+
+<section id="loginForm">
+<h2>Use a local account to log in.</h2>
+@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Log in Form</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName)
+                @Html.ValidationMessageFor(m => m.UserName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Password)
+            </li>
+            @*<li>
+                @Html.CheckBoxFor(m => m.RememberMe)
+                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+            </li>*@
+        </ol>
+        <input type="submit" value="Log in" />
+    </fieldset>
+    @*<p>
+        @Html.ActionLink("Register", "Register") if you don't have an account.
+    </p>*@
+}
+</section>
+
+<section class="social" id="socialLoginForm">
+    <h1>খেলাঘরের শ্লোগান</h1>
+    @*@Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })*@
+    <p></p>
+    <h3>আমরা কারা                    -                  শান্তির পায়রা</h3>
+    <p></p>
+    <h3>খেলাঘর চায় কি                 -                  শিক্ষা শান্তি</h3>
+    <p></p>
+    <h3>খেলাঘর চায় না                 -                  শিশুদের কান্না</h3>
+    <p></p>
+    <h3>এসো গড়ি খেলাঘর - এসো গড়ি বাংলাদেশ</h3>
+    <p></p>
+    <h3>আনন্দময় শৈশব চাই - সুখি সুন্দর বাংলাদেশে</h3>
+    <p></p>
+    <h3>নয় শঙ্কা, নয় ভয় - চাই শিক্ষা আনন্দময়</h3>
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

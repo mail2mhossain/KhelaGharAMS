@@ -1,0 +1,81 @@
+using KhelaGhar.AMS.Model.DbAccess;
+using KhelaGhar.AMS.Model.KhelaGharAMSAudit;
+using KhelaGhar.AMS.Model.Repository;
+using NakedObjects.Boot;
+using NakedObjects.Core.Context;
+using NakedObjects.Core.NakedObjectsSystem;
+using NakedObjects.Core.Util;
+using NakedObjects.EntityObjectStore;
+using NakedObjects.Reflector.Audit;
+using NakedObjects.Reflector.DotNet.Reflect;
+using NakedObjects.Web.Mvc;
+using NakedObjects.Web.Mvc.Helpers;
+
+namespace KhelaGharAMS {
+    public class RunWeb : RunMvc {
+
+		// Return null for no REST support
+		// Return a non empty string to support REST at that URL segment
+        public static string RestRoot {
+            get { return null; }
+        }
+
+        protected override NakedObjectsContext Context {
+            get { return HttpContextContext.CreateInstance(); }
+        }
+
+        protected override IServicesInstaller MenuServices {
+            get {
+                return new ServicesInstaller(new object[] { 
+                    new CentralKhelaGharRepository(),
+                    new AsarRepository(),
+                    new SetupRepository()
+                });
+            }
+        }
+
+        protected override IServicesInstaller ContributedActions {
+            get { return new ServicesInstaller(); }
+        }
+
+        protected override IServicesInstaller SystemServices {
+            get { 
+              return new ServicesInstaller(
+                new SimpleEncryptDecrypt(),
+                new ChartRepository()
+                ); 
+            }
+        }
+
+        protected override IAuditorInstaller Auditor
+        {
+            get
+            {
+                return new AuditInstaller(new KhelaGharAMSAuditor());
+            }
+        }
+
+        protected override IReflectorInstaller Reflector
+        {
+            get { return new DotNetReflectorInstaller { OptionalByDefault = false }; }
+        }
+
+        protected override IObjectPersistorInstaller Persistor
+        {
+            get
+            {
+                var installer = new EntityPersistorInstaller();
+
+                installer.UsingCodeFirstContext(() => new KhelaGharAMSDbContext());
+                installer.UsingCodeFirstContext(() => new KhelaGharAMSAuditContext());
+
+                return installer;
+            }
+        }
+
+        public static void Run() {
+		    Assert.AssertTrue("Rest root may not be empty", RestRoot == null || RestRoot.Trim().Length > 0);
+            new RunWeb().Start();
+        }
+    }
+}

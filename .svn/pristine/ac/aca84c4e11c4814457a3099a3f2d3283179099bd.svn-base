@@ -1,0 +1,198 @@
+﻿// Copyright © Naked Objects Group Ltd ( http://www.nakedobjects.net). 
+// All Rights Reserved. This code released under the terms of the 
+// Microsoft Public License (MS-PL) ( http://opensource.org/licenses/ms-pl.html) 
+using System.Web.Mvc;
+using NakedObjects.Web.Mvc.Controllers;
+using NakedObjects.Web.Mvc.Models;
+using System.Web.UI.DataVisualization.Charting;
+using System.Text;
+using System.IO;
+using System.Drawing;
+using System;
+using System.Linq;
+using System.Collections.Generic;
+using KhelaGhar.AMS.Model.Repository;
+using KhelaGhar.AMS.Model.Domain;
+
+namespace NakedObjects.Mvc.App.Controllers {
+
+    [Authorize]
+    public class HomeController : SystemControllerImpl {
+
+        public ChartRepository ChartRepository { set; protected get; }
+
+        public ActionResult Index() {
+            return View();
+        }
+
+        public ActionResult About() {
+            ViewBag.Message = "Your application description page.";
+            return View();
+        }
+
+        public ActionResult Contact() {
+            ViewBag.Message = "Your contact page.";
+            return View();
+        }
+
+        public ActionResult Chart()
+        {
+          var chart = buildChart();
+          StringBuilder result = new StringBuilder();
+          result.Append(getChartImage(chart));
+          result.Append(chart.GetHtmlImageMap("ImageMap"));
+          return Content(result.ToString());
+        }
+
+        private Chart buildChart()
+        {
+          // Build Chart
+          var chart = new Chart();
+
+          chart.Width = 600;  // 800;
+          chart.Height = 400;  // 600;
+          chart.BackColor = System.Drawing.ColorTranslator.FromHtml("#D3DFF0");  // Color.AliceBlue;
+          // Create chart here
+          chart.Titles.Add(CreateTitle());
+          //chart.Legends.Add(CreateLegend());
+          chart.ChartAreas.Add(CreateChartArea());
+          chart.Series.Add(CreateSeries());
+
+          return chart;
+        }
+
+        private string getChartImage(Chart chart)
+        {
+          using (var stream = new MemoryStream())
+          {
+            string img = "<img src='data:image/png;base64,{0}' alt='' usemap='#ImageMap'>";
+            chart.SaveImage(stream, ChartImageFormat.Png);
+            string encoded = Convert.ToBase64String(stream.ToArray());
+            return String.Format(img, encoded);
+          }
+        }
+
+        private Title CreateTitle()
+        {
+          Title title = new Title();
+          title.Text = "ঢাকা জেলায় আসরের অবস্থা";  // "Result Chart";
+          title.ShadowColor = Color.FromArgb(32, 0, 0, 0);
+          title.Font = new Font("Siyam Rupali", 14F, FontStyle.Bold); //"Trebuchet MS"
+          title.ShadowOffset = 3;
+          title.ForeColor = Color.FromArgb(26, 59, 105);
+          return title;
+        }
+
+        private Legend CreateLegend()
+        {
+          Legend legend = new Legend();
+          legend.Enabled = true;
+          legend.ShadowColor = Color.FromArgb(32, 0, 0, 0);
+          legend.Font = new Font("Siyam Rupali,Trebuchet MS", 14F, FontStyle.Bold); //"Siyam Rupali"
+          legend.ShadowOffset = 3;
+          legend.ForeColor = Color.FromArgb(26, 59, 105);
+          legend.Title = "Legend";
+          return legend;
+        }
+
+        private ChartArea CreateChartArea()
+        {
+          ChartArea chartArea = new ChartArea();
+          chartArea.Name = "ঢাকা জেলা"; // "Result Chart";
+          chartArea.BackColor = Color.AliceBlue;
+          chartArea.AxisX.IsLabelAutoFit = false;
+          chartArea.AxisY.IsLabelAutoFit = false;
+          chartArea.AxisX.LabelStyle.Font = new Font("Siyam Rupali", 8F, FontStyle.Regular); //Verdana,Arial,Helvetica,sans-serif
+          chartArea.AxisY.LabelStyle.Font = new Font("Siyam Rupali", 8F, FontStyle.Regular);
+          chartArea.AxisY.LineColor = Color.FromArgb(64, 64, 64, 64);
+          chartArea.AxisX.LineColor = Color.FromArgb(64, 64, 64, 64);
+          chartArea.AxisY.MajorGrid.LineColor = Color.FromArgb(64, 64, 64, 64);
+          chartArea.AxisX.MajorGrid.LineColor = Color.FromArgb(64, 64, 64, 64);
+          chartArea.AxisX.Interval = 1;
+          return chartArea;
+        }
+
+        public Series CreateSeries()
+        {
+          Series seriesDetail = new Series();
+          seriesDetail.Name = "ঢাকা জেলা";  // "Result Chart";
+          seriesDetail.IsValueShownAsLabel = false;
+          seriesDetail.Color = Color.DimGray;   //Color.FromArgb(198, 99, 99);
+          seriesDetail.Font = new Font("Siyam Rupali", 8F, FontStyle.Regular);
+          seriesDetail.ChartType = SeriesChartType.Bar;
+          seriesDetail.BorderWidth = 2;
+
+          //IList<SubDistrict> zilla = ChartRepository.GetDhakaZilla().ToList();
+
+          //foreach(SubDistrict sub in zilla)
+          //{
+          //  string name = sub.Name;
+          //  int activeasars = sub.AllActiveAsars.Count;
+          //  int newasars = sub.AllNewAsars.Count;
+          //  int reneasars = sub.AllReneAsars.Count;
+          //  int inactiveasars = sub.AllInactiveAsars.Count;
+
+          //  if (activeasars + newasars + reneasars + inactiveasars > 0)
+          //  {
+          //    var p = seriesDetail.Points.Add(activeasars + newasars + reneasars + inactiveasars);
+          //    p.AxisLabel = name;
+          //    p.Label = String.Format("সচল - {0}", activeasars);
+
+          //    if (newasars > 0)
+          //    {
+          //      p.Label = p.Label + " : " + String.Format("নতুন - {0}", newasars);
+          //    }
+          //    if (reneasars > 0)
+          //    {
+          //      p.Label = p.Label +  " : " + String.Format("পুনর্জাগরিত - {0}", reneasars) ;
+          //    }
+          //    if (inactiveasars > 0)
+          //    {
+          //      p.Label = p.Label   + " : " + String.Format("নিষ্ক্রিয় - {0}", inactiveasars);
+          //    }
+             
+          //    p["BarLabelStyle"] = "Left";
+          //  }
+          //}
+          //for (int i = 1; i < 10; i++)
+          //{
+          //  var p = seriesDetail.Points.Add(i);
+          //  p.Label = String.Format("Point {0}", i);
+          //  p.LabelMapAreaAttributes = String.Format("href=\"javascript:void(0)\" onclick=\"myfunction('{0}')\"", i);
+          //  p["BarLabelStyle"] = "Center";
+          //}
+
+          seriesDetail.ChartArea = "ঢাকা জেলা"; //"Result Chart";
+          return seriesDetail;
+        }
+
+        [HttpPost]
+        public override ActionResult ClearHistory(bool clearAll) {
+            return base.ClearHistory(clearAll);
+        }
+
+        [HttpPost]
+        public override ActionResult ClearHistoryItem(string id, string nextId, ObjectAndControlData controlData) {
+            return base.ClearHistoryItem(id, nextId, controlData);
+        }
+
+        [HttpPost]
+        public override ActionResult Cancel(string nextId, ObjectAndControlData controlData) {
+            return base.Cancel(nextId, controlData);
+        }
+
+        [HttpPost]
+        public override ActionResult ClearHistoryOthers(string id, ObjectAndControlData controlData) {
+            return base.ClearHistoryOthers(id, controlData);
+        }
+
+        protected override void OnActionExecuting(ActionExecutingContext filterContext) {
+            if (Request.Browser.Type.ToUpper() == "IE6" || Request.Browser.Type.ToUpper() == "IE7") {
+                filterContext.Result = View("BrowserError");
+                return;
+            }
+
+            base.OnActionExecuting(filterContext);
+        }
+    }
+}

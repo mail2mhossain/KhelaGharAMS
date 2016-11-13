@@ -1,0 +1,33 @@
+KhelaGharAMSDbContext
+
+enable-migrations -ProjectName:KhelaGhar.AMS.Model -ContextTypeName:KhelaGhar.AMS.Model.DbAccess.KhelaGharAMSDbContext -MigrationsDirectory:MigrationAMSDbContext
+
+Add-Migration -ProjectName:KhelaGhar.AMS.Model -configuration KhelaGhar.AMS.Model.MigrationAMSDbContext.Configuration Initial
+
+Update-Database -ProjectName:KhelaGhar.AMS.Model -configuration KhelaGhar.AMS.Model.MigrationAMSDbContext.Configuration -Verbose
+
+
+After Initialization
+
+Add-Migration -ProjectName:KhelaGhar.AMS.Model -configuration KhelaGhar.AMS.Model.MigrationAMSDbContext.Configuration AddAsarNote
+
+Update-Database -ProjectName:KhelaGhar.AMS.Model -configuration KhelaGhar.AMS.Model.MigrationAMSDbContext.Configuration -Verbose
+
+
+
+KhelaGharAMSAuditContext
+
+
+enable-migrations -ProjectName:KhelaGhar.AMS.Model -ContextTypeName:KhelaGhar.AMS.Model.DbAccess.KhelaGharAMSAuditContext -MigrationsDirectory:MigrationAMSAuditContext  
+
+Add-Migration -ProjectName:KhelaGhar.AMS.Model -configuration KhelaGhar.AMS.Model.MigrationAMSAuditContext.Configuration Initial
+
+Update-Database -ProjectName:KhelaGhar.AMS.Model -configuration KhelaGhar.AMS.Model.MigrationAMSAuditContext.Configuration -Verbose
+
+
+
+After Initialization
+
+Add-Migration -ProjectName:KhelaGhar.AMS.Model -configuration KhelaGhar.AMS.Model.MigrationAMSAuditContext.Configuration AddAsarNoteAudit
+
+Update-Database -ProjectName:KhelaGhar.AMS.Model -configuration KhelaGhar.AMS.Model.MigrationAMSAuditContext.Configuration -Verbose

@@ -1,0 +1,208 @@
+﻿using KhelaGhar.AMS.Model.Domain.Asars;
+using KhelaGhar.AMS.Model.Domain.Workers;
+using KhelaGhar.AMS.Model.Repository;
+using NakedObjects;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace KhelaGhar.AMS.Model.Domain.Areas
+{
+	public class Area
+	{
+    public string Title ()
+		{
+			var t = Container.NewTitleBuilder();
+			string title = GetTitle(this);
+			t.Append(title);
+			return t.ToString();
+		}
+
+		#region Injected Services
+		public IDomainObjectContainer Container { set; protected get; }
+		public AsarRepository AsarRepository { set; protected get; }
+		#endregion
+
+		#region Primitive Properties
+
+		[Key, NakedObjectsIgnore]
+		public virtual int AreaId { get; set; }
+
+		[MemberOrder(10)]
+		[DisplayName("নাম"), Required]
+		[MaxLength(150)]
+		public virtual string Name { get; set; }
+
+		[MemberOrder(20)]
+		[DisplayName("বর্ণনা")]
+		[MaxLength(150), Optionally]
+		public virtual string Description { get; set; }
+
+		#endregion
+
+		//#region Get Properties
+
+		//#region সক্রিয় আসরসমূহ
+		//[MemberOrder(30), NotMapped]
+		////[Eagerly(EagerlyAttribute.Do.Rendering)]
+		//[DisplayName("সক্রিয় আসরসমূহ")]
+		//[TableView(true, "Name", "DateOfEstablishment", "TotalMembers", "Workers", "CommitteeType")]
+		//public IList<ShakhaAsar> AllActiveAsars
+		//{
+		//	get
+		//	{
+		//		List<int> allchildrenids = AsarRepository.GetChildrenIds(this);
+
+		//		return Container.Instances<ShakhaAsar>().Where(d => allchildrenids.Contains(d.Area.AreaId) && (int)d.AsarStatus == (int)ShakhaAsar.StatusOfAsar.সচল).OrderBy(o => o.Name).ToList();
+		//	}
+		//}
+		//#endregion
+
+		//#region নতুন আসরসমূহ
+		//[MemberOrder(40), NotMapped]
+		////[Eagerly(EagerlyAttribute.Do.Rendering)]
+		//[DisplayName("নতুন আসরসমূহ")]
+		//[TableView(true, "Name", "DateOfEstablishment", "TotalMembers", "Kormies", "CommitteeType")]
+		//public IList<ShakhaAsar> AllNewAsars
+		//{
+		//	get
+		//	{
+		//		List<int> allchildrenids = AsarRepository.GetChildrenIds(this);
+
+		//		return Container.Instances<ShakhaAsar>().Where(d => allchildrenids.Contains(d.Area.AreaId) && (int)d.AsarStatus == (int)ShakhaAsar.StatusOfAsar.নতুন).OrderBy(o => o.Name).ToList();
+		//	}
+		//}
+		//#endregion
+
+		//#region পুনর্জাগরিত আসরসমূহ
+		//[MemberOrder(50), NotMapped]
+		////[Eagerly(EagerlyAttribute.Do.Rendering)]
+		//[DisplayName("পুনর্জাগরিত আসরসমূহ")]
+		//[TableView(true, "Name", "DateOfEstablishment", "TotalMembers", "Kormies", "CommitteeType")]
+		//public IList<ShakhaAsar> AllRevivedAsars
+		//{
+		//	get
+		//	{
+		//		List<int> allchildrenids = AsarRepository.GetChildrenIds(this);
+
+		//		return Container.Instances<ShakhaAsar>().Where(d => allchildrenids.Contains(d.Area.AreaId) && (int)d.AsarStatus == (int)ShakhaAsar.StatusOfAsar.পুনর্জাগরণ).OrderBy(o => o.Name).ToList();
+		//	}
+		//}
+		//#endregion
+
+		//#region নিষ্ক্রিয় আসরসমূহ
+		//[MemberOrder(60), NotMapped]
+		////[Eagerly(EagerlyAttribute.Do.Rendering)]
+		//[DisplayName("নিষ্ক্রিয় আসরসমূহ")]
+		//[TableView(true, "Name", "DateOfEstablishment", "TotalMembers", "Kormies", "CommitteeType")]
+		//public IList<ShakhaAsar> AllInactiveAsars
+		//{
+		//	get
+		//	{
+		//		List<int> allchildrenids = AsarRepository.GetChildrenIds(this);
+
+		//		return Container.Instances<ShakhaAsar>().Where(d => allchildrenids.Contains(d.Area.AreaId) && (int)d.AsarStatus == (int)ShakhaAsar.StatusOfAsar.নিষ্ক্রিয়).OrderBy(o => o.Name).ToList();
+		//	}
+		//}
+		//#endregion
+
+		//#region সভ্য সংখ্যা
+		//[MemberOrder(25), NotMapped]
+		////[Eagerly(EagerlyAttribute.Do.Rendering)]
+		//[DisplayName("সভ্য সংখ্যা")]
+		//public int Members
+		//{
+		//	get
+		//	{
+		//		List<int> allchildrenids = AsarRepository.GetChildrenIds(this);
+
+		//		IList<ShakhaAsar> asars = Container.Instances<ShakhaAsar>().Where(d => allchildrenids.Contains(d.Area.AreaId)).ToList();
+
+		//		if (asars.Count > 0)
+		//			return asars.Sum(s => s.TotalMembers);
+
+		//		return 0;
+		//	}
+		//}
+		//#endregion
+
+		//#region কর্মী সংখ্যা
+		//[MemberOrder(26), NotMapped]
+		////[Eagerly(EagerlyAttribute.Do.Rendering)]
+		//[DisplayName("কর্মী সংখ্যা")]
+		//public int Workers
+		//{
+		//	get
+		//	{
+		//		List<int> allchildrenids = AsarRepository.GetChildrenIds(this);
+
+		//		return Container.Instances<Worker>().Where(d => allchildrenids.Contains(d.Asar.Area.AreaId)).Count();
+		//	}
+		//}
+		//#endregion
+
+		//#endregion
+
+		#region Navigation Properties
+
+		[MemberOrder(100), NakedObjectsIgnore]
+		[DisplayName("এলাকা"), Optionally]
+		public virtual Area Parent { get; set; }
+
+		//[PageSize(10)]
+		//public IQueryable<Area> AutoCompleteParent ([MinLength(3)] string matching)
+		//{
+		//	List<Area> areas = new List<Area>();
+		//	if (this.Parent != null)
+		//	{
+		//		areas = (from a in Container.Instances<Area>()
+		//						 where a.Name.StartsWith(matching)
+		//						 //&& a.AreaType.AreaTypeId == this.Parent.AreaType.AreaTypeId
+		//						 select a).ToList();
+		//	}
+		//	return areas.AsQueryable();
+		//}
+
+		#endregion
+
+		#region Private Methods
+		private string GetTitle (Area area)
+		{
+			if (area == null)
+			{
+				return "";
+			}
+			if (area.Parent == null)
+			{
+				return area.Name + GetAreaType(area);
+			}
+			else
+			{
+				return area.Name + GetAreaType(area) + " - " + GetTitle(area.Parent);
+			}
+		}
+		private string GetAreaType(Area area)
+		{
+			if (area is Division)
+				return " বিভাগ";
+
+			if (area is District)
+				return " জেলা";
+
+			if (area is MetropolitanCity)
+				return "";
+
+			if (area is SubDistrict)
+				return " উপজেলা";
+
+			return "";
+		}
+		#endregion
+
+	}
+}

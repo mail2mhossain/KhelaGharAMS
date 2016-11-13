@@ -1,0 +1,7 @@
+
+http://typecastexception.com/post/2014/06/22/ASPNET-Identity-20-Customizing-Users-and-Roles.aspx
+
+
+
+
+PM> Install-Package Microsoft.AspNet.Identity.Samples -Pre

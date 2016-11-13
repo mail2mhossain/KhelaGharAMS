@@ -1,0 +1,7 @@
+--Multiple DB Context
+Enable-Migrations -ContextTypeName KhelaGhar.AMS.Model.DbAccess.KhelaGharAMSDbContext
+
+Enable-Migrations -ContextTypeName KhelaGhar.AMS.Model.DbAccess.KhelaGharAMSAuditContext
+
+
+Disable_Migrations: Delete the _MigrationHistory table from the database

@@ -1,0 +1,7 @@
+
+NakedObjects-Ajax.js
+
+$("input.datetime").datepicker({
+            changeMonth: true,
+            changeYear: true
+        });

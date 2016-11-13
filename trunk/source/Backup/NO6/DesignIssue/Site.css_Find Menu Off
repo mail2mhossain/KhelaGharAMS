@@ -1,0 +1,7 @@
+
+Find Menu Off
+
+#SetupRepository-BySubDistrictName-______-Find,#SubDistrict-District-Find,#Committee-AddCommitteeMember-Kormi-Find,#Committee-AddCommitteeMember-Designation-Find,#SetupRepository-ByDistrictName-____-Find,#AsarRepository-ByAsarName-Asar-Find,#AsarRepository-ByAsarName-___-Find
+{
+    display: none;    
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>NakedObjects.Framework</id>
+    <version>5.7.2</version>
+    <authors>Naked Objects Group Ltd</authors>
+    <owners>Naked Objects Group Ltd</owners>
+    <licenseUrl>http://www.opensource.org/licenses/ms-pl</licenseUrl>
+    <projectUrl>http://nakedobjects.codeplex.com/</projectUrl>
+    <iconUrl>http://www.nakedobjects.net/images/nakedobjects.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Naked Objects is framework that implements the 'naked objects' pattern for .NET.  (This package is typically used indirectly e.g. by the NakedObjects.MVC package)</description>
+    <dependencies>
+      <dependency id="NakedObjects.ProgrammingModel" version="[5.7.0]" />
+      <dependency id="Common.Logging" version="2.1.2" />
+      <dependency id="EntityFramework" version="5.0.0" />
+    </dependencies>
+  </metadata>
+</package>

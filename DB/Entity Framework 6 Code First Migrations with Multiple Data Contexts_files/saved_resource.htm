@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<!-- saved from url=(0437)http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#2 -->
+<html lang="en" dir="ltr" class="js no-touch localstorage sessionstorage contenteditable use-opacity-transitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Disqus Comments</title>
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    
+    <style>
+        html {
+            overflow: hidden;
+        }
+        
+    </style>
+
+<link rel="stylesheet" href="http://a.disquscdn.com/next/styles/lounge.a13c2643ad75e2c1581b51fdab2a2f9f.css"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="remote/config" src="config.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="common.bundle" src="common.d9b4302bb38812e1de0e78b1138bfa5c.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="lounge.bundle" src="lounge.80203be8d83b37fab65c1a8e6194a1f8.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="http://www.google-analytics.com/ga.js" src="ga.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="http://b.scorecardresearch.com/beacon.js" src="beacon.js"></script><style id="css_1409740881331"></style><!--<base target="_parent">--><base href="." target="_parent"><script src="event.js" async="" charset="UTF-8"></script><link rel="stylesheet" href="http://a.disquscdn.com/next/styles/discovery.33dcca1188b5131ce9b941637802648d.css"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="discovery/main" src="discovery.0b95d2a753fce6458a7f0a53bf57543c.js"></script><script src="event(1).js" async="" charset="UTF-8"></script><script src="event(2).js" async="" charset="UTF-8"></script></head>
+<body style="">
+    
+    <!--[if lte IE 8]>
+<script src="//a.disquscdn.com/1409158093/build/vendor/ie8.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<script src="//a.disquscdn.com/1409158093/build/vendor/ie9.js"></script>
+<![endif]-->
+
+    
+<script type="text/json" id="disqus-urls">{
+    "root":"//disqus.com",
+    "next":"//a.disquscdn.com/next/520edd9f"
+}</script>
+
+    
+
+    <div id="error" style="display:none; text-align: center">
+        <p>We were unable to load Disqus. If you are a moderator please see our <a href="http://docs.disqus.com/help/83/"> troubleshooting guide</a>. </p>
+    </div>
+
+    
+    <script type="text/json" id="disqus-forumData">{"session":{"canModerate":false,"isReadOnly":null,"audienceSyncVerified":false,"canReply":true,"notificationCount":null,"mustVerifyEmail":false},"features":{},"forum":{"name":"Dot Net Tricks","founder":"2286455","settings":{"canEnableSponsoredComments":false,"discoveryVariant":"default","allowAnonPost":true,"allowMedia":false,"moderatorText":"Dot Net Tricks","typeface":"auto","disable3rdPartyTrackers":false,"promotedDiscoveryEnabled":false,"discoveryMax":false,"ssoRequired":false,"discoveryLocked":false,"audienceSyncEnabled":false,"hasCustomAvatar":true,"organicDiscoveryEnabled":true,"backplaneEnabled":false,"discoverySettingsUrl":"https://dotnet-tricks.disqus.com/admin/settings/ads/","discoveryThumbnailsEnabled":false,"colorScheme":"auto","sponsoredCommentsEnabled":false,"linkAffiliationEnabled":false},"url":"http://www.dotnet-tricks.com/","favicon":{"permalink":"http://disqus.com/api/forums/favicons/dotnet-tricks.jpg","cache":"//a.disquscdn.com/uploads/forums/127/4663/favicon.png"},"language":"en","avatar":{"small":{"permalink":"http://disqus.com/api/forums/avatars/dotnet-tricks.jpg?size=32","cache":"//a.disquscdn.com/uploads/forums/127/4663/avatar32.jpg?1395335569"},"large":{"permalink":"http://disqus.com/api/forums/avatars/dotnet-tricks.jpg?size=92","cache":"//a.disquscdn.com/uploads/forums/127/4663/avatar92.jpg?1395335569"}},"pk":1274663,"id":"dotnet-tricks"}}</script>
+
+    
+    <script type="text/json" id="disqus-threadData">{"cursor":{"hasPrev":false,"prev":null,"total":8,"hasNext":false,"next":"1:0:0"},"code":0,"response":{"lastModified":1406140468,"posts":[{"isFlagged":false,"forum":"dotnet-tricks","parent":null,"author":{"username":"vesselinobreshkov","about":"","name":"Vesselin Obreshkov","url":"","isAnonymous":false,"rep":1.2517779999999998,"profileUrl":"http://disqus.com/vesselinobreshkov/","reputation":1.2517779999999998,"location":"","isPrivate":false,"isPrimary":true,"joinedAt":"2013-07-27T22:31:32","id":"64533918","avatar":{"small":{"permalink":"http://disqus.com/api/users/avatars/vesselinobreshkov.jpg","cache":"//a.disquscdn.com/uploads/users/6453/3918/avatar32.jpg?1374964293"},"isCustom":true,"permalink":"http://disqus.com/api/users/avatars/vesselinobreshkov.jpg","cache":"//a.disquscdn.com/uploads/users/6453/3918/avatar92.jpg?1374964293","large":{"permalink":"http://disqus.com/api/users/avatars/vesselinobreshkov.jpg","cache":"//a.disquscdn.com/uploads/users/6453/3918/avatar92.jpg?1374964293"}}},"media":[],"isDeleted":false,"isApproved":true,"dislikes":0,"raw_message":"Just a quick note, for the second scenario when you specify the project name, you don't seem to also have to specify the migration name as well. It seems to figure out which migration to run when it knows the project.","createdAt":"2014-07-23T18:34:28","id":"1500201819","thread":"2266948742","depth":0,"numReports":0,"likes":0,"isEdited":false,"message":"\u003cp>Just a quick note, for the second scenario when you specify the project name, you don't seem to also have to specify the migration name as well. It seems to figure out which migration to run when it knows the project.\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"isFlagged":false,"forum":"dotnet-tricks","parent":null,"author":{"username":"vesselinobreshkov","about":"","name":"Vesselin Obreshkov","url":"","isAnonymous":false,"rep":1.2517779999999998,"profileUrl":"http://disqus.com/vesselinobreshkov/","reputation":1.2517779999999998,"location":"","isPrivate":false,"isPrimary":true,"joinedAt":"2013-07-27T22:31:32","id":"64533918","avatar":{"small":{"permalink":"http://disqus.com/api/users/avatars/vesselinobreshkov.jpg","cache":"//a.disquscdn.com/uploads/users/6453/3918/avatar32.jpg?1374964293"},"isCustom":true,"permalink":"http://disqus.com/api/users/avatars/vesselinobreshkov.jpg","cache":"//a.disquscdn.com/uploads/users/6453/3918/avatar92.jpg?1374964293","large":{"permalink":"http://disqus.com/api/users/avatars/vesselinobreshkov.jpg","cache":"//a.disquscdn.com/uploads/users/6453/3918/avatar92.jpg?1374964293"}}},"media":[],"isDeleted":false,"isApproved":true,"dislikes":0,"raw_message":"Thanks for the simple tutorial. Exactly what I was looking for looking to separate my AspNet Identity context from the rest of my app while having both in the same target database","createdAt":"2014-07-23T17:31:00","id":"1500089838","thread":"2266948742","depth":0,"numReports":0,"likes":0,"isEdited":false,"message":"\u003cp>Thanks for the simple tutorial. Exactly what I was looking for looking to separate my AspNet Identity context from the rest of my app while having both in the same target database\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"isFlagged":false,"forum":"dotnet-tricks","parent":null,"author":{"name":"Alex","url":"","profileUrl":"","emailHash":"","avatar":{"small":{"permalink":"//a.disquscdn.com/uploads/forums/127/4663/avatar32.jpg?1395335569","cache":"//a.disquscdn.com/uploads/forums/127/4663/avatar32.jpg?1395335569"},"large":{"permalink":"//a.disquscdn.com/uploads/forums/127/4663/avatar92.jpg?1395335569","cache":"//a.disquscdn.com/uploads/forums/127/4663/avatar92.jpg?1395335569"},"permalink":"//a.disquscdn.com/uploads/forums/127/4663/avatar92.jpg?1395335569","cache":"//a.disquscdn.com/uploads/forums/127/4663/avatar92.jpg?1395335569"},"isAnonymous":true},"media":[],"isDeleted":false,"isApproved":true,"dislikes":0,"raw_message":"Thank you so much! I was stuck trying to figure out how to do this for 2 hours yesterday, and then this tutorial made everything better!","createdAt":"2014-06-26T16:31:43","id":"1455676519","thread":"2266948742","depth":0,"numReports":0,"likes":0,"isEdited":false,"message":"\u003cp>Thank you so much! I was stuck trying to figure out how to do this for 2 hours yesterday, and then this tutorial made everything better!\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"isFlagged":false,"forum":"dotnet-tricks","parent":null,"author":{"username":"disqus_CgXfkfp5vT","about":"","name":"Spionred","url":"","isAnonymous":false,"rep":1.233058,"profileUrl":"http://disqus.com/disqus_CgXfkfp5vT/","reputation":1.233058,"location":"","isPrivate":false,"isPrimary":true,"joinedAt":"2014-03-02T20:40:28","id":"97069091","avatar":{"small":{"permalink":"http://disqus.com/api/users/avatars/disqus_CgXfkfp5vT.jpg","cache":"//a.disquscdn.com/uploads/users/9706/9091/avatar32.jpg?1396478868"},"isCustom":true,"permalink":"http://disqus.com/api/users/avatars/disqus_CgXfkfp5vT.jpg","cache":"//a.disquscdn.com/uploads/users/9706/9091/avatar92.jpg?1396478868","large":{"permalink":"http://disqus.com/api/users/avatars/disqus_CgXfkfp5vT.jpg","cache":"//a.disquscdn.com/uploads/users/9706/9091/avatar92.jpg?1396478868"}}},"media":[],"isDeleted":false,"isApproved":true,"dislikes":0,"raw_message":"Hi. Great tutorial however my scenario is a little different. In my case I have the IdentityModels.cs file and the ApplicaitonDBContext created by default when starting the project. I am then adding new Models using Code First on an Existing Database which creates a new Context. I have run the migrations using a folder name for each context migration and updated the database as required. Everything work really well when running locally. My issue started when I try to publish to azure. I created two DB Strings to create two new databases, as they are both different locally, and enable code first migration on both. When the app is published only the ApplicationDBContext migration is run so I only get one database. If you have any tops please let me know. Cheers in advance, Kevin.","createdAt":"2014-04-02T22:47:47","id":"1315955616","thread":"2266948742","depth":0,"numReports":0,"likes":0,"isEdited":false,"message":"\u003cp>Hi. Great tutorial however my scenario is a little different. In my case I have the IdentityModels.cs file and the ApplicaitonDBContext created by default when starting the project. I am then adding new Models using Code First on an Existing Database which creates a new Context. I have run the migrations using a folder name for each context migration and updated the database as required. Everything work really well when running locally. My issue started when I try to publish to azure. I created two DB Strings to create two new databases, as they are both different locally, and enable code first migration on both. When the app is published only the ApplicationDBContext migration is run so I only get one database. If you have any tops please let me know. Cheers in advance, Kevin.\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"isFlagged":false,"forum":"dotnet-tricks","parent":null,"author":{"name":"Juan Pelaez","url":"","profileUrl":"","emailHash":"","avatar":{"small":{"permalink":"//a.disquscdn.com/uploads/forums/127/4663/avatar32.jpg?1395335569","cache":"//a.disquscdn.com/uploads/forums/127/4663/avatar32.jpg?1395335569"},"large":{"permalink":"//a.disquscdn.com/uploads/forums/127/4663/avatar92.jpg?1395335569","cache":"//a.disquscdn.com/uploads/forums/127/4663/avatar92.jpg?1395335569"},"permalink":"//a.disquscdn.com/uploads/forums/127/4663/avatar92.jpg?1395335569","cache":"//a.disquscdn.com/uploads/forums/127/4663/avatar92.jpg?1395335569"},"isAnonymous":true},"media":[],"isDeleted":false,"isApproved":true,"dislikes":0,"raw_message":"You Rock!!!, BTW, the same technique can be use to point one assembly with multiple dbcontext to multiples databases.","createdAt":"2014-02-27T05:21:20","id":"1262533028","thread":"2266948742","depth":0,"numReports":0,"likes":0,"isEdited":false,"message":"\u003cp>You Rock!!!, BTW, the same technique can be use to point one assembly with multiple dbcontext to multiples databases.\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"isFlagged":false,"forum":"dotnet-tricks","parent":1262533028,"author":{"username":"shailendrachauhan","about":"Software Analyst & .Net Consultant","name":"Shailendra Chauhan","url":"http://www.dotnet-tricks.com/","isAnonymous":false,"rep":1.299243,"profileUrl":"http://disqus.com/shailendrachauhan/","reputation":1.299243,"location":"Noida Gurgaon Delhi-NCR, India","isPrivate":true,"isPrimary":true,"joinedAt":"2010-03-17T14:33:07","id":"2286455","avatar":{"small":{"permalink":"http://disqus.com/api/users/avatars/shailendrachauhan.jpg","cache":"//a.disquscdn.com/uploads/users/228/6455/avatar32.jpg?1362827437"},"isCustom":true,"permalink":"http://disqus.com/api/users/avatars/shailendrachauhan.jpg","cache":"//a.disquscdn.com/uploads/users/228/6455/avatar92.jpg?1362827437","large":{"permalink":"http://disqus.com/api/users/avatars/shailendrachauhan.jpg","cache":"//a.disquscdn.com/uploads/users/228/6455/avatar92.jpg?1362827437"}}},"media":[],"isDeleted":false,"isApproved":true,"dislikes":0,"raw_message":"Yeah, sure we can do that, since DbContext class requires connection string for migrations","createdAt":"2014-02-27T05:53:21","id":"1262555400","thread":"2266948742","depth":1,"numReports":0,"likes":0,"isEdited":true,"message":"\u003cp>Yeah, sure we can do that, since DbContext class requires connection string for migrations\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"isFlagged":false,"forum":"dotnet-tricks","parent":null,"author":{"name":"andreas","url":"","profileUrl":"","emailHash":"","avatar":{"small":{"permalink":"//a.disquscdn.com/uploads/forums/127/4663/avatar32.jpg?1395335569","cache":"//a.disquscdn.com/uploads/forums/127/4663/avatar32.jpg?1395335569"},"large":{"permalink":"//a.disquscdn.com/uploads/forums/127/4663/avatar92.jpg?1395335569","cache":"//a.disquscdn.com/uploads/forums/127/4663/avatar92.jpg?1395335569"},"permalink":"//a.disquscdn.com/uploads/forums/127/4663/avatar92.jpg?1395335569","cache":"//a.disquscdn.com/uploads/forums/127/4663/avatar92.jpg?1395335569"},"isAnonymous":true},"media":[],"isDeleted":false,"isApproved":true,"dislikes":0,"raw_message":"Great work, thank you!","createdAt":"2014-02-24T09:25:58","id":"1258093264","thread":"2266948742","depth":0,"numReports":0,"likes":0,"isEdited":false,"message":"\u003cp>Great work, thank you!\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"isFlagged":false,"forum":"dotnet-tricks","parent":null,"author":{"username":"fogfree","about":"","name":"fogfree","url":"","isAnonymous":false,"rep":1.2365629999999999,"profileUrl":"http://disqus.com/fogfree/","reputation":1.2365629999999999,"location":"","isPrivate":false,"isPrimary":true,"joinedAt":"2011-02-23T12:23:07","id":"7541732","avatar":{"small":{"permalink":"http://disqus.com/api/users/avatars/fogfree.jpg","cache":"//a.disquscdn.com/uploads/users/754/1732/avatar32.jpg?1399586427"},"isCustom":true,"permalink":"http://disqus.com/api/users/avatars/fogfree.jpg","cache":"//a.disquscdn.com/uploads/users/754/1732/avatar92.jpg?1399586427","large":{"permalink":"http://disqus.com/api/users/avatars/fogfree.jpg","cache":"//a.disquscdn.com/uploads/users/754/1732/avatar92.jpg?1399586427"}}},"media":[],"isDeleted":false,"isApproved":true,"dislikes":0,"raw_message":"This is all very helpful. But now how to get the web.config aligned so that the migration for the second context will run at your production server when you publish?\nI got my second context all working locally and the migration worked fine on the local database. But now I'm publishing and the migration does NOT work on the remote database. The default migration is working though and I've made changes in the Identity system/data using that. It runs on the remote server that I am publishing too.\nI imagine I need a second \u003ccontexts> section under my EF section, with its own \u003cdatabaseInitializer> section.\nBut that includes a public key and all of it is 'generated code' from the default migration.\nHunting for documentation on this....\n\nI was able to just added a second \u003ccontext> in the web.config. But doing that manually does not solve the problem. Each time I create a new migration at the local development copy, when I Publish it wipes out the web.config and replaces it. And of course, it contains only the original \u003ccontext> for migrations.","createdAt":"2014-02-21T15:38:13","id":"1254918044","thread":"2266948742","depth":0,"numReports":0,"likes":0,"isEdited":true,"message":"\u003cp>This is all very helpful. But now how to get the web.config aligned so that the migration for the second context will run at your production server when you publish?\u003cbr>I got my second context all working locally and the migration worked fine on the local database. But now I'm publishing and the migration does NOT work on the remote database. The default migration is working though and I've made changes in the Identity system/data using that. It runs on the remote server that I am publishing too.\u003cbr>I imagine I need a second &lt;contexts&gt; section under my EF section, with its own &lt;databaseinitializer&gt; section.\u003cbr>But that includes a public key and all of it is 'generated code' from the default migration.\u003cbr>Hunting for documentation on this....\u003c/p>\u003cp>I was able to just added a second &lt;context&gt; in the web.config. But doing that manually does not solve the problem. Each time I create a new migration at the local development copy, when I Publish it wipes out the web.config and replaces it. And of course, it contains only the original &lt;context&gt; for migrations.\u003c/p>","isSpam":false,"isHighlighted":false,"points":0}],"thread":{"feed":"https://dotnet-tricks.disqus.com/entity_framework_6_code_first_migrations_with_multiple_data_contexts/latest.rss","uploadAdd":"//dotnet-tricks.disqus.com/thread/entity_framework_6_code_first_migrations_with_multiple_data_contexts/async_media_upload/","identifiers":[],"dislikes":0,"likes":1,"message":"","id":"2266948742","createdAt":"2014-02-14T18:38:34","category":"1299602","clean_title":"Entity Framework 6 Code First Migrations with Multiple Data Contexts","userScore":0,"moderators":[2286455],"isDeleted":false,"hasStreaming":false,"uploadRemove":"//dotnet-tricks.disqus.com/thread/entity_framework_6_code_first_migrations_with_multiple_data_contexts/async_media_remove/","isClosed":false,"link":"http://www.dotnet-tricks.com/Tutorial/entityframework/2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html","slug":"entity_framework_6_code_first_migrations_with_multiple_data_contexts","forum":"dotnet-tricks","author":"2286455","posts":8,"userSubscription":false,"title":"Entity Framework 6 Code First Migrations with Multiple Data Contexts","highlightedPost":null}},"order":"desc"}</script>
+
+    
+
+    <div id="fixed-content"></div>
+
+    <script src="lounge.load.js" id="bootstrap-script" data-app="lounge"></script>
+
+
+<div id="layout" data-tracking-area="layout">
+
+<div id="discovery-top" data-tracking-area="discovery-north"></div>
+
+<div id="onboard" data-tracking-area="onboard"></div>
+
+<div id="highlighted-post" data-tracking-area="highlighted" class="highlighted-post" style="display: none;"></div>
+
+<header id="main-nav" data-tracking-area="main-nav">
+
+<nav class="nav nav-primary">
+<ul>
+<li class="tab-conversation active">
+
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-role="post-count" class="publisher-nav-color" data-nav="conversation">
+
+<span class="comment-count">
+
+8 comments
+
+</span>
+
+
+<span class="comment-count-placeholder">
+Comments
+</span>
+</a>
+</li>
+<li class="tab-community">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" class="publisher-nav-color" data-nav="community" id="community-tab">
+
+
+<span class="community-name">
+
+<strong>Dot Net Tricks</strong>
+
+</span>
+
+
+<strong class="community-name-placeholder">Community</strong>
+</a>
+</li>
+<li class="dropdown user-menu" data-role="logout">
+
+
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" class="dropdown-toggle" data-toggle="dropdown">
+<span class="dropdown-toggle-wrapper">
+
+
+<span>
+Login
+</span>
+
+
+</span> <span class="caret"></span>
+</a>
+
+<ul class="dropdown-menu">
+
+
+
+
+<li>
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="auth:disqus">Disqus</a>
+</li>
+<li>
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="auth:facebook">Facebook</a>
+</li>
+<li>
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="auth:twitter">Twitter</a>
+</li>
+<li>
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="auth:google">Google</a>
+</li>
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="notification-menu" data-role="notification-menu">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" class="notification-container" data-nav="dashboard">
+<span class="notification-icon icon-comment"></span>
+<span class="notification-count" data-role="notification-count"></span>
+</a>
+</li>
+</ul>
+</nav>
+
+</header>
+
+
+
+
+<section id="conversation" data-role="main" data-tracking-area="main">
+
+<div class="nav nav-secondary" data-tracking-area="secondary-nav">
+<ul>
+
+<li data-role="post-sort" class="dropdown sorting">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" class="dropdown-toggle" data-nav="conversation" data-toggle="dropdown">
+
+Sort by Newest
+
+<span class="caret"></span>
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="sort" data-sort="popular">Best<i aria-hidden="true" class="icon-checkmark"></i></a>
+</li>
+
+<li class="selected">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="sort" data-sort="desc">Newest<i aria-hidden="true" class="icon-checkmark"></i></a>
+</li>
+
+<li>
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="sort" data-sort="asc">Oldest<i aria-hidden="true" class="icon-checkmark"></i></a>
+</li>
+</ul>
+</li>
+
+
+<li id="thread-votes" class="favorite pull-right">
+<!-- rendered dynamically -->
+<div class="thread-likes" data-role="vote-button">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="upvote" title="Favorite this discussion">
+<span class="label">Favorite</span>
+<span class="icon-star"></span>
+<span class="icon-check"></span>
+</a>
+</div></li>
+
+<li id="thread-share-menu" class="dropdown share-menu">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" class="dropdown-toggle" data-toggle="dropdown" title="Share">
+<span class="label">Share</span> <span class="icon-export"></span>
+</a>
+<ul class="share-menu dropdown-menu pull-right">
+<li class="share">Share this discussion on
+<ul>
+<li class="twitter">
+<a data-action="share:twitter" href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#">Twitter</a>
+</li>
+<li class="facebook">
+<a data-action="share:facebook" href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#">Facebook</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+<div id="posts">
+
+<div id="form"><form class="reply">
+<div class="alert error" style="display:none" role="alert">
+<a class="close" data-action="dismiss-alert" title="Dismiss">×</a>
+<span></span>
+</div>
+
+<div class="postbox">
+<div class="avatar">
+
+<span class="user">
+<img data-role="user-avatar" src="noavatar92.d1dee965677e7cc8d58afe004a6d8282.png">
+</span>
+
+</div>
+
+<div class="textarea-wrapper" data-role="textarea" dir="auto"><div><span class="placeholder">Join the discussion…</span><div class="textarea" tabindex="-1" role="textbox" aria-multiline="true" contenteditable="true" data-role="editable" aria-label="Join the discussion…" style="overflow: auto; max-height: 350px;"><p><br></p></div><div style="display: none;">
+<ul class="suggestions">
+<li class="header">
+<h5>in this conversation</h5>
+</li>
+</ul>
+</div></div>
+<div data-role="drag-drop-placeholder" class="media-drag-hover" style="display: none">
+<div class="drag-text">
+⬇ Drag and drop your images here to upload them.
+</div>
+</div>
+
+<div class="edit-alert" role="postbox-alert"></div>
+<div class="post-actions">
+<ul class="wysiwyg">
+
+
+</ul>
+
+
+</div>
+</div>
+
+<div data-role="login-form"><div>
+
+<section class="auth-section logged-out">
+<div class="connect">
+<h6>Sign in with</h6>
+
+<ul data-role="login-menu" class="services login-buttons">
+
+
+
+<li class="auth-disqus">
+<button type="button" data-action="auth:disqus" title="Disqus"><i class="icon-disqus"></i></button>
+</li>
+<li class="auth-facebook">
+<button type="button" data-action="auth:facebook" title="Facebook"><i class="icon-facebook-circle"></i></button>
+</li>
+<li class="auth-twitter">
+<button type="button" data-action="auth:twitter" title="Twitter"><i class="icon-twitter-circle"></i></button>
+</li>
+<li class="auth-google">
+<button type="button" data-action="auth:google" title="Google"><i class="icon-google-plus-circle"></i></button>
+</li>
+<li class="auth-signup">
+<button type="button" data-action="auth:disqus" title="Disqus">Sign up for Disqus</button>
+</li>
+</ul>
+
+</div>
+
+<div class="guest">
+<h6 class="guest-form-title">
+
+or pick a name
+
+</h6>
+
+<div class="what-is-disqus help-icon">
+<div id="rules" class="tooltip show">
+<h3>Disqus is a conversation network</h3>
+<ul>
+<li><span>Disqus never moderates or censors. The rules on this community are its own.</span></li>
+<li><span>Your email is safe with us. It's only used for moderation and optional notifications.</span></li>
+<li><span>Don't be a jerk or do anything illegal. Everything is easier that way.</span></li>
+</ul>
+<p class="clearfix"><a href="http://docs.disqus.com/kb/terms-and-policies/" class="btn btn-small" target="_blank">Read full terms and conditions</a></p>
+</div>
+</div>
+
+<p class="input-wrapper">
+<input dir="auto" type="text" placeholder="Name" name="display_name" maxlength="30">
+</p>
+
+<div class="guest-details " data-role="guest-details">
+<p class="input-wrapper">
+<input dir="auto" type="email" placeholder="Email" name="email">
+</p>
+
+<p class="input-wrapper">
+<input dir="auto" type="password" placeholder="Password" name="password">
+</p>
+
+<div class="guest-checkbox">
+<label>
+<input type="checkbox" name="author-guest">
+I'd rather post as guest
+</label>
+</div>
+
+
+</div>
+</div>
+<div class="proceed">
+
+<button type="submit" class="btn submit" aria-label="Post"><span class="icon-proceed"></span></button>
+<button type="submit" class="btn next" aria-label="Next"><span class="icon-proceed"></span></button>
+
+</div>
+
+</section>
+
+
+
+
+</div></div>
+</div>
+</form></div>
+
+<button class="alert realtime" style="display: none;" data-role="realtime-notification">
+
+</button>
+
+
+<div id="no-posts" style="display: none;">Be the first to comment.</div>
+
+<ul id="post-list" class="post-list"><li class="post" id="post-1500201819">
+<div role="alert"></div>
+
+<div data-role="post-content" class="post-content">
+
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+
+<li class="" role="menu">
+
+
+<a class="dropdown-toggle" href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+
+
+</li>
+
+</ul>
+
+<div class="indicator"></div>
+
+
+
+
+<div class="avatar hovercard">
+<a href="http://disqus.com/vesselinobreshkov/" class="user" data-action="profile" data-user="64533918">
+<img data-role="user-avatar" data-user="64533918" src="avatar92.jpg" alt="Avatar">
+</a>
+</div>
+
+
+<div class="post-body">
+<header>
+<span class="post-byline">
+
+<span class="author publisher-anchor-color"><a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="profile" data-user="64533918" data-role="username">Vesselin Obreshkov</a></span>
+
+
+
+
+
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+
+<a href="http://www.dotnet-tricks.com/Tutorial/entityframework/2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html#comment-1500201819" data-role="relative-time" class="time-ago" title="Thursday, July 24, 2014 12:34 AM">a month ago</a>
+
+</span>
+
+
+</header>
+
+
+<div class="post-body-inner">
+
+<div class="post-message-container" data-role="message-container">
+
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+
+<p>Just a quick note, for the second scenario when you specify the project name, you don't seem to also have to specify the migration name as well. It seems to figure out which migration to run when it knows the project.</p>
+
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+
+<menu>
+
+<li class="voting" data-role="voting">
+
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" title="Vote down">
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+
+<span class="tooltip">You must sign in to down-vote this post.</span>
+
+</span>
+
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+
+
+<li class="reply" data-role="reply-link">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="http://www.dotnet-tricks.com/Tutorial/entityframework/2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html#comment-1500201819">Link</a></li>
+</ul>
+</li>
+
+
+
+<li class="realtime" data-role="realtime-notification:1500201819">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" class="btn btn-small"></a>
+
+</li>
+
+
+
+</menu>
+
+</footer>
+</div>
+
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+
+<ul data-role="children" class="children"></ul>
+
+
+</li><li class="post" id="post-1500089838">
+<div role="alert"></div>
+
+<div data-role="post-content" class="post-content">
+
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+
+<li class="" role="menu">
+
+
+<a class="dropdown-toggle" href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+
+
+</li>
+
+</ul>
+
+<div class="indicator"></div>
+
+
+
+
+<div class="avatar hovercard">
+<a href="http://disqus.com/vesselinobreshkov/" class="user" data-action="profile" data-user="64533918">
+<img data-role="user-avatar" data-user="64533918" src="avatar92.jpg" alt="Avatar">
+</a>
+</div>
+
+
+<div class="post-body">
+<header>
+<span class="post-byline">
+
+<span class="author publisher-anchor-color"><a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="profile" data-user="64533918" data-role="username">Vesselin Obreshkov</a></span>
+
+
+
+
+
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+
+<a href="http://www.dotnet-tricks.com/Tutorial/entityframework/2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html#comment-1500089838" data-role="relative-time" class="time-ago" title="Wednesday, July 23, 2014 11:31 PM">a month ago</a>
+
+</span>
+
+
+</header>
+
+
+<div class="post-body-inner">
+
+<div class="post-message-container" data-role="message-container">
+
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+
+<p>Thanks for the simple tutorial. Exactly what I was looking for looking to separate my AspNet Identity context from the rest of my app while having both in the same target database</p>
+
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+
+<menu>
+
+<li class="voting" data-role="voting">
+
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" title="Vote down">
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+
+<span class="tooltip">You must sign in to down-vote this post.</span>
+
+</span>
+
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+
+
+<li class="reply" data-role="reply-link">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="http://www.dotnet-tricks.com/Tutorial/entityframework/2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html#comment-1500089838">Link</a></li>
+</ul>
+</li>
+
+
+
+<li class="realtime" data-role="realtime-notification:1500089838">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" class="btn btn-small"></a>
+
+</li>
+
+
+
+</menu>
+
+</footer>
+</div>
+
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+
+<ul data-role="children" class="children"></ul>
+
+
+</li><li class="post" id="post-1455676519">
+<div role="alert"></div>
+
+<div data-role="post-content" class="post-content">
+
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+
+<li class="" role="menu">
+
+
+<a class="dropdown-toggle" href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+
+
+</li>
+
+</ul>
+
+<div class="indicator"></div>
+
+
+
+
+<div class="avatar">
+
+<div class="user"><img src="avatar92.jpg" class="user" alt="Avatar"></div>
+</div>
+
+
+<div class="post-body">
+<header>
+<span class="post-byline">
+
+<span class="author">Alex</span>
+
+
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+
+<a href="http://www.dotnet-tricks.com/Tutorial/entityframework/2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html#comment-1455676519" data-role="relative-time" class="time-ago" title="Thursday, June 26, 2014 10:31 PM">2 months ago</a>
+
+</span>
+
+
+</header>
+
+
+<div class="post-body-inner">
+
+<div class="post-message-container" data-role="message-container">
+
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+
+<p>Thank you so much! I was stuck trying to figure out how to do this for 2 hours yesterday, and then this tutorial made everything better!</p>
+
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+
+<menu>
+
+<li class="voting" data-role="voting">
+
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" title="Vote down">
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+
+<span class="tooltip">You must sign in to down-vote this post.</span>
+
+</span>
+
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+
+
+<li class="reply" data-role="reply-link">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="http://www.dotnet-tricks.com/Tutorial/entityframework/2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html#comment-1455676519">Link</a></li>
+</ul>
+</li>
+
+
+
+<li class="realtime" data-role="realtime-notification:1455676519">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" class="btn btn-small"></a>
+
+</li>
+
+
+
+</menu>
+
+</footer>
+</div>
+
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+
+<ul data-role="children" class="children"></ul>
+
+
+</li><li class="post" id="post-1315955616">
+<div role="alert"></div>
+
+<div data-role="post-content" class="post-content">
+
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+
+<li class="" role="menu">
+
+
+<a class="dropdown-toggle" href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+
+
+</li>
+
+</ul>
+
+<div class="indicator"></div>
+
+
+
+
+<div class="avatar hovercard">
+<a href="http://disqus.com/disqus_CgXfkfp5vT/" class="user" data-action="profile" data-user="97069091">
+<img data-role="user-avatar" data-user="97069091" src="avatar92.jpg" alt="Avatar">
+</a>
+</div>
+
+
+<div class="post-body">
+<header>
+<span class="post-byline">
+
+<span class="author publisher-anchor-color"><a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="profile" data-user="97069091" data-role="username">Spionred</a></span>
+
+
+
+
+
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+
+<a href="http://www.dotnet-tricks.com/Tutorial/entityframework/2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html#comment-1315955616" data-role="relative-time" class="time-ago" title="Thursday, April 3, 2014 4:47 AM">5 months ago</a>
+
+</span>
+
+
+</header>
+
+
+<div class="post-body-inner">
+
+<div class="post-message-container" data-role="message-container">
+
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+
+<p>Hi. Great tutorial however my scenario is a little different. In my case I have the IdentityModels.cs file and the ApplicaitonDBContext created by default when starting the project. I am then adding new Models using Code First on an Existing Database which creates a new Context. I have run the migrations using a folder name for each context migration and updated the database as required. Everything work really well when running locally. My issue started when I try to publish to azure. I created two DB Strings to create two new databases, as they are both different locally, and enable code first migration on both. When the app is published only the ApplicationDBContext migration is run so I only get one database. If you have any tops please let me know. Cheers in advance, Kevin.</p>
+
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+
+<menu>
+
+<li class="voting" data-role="voting">
+
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" title="Vote down">
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+
+<span class="tooltip">You must sign in to down-vote this post.</span>
+
+</span>
+
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+
+
+<li class="reply" data-role="reply-link">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="http://www.dotnet-tricks.com/Tutorial/entityframework/2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html#comment-1315955616">Link</a></li>
+</ul>
+</li>
+
+
+
+<li class="realtime" data-role="realtime-notification:1315955616">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" class="btn btn-small"></a>
+
+</li>
+
+
+
+</menu>
+
+</footer>
+</div>
+
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+
+<ul data-role="children" class="children"></ul>
+
+
+</li><li class="post" id="post-1262533028">
+<div role="alert"></div>
+
+<div data-role="post-content" class="post-content">
+
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+
+<li class="" role="menu">
+
+
+<a class="dropdown-toggle" href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+
+
+</li>
+
+</ul>
+
+<div class="indicator"></div>
+
+
+
+
+<div class="avatar">
+
+<div class="user"><img src="avatar92.jpg" class="user" alt="Avatar"></div>
+</div>
+
+
+<div class="post-body">
+<header>
+<span class="post-byline">
+
+<span class="author">Juan Pelaez</span>
+
+
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+
+<a href="http://www.dotnet-tricks.com/Tutorial/entityframework/2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html#comment-1262533028" data-role="relative-time" class="time-ago" title="Thursday, February 27, 2014 11:21 AM">6 months ago</a>
+
+</span>
+
+
+</header>
+
+
+<div class="post-body-inner">
+
+<div class="post-message-container" data-role="message-container">
+
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+
+<p>You Rock!!!, BTW, the same technique can be use to point one assembly with multiple dbcontext to multiples databases.</p>
+
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+
+<menu>
+
+<li class="voting" data-role="voting">
+
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" title="Vote down">
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+
+<span class="tooltip">You must sign in to down-vote this post.</span>
+
+</span>
+
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+
+
+<li class="reply" data-role="reply-link">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="http://www.dotnet-tricks.com/Tutorial/entityframework/2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html#comment-1262533028">Link</a></li>
+</ul>
+</li>
+
+
+
+<li class="realtime" data-role="realtime-notification:1262533028">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" class="btn btn-small"></a>
+
+</li>
+
+
+
+</menu>
+
+</footer>
+</div>
+
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+
+<ul data-role="children" class="children"><li class="post" id="post-1262555400">
+<div role="alert"></div>
+
+<div data-role="post-content" class="post-content">
+
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+
+<li class="" role="menu">
+
+
+<a class="dropdown-toggle" href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+
+
+</li>
+
+</ul>
+
+<div class="indicator"></div>
+
+
+
+
+<div class="avatar hovercard">
+<a href="http://disqus.com/shailendrachauhan/" class="user" data-action="profile" data-user="2286455">
+<img data-role="user-avatar" data-user="2286455" src="avatar92.jpg" alt="Avatar">
+</a>
+</div>
+
+
+<div class="post-body">
+<header>
+<span class="post-byline">
+
+<span class="author publisher-anchor-color"><a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="profile" data-user="2286455" data-role="username">Shailendra Chauhan</a></span>
+
+
+<span class="badge moderator">Dot Net Tricks</span>
+
+
+
+
+
+<span><a href="http://www.dotnet-tricks.com/Tutorial/entityframework/2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html#comment-1262533028" class="parent-link" data-role="parent-link"><i aria-hidden="true" class="icon-forward" title="in reply to"></i> Juan Pelaez</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+
+<a href="http://www.dotnet-tricks.com/Tutorial/entityframework/2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html#comment-1262555400" data-role="relative-time" class="time-ago" title="Thursday, February 27, 2014 11:53 AM">6 months ago</a>
+
+</span>
+
+
+</header>
+
+
+<div class="post-body-inner">
+
+<div class="post-message-container" data-role="message-container">
+
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+
+<p>Yeah, sure we can do that, since DbContext class requires connection string for migrations</p>
+
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+
+<menu>
+
+<li class="voting" data-role="voting">
+
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" title="Vote down">
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+
+<span class="tooltip">You must sign in to down-vote this post.</span>
+
+</span>
+
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+
+
+<li class="reply" data-role="reply-link">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="http://www.dotnet-tricks.com/Tutorial/entityframework/2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html#comment-1262555400">Link</a></li>
+</ul>
+</li>
+
+
+
+<li class="realtime" data-role="realtime-notification:1262555400">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" class="btn btn-small"></a>
+
+</li>
+
+
+
+</menu>
+
+</footer>
+</div>
+
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+
+<ul data-role="children" class="children"></ul>
+
+
+</li></ul>
+
+
+</li><li class="post" id="post-1258093264">
+<div role="alert"></div>
+
+<div data-role="post-content" class="post-content">
+
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+
+<li class="" role="menu">
+
+
+<a class="dropdown-toggle" href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+
+
+</li>
+
+</ul>
+
+<div class="indicator"></div>
+
+
+
+
+<div class="avatar">
+
+<div class="user"><img src="avatar92.jpg" class="user" alt="Avatar"></div>
+</div>
+
+
+<div class="post-body">
+<header>
+<span class="post-byline">
+
+<span class="author">andreas</span>
+
+
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+
+<a href="http://www.dotnet-tricks.com/Tutorial/entityframework/2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html#comment-1258093264" data-role="relative-time" class="time-ago" title="Monday, February 24, 2014 3:25 PM">6 months ago</a>
+
+</span>
+
+
+</header>
+
+
+<div class="post-body-inner">
+
+<div class="post-message-container" data-role="message-container">
+
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+
+<p>Great work, thank you!</p>
+
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+
+<menu>
+
+<li class="voting" data-role="voting">
+
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" title="Vote down">
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+
+<span class="tooltip">You must sign in to down-vote this post.</span>
+
+</span>
+
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+
+
+<li class="reply" data-role="reply-link">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="http://www.dotnet-tricks.com/Tutorial/entityframework/2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html#comment-1258093264">Link</a></li>
+</ul>
+</li>
+
+
+
+<li class="realtime" data-role="realtime-notification:1258093264">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" class="btn btn-small"></a>
+
+</li>
+
+
+
+</menu>
+
+</footer>
+</div>
+
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+
+<ul data-role="children" class="children"></ul>
+
+
+</li><li class="post" id="post-1254918044">
+<div role="alert"></div>
+
+<div data-role="post-content" class="post-content">
+
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+
+<li class="" role="menu">
+
+
+<a class="dropdown-toggle" href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+
+
+</li>
+
+</ul>
+
+<div class="indicator"></div>
+
+
+
+
+<div class="avatar hovercard">
+<a href="http://disqus.com/fogfree/" class="user" data-action="profile" data-user="7541732">
+<img data-role="user-avatar" data-user="7541732" src="avatar92.jpg" alt="Avatar">
+</a>
+</div>
+
+
+<div class="post-body">
+<header>
+<span class="post-byline">
+
+<span class="author publisher-anchor-color"><a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="profile" data-user="7541732" data-role="username">fogfree</a></span>
+
+
+
+
+
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+
+<a href="http://www.dotnet-tricks.com/Tutorial/entityframework/2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html#comment-1254918044" data-role="relative-time" class="time-ago" title="Friday, February 21, 2014 9:38 PM">6 months ago</a>
+
+</span>
+
+
+</header>
+
+
+<div class="post-body-inner">
+
+<div class="post-message-container" data-role="message-container">
+
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+
+<p>This is all very helpful. But now how to get the web.config aligned so that the migration for the second context will run at your production server when you publish?<br>I got my second context all working locally and the migration worked fine on the local database. But now I'm publishing and the migration does NOT work on the remote database. The default migration is working though and I've made changes in the Identity system/data using that. It runs on the remote server that I am publishing too.<br>I imagine I need a second &lt;contexts&gt; section under my EF section, with its own &lt;databaseinitializer&gt; section.<br>But that includes a public key and all of it is 'generated code' from the default migration.<br>Hunting for documentation on this....</p><p>I was able to just added a second &lt;context&gt; in the web.config. But doing that manually does not solve the problem. Each time I create a new migration at the local development copy, when I Publish it wipes out the web.config and replaces it. And of course, it contains only the original &lt;context&gt; for migrations.</p>
+
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+
+<menu>
+
+<li class="voting" data-role="voting">
+
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" title="Vote down">
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+
+<span class="tooltip">You must sign in to down-vote this post.</span>
+
+</span>
+
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+
+
+<li class="reply" data-role="reply-link">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="http://www.dotnet-tricks.com/Tutorial/entityframework/2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html#comment-1254918044">Link</a></li>
+</ul>
+</li>
+
+
+
+<li class="realtime" data-role="realtime-notification:1254918044">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" class="btn btn-small"></a>
+
+</li>
+
+
+
+</menu>
+
+</footer>
+</div>
+
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+
+<ul data-role="children" class="children"></ul>
+
+
+</li></ul>
+
+<div class="load-more" data-role="more" style="display: none;">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="more-posts" class="btn">Load more comments</a>
+</div>
+</div>
+
+</section>
+
+<section id="community" data-tracking-area="main" style="display:none" data-role="main" data-outbound-link="embed:community">
+
+</section>
+
+<section id="dashboard" style="display:none" data-role="main" data-tracking-area="main">
+
+
+<p style="line-height: 1.4">Nothing for you here ... yet. But as you comment with Disqus and follow
+other Disqus users, you will start to receive notifications here, as well as a personalized
+feed of activity by you and the people you follow. So get out there and participate in
+some discussions!</p>
+</section>
+
+<section id="profile" style="display:none" data-role="main" data-tracking-area="main">
+</section>
+
+<div id="discovery" data-tracking-area="discovery-south" style="position: static; visibility: visible; display: block; width: 100%;">
+<div id="discovery-main-c227" class="discovery-main style-variant-default">
+<div id="discovery-note" class="discovery-note">
+
+<div class="alert">
+<button class="close" data-action="discovery-help-close" title="Close this box">×</button>
+Disqus helps you find new and interesting content, discussions and products. Some sponsors and ecommerce sites may pay us for these recommendations and links. 
+<a href="http://help.disqus.com/customer/portal/articles/666278-introducing-promoted-discovery-and-f-a-q-" target="_blank">Learn more</a>
+ or 
+<a href="https://www.surveymonkey.com/s/GHK872T" target="_blank">
+give us feedback</a>.
+
+</div>
+
+</div>
+
+<div class="discovery-options">
+<button class="discovery-help" data-action="discovery-help">
+What's this?
+</button>
+</div>
+
+
+
+<section id="col-organic-c227" class="col-organic discovery-col-0 ">
+<header class="discovery-col-header">
+
+
+<h2>Also on 
+<strong>Dot Net Tricks</strong>
+</h2>
+
+
+
+
+</header>
+<ul class="discovery-posts">
+
+<li class="discovery-post post-0" id="discovery-link-organic-2850677272" data-role="discovery-post" style="margin-bottom: 29.5px;">
+<a href="http://redirect.disqus.com/url?url=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Flinq%2FO1H1170714-Understanding-LINQ-Standard-Query-Operators.html%3AnZy4ZgLlRkszPaG_bLHwqyFR7Nw&imp=91iemu02sofuui&prev_imp&forum_id=1274663&forum=dotnet-tricks&thread_id=2266948742&major_version=metadata&thread=2850677272&zone=internal_discovery" class="publisher-anchor-color">
+
+
+<header class="discovery-post-header">
+<h3 title="Understanding LINQ Standard Query Operators">
+<span data-role="discovery-thread-title" class="title line-truncate" data-line-truncate="2">
+Understanding LINQ Standard Query Operators
+</span>
+
+
+
+</h3>
+
+
+<ul class="meta">
+
+<li class="comments">
+
+
+2 comments
+
+
+</li>
+
+
+<li class="time">2 months ago</li>
+
+</ul>
+
+</header>
+
+
+
+</a><a href="http://redirect.disqus.com/url?url=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Flinq%2FO1H1170714-Understanding-LINQ-Standard-Query-Operators.html%3AnZy4ZgLlRkszPaG_bLHwqyFR7Nw&imp=91iemu02sofuui&prev_imp&forum_id=1274663&forum=dotnet-tricks&thread_id=2266948742&major_version=metadata&thread=2850677272&zone=internal_discovery" class="top-comment" data-role="discovery-top-comment">
+<img alt="Avatar" data-role="discovery-avatar">
+<p><span class="user" data-role="discovery-top-comment-author">mvc starter</span> — <span data-role="discovery-top-comment-snippet" class="line-truncate" data-line-truncate="3"> i am using mvc... and for deleting entity controller code is like public ActionResult DeleteConfirmed(string id)        {            classname seis = …</span></p>
+</a>
+
+
+
+
+</li>
+
+<li class="discovery-post post-1" id="discovery-link-organic-2733587635" data-role="discovery-post" style="clear: right;">
+<a href="http://redirect.disqus.com/url?url=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Flinq%2FaKQY030614-Comparing-LINQ-with-Stored-Procedure.html%3Auscy_PV-l0YR8XZRbCU1hpK8Wt0&imp=91iemu02sofuui&prev_imp&forum_id=1274663&forum=dotnet-tricks&thread_id=2266948742&major_version=metadata&thread=2733587635&zone=internal_discovery" class="publisher-anchor-color">
+
+
+<header class="discovery-post-header">
+<h3 title="Comparing LINQ with Stored Procedure">
+<span data-role="discovery-thread-title" class="title line-truncate" data-line-truncate="2">
+Comparing LINQ with Stored Procedure
+</span>
+
+
+
+</h3>
+
+
+<ul class="meta">
+
+<li class="comments">
+
+
+2 comments
+
+
+</li>
+
+
+<li class="time">3 months ago</li>
+
+</ul>
+
+</header>
+
+
+
+</a><a href="http://redirect.disqus.com/url?url=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Flinq%2FaKQY030614-Comparing-LINQ-with-Stored-Procedure.html%3Auscy_PV-l0YR8XZRbCU1hpK8Wt0&imp=91iemu02sofuui&prev_imp&forum_id=1274663&forum=dotnet-tricks&thread_id=2266948742&major_version=metadata&thread=2733587635&zone=internal_discovery" class="top-comment" data-role="discovery-top-comment">
+<img alt="Avatar" data-role="discovery-avatar">
+<p><span class="user" data-role="discovery-top-comment-author">mukesh</span> — <span data-role="discovery-top-comment-snippet" class="line-truncate" data-line-truncate="3">sr i m  learner of MVC 3.0 .  who is best for using With MVC . please give me guideline.</span></p>
+</a>
+
+
+
+
+</li>
+
+<li class="discovery-post post-2" id="discovery-link-organic-2577473138" data-role="discovery-post" style="margin-bottom: 29.5px;">
+<a href="http://redirect.disqus.com/url?url=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fbackbone%2FR2T3010414-What-is-Backbone.js-and-why-to-use-it%3F.html%3AL_rL7Gbx3Yj7Q13VNDD7A2fvfZs&imp=91iemu02sofuui&prev_imp&forum_id=1274663&forum=dotnet-tricks&thread_id=2266948742&major_version=metadata&thread=2577473138&zone=internal_discovery" class="publisher-anchor-color">
+
+
+<header class="discovery-post-header">
+<h3 title="What is Backbone.js and why to use it?">
+<span data-role="discovery-thread-title" class="title line-truncate" data-line-truncate="2">
+What is Backbone.js and why to use it?
+</span>
+
+
+
+</h3>
+
+
+<ul class="meta">
+
+<li class="comments">
+
+
+4 comments
+
+
+</li>
+
+
+<li class="time">5 months ago</li>
+
+</ul>
+
+</header>
+
+
+
+</a><a href="http://redirect.disqus.com/url?url=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fbackbone%2FR2T3010414-What-is-Backbone.js-and-why-to-use-it%3F.html%3AL_rL7Gbx3Yj7Q13VNDD7A2fvfZs&imp=91iemu02sofuui&prev_imp&forum_id=1274663&forum=dotnet-tricks&thread_id=2266948742&major_version=metadata&thread=2577473138&zone=internal_discovery" class="top-comment" data-role="discovery-top-comment">
+<img alt="Avatar" data-role="discovery-avatar">
+<p><span class="user" data-role="discovery-top-comment-author">عمیر حفیظ مغل</span> — <span data-role="discovery-top-comment-snippet" class="line-truncate" data-line-truncate="3">Waiting for the next article with some working example and hands on practice :-)</span></p>
+</a>
+
+
+
+
+</li>
+
+<li class="discovery-post post-3" id="discovery-link-organic-2551048435" data-role="discovery-post" style="clear: right;">
+<a href="http://redirect.disqus.com/url?url=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F1M5W300314-Difference-between-LINQ-to-SQL-and-Entity-Framework.html%3AXNkGI6tFQXFAsbAoSYP-1xL15DM&imp=91iemu02sofuui&prev_imp&forum_id=1274663&forum=dotnet-tricks&thread_id=2266948742&major_version=metadata&thread=2551048435&zone=internal_discovery" class="publisher-anchor-color">
+
+
+<header class="discovery-post-header">
+<h3 title="Difference between LINQ to SQL and Entity Framework">
+<span data-role="discovery-thread-title" class="title line-truncate" data-line-truncate="2">
+Difference between LINQ to SQL and Entity Framework
+</span>
+
+
+
+</h3>
+
+
+<ul class="meta">
+
+<li class="comments">
+
+
+4 comments
+
+
+</li>
+
+
+<li class="time">5 months ago</li>
+
+</ul>
+
+</header>
+
+
+
+</a><a href="http://redirect.disqus.com/url?url=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F1M5W300314-Difference-between-LINQ-to-SQL-and-Entity-Framework.html%3AXNkGI6tFQXFAsbAoSYP-1xL15DM&imp=91iemu02sofuui&prev_imp&forum_id=1274663&forum=dotnet-tricks&thread_id=2266948742&major_version=metadata&thread=2551048435&zone=internal_discovery" class="top-comment" data-role="discovery-top-comment">
+<img alt="Avatar" data-role="discovery-avatar">
+<p><span class="user" data-role="discovery-top-comment-author">Shailendra Chauhan</span> — <span data-role="discovery-top-comment-snippet" class="line-truncate" data-line-truncate="3"> Thanks McNulty for your feedback. I agree with your first point. I have updated the article and elaborate the point …</span></p>
+</a>
+
+
+
+
+</li>
+
+</ul>
+</section>
+
+
+</div>
+</div>
+
+<div id="footer" data-tracking-area="footer">
+<ul>
+<li class="logo"><a href="http://disqus.com/" title="Powered by Disqus">Powered by Disqus</a></li>
+<li id="thread-subscribe-button" class="email"> 
+<div class="default">
+<a href="http://disqus.com/embed/comments/?base=default&disqus_version=520edd9f&f=dotnet-tricks&t_u=http%3A%2F%2Fwww.dotnet-tricks.com%2FTutorial%2Fentityframework%2F2VOa140214-Entity-Framework-6-Code-First-Migrations-with-Multiple-Data-Contexts.html&t_d=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&t_t=Entity%20Framework%206%20Code%20First%20Migrations%20with%20Multiple%20Data%20Contexts&s_o=default#" data-action="subscribe" title="Subscribe and get email updates from this discussion"><i aria-hidden="true" class="icon-mail"></i><span class="clip">Subscribe</span> <i aria-hidden="true" class="icon-checkmark"></i></a>
+</div>
+<div class="form">
+<div class="input-wrapper"><input id="thread-subscribe-email" type="email" placeholder="yourname@email.com"></div>
+</div>
+</li>
+<li class="install">
+<a href="https://disqus.com/websites/?utm_source=dotnet-tricks&utm_medium=Disqus-Footer" target="_blank">
+<i aria-hidden="true" class="icon-disqus"></i>
+<span class="clip">Add Disqus to your site</span>
+</a>
+</li>
+
+</ul>
+</div>
+</div></body></html>

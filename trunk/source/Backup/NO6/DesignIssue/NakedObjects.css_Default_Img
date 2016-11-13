@@ -1,0 +1,21 @@
+
+NakedObjects.css
+
+/*.nof-tab img removed command separated from here*/
+.nof-tab a, .nof-tab form
+{
+    float: left;
+    padding-top: 10px;
+    
+}
+.nof-tab img
+{
+    float: left;
+    padding-top: 10px;
+    display : none;
+}
+
+.nof-collection-table table .nof-object img {
+display: none;
+}
+
