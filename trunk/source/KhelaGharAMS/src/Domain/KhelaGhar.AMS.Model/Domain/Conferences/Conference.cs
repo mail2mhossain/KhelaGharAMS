@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static KhelaGhar.AMS.Model.Domain.Committees.Committee;
+using static KhelaGhar.AMS.Model.Domain.Conferences.ConferenceDelegate;
 
 namespace KhelaGhar.AMS.Model.Domain.Conferences
 {
@@ -56,17 +57,17 @@ namespace KhelaGhar.AMS.Model.Domain.Conferences
 		#region Primitive Properties
 		[Key, NakedObjectsIgnore]
 		public virtual long ConferenceId { get; set; }
-		[MemberOrder(10)]
-		[Required, Mask("d")]
-		public virtual DateTime StartDate { get; set; }
 		[MemberOrder(20)]
 		[Required, Mask("d")]
-		public virtual DateTime EndDate { get; set; }
+		public virtual DateTime StartDate { get; set; }
 		[MemberOrder(30)]
+		[Required, Mask("d")]
+		public virtual DateTime EndDate { get; set; }
+		[MemberOrder(40)]
 		[DisplayName("Slogan"), Optionally]
 		[MaxLength(250)]
 		public virtual string Slogan { get; set; }
-		[MemberOrder(40)]
+		[MemberOrder(50)]
 		[DisplayName("Location"), Optionally]
 		[MaxLength(250)]
 		public virtual string Location { get; set; }
@@ -86,31 +87,70 @@ namespace KhelaGhar.AMS.Model.Domain.Conferences
 		[MemberOrder(70), NotMapped]
 		[DisplayName("প্রতিনিধি")]
 		//[Eagerly(EagerlyAttribute.Do.Rendering)]
-		[TableView(false, "Worker", "Asar")]
+		[TableView(false, "Worker", "DelegateFee","Asar")]
 		public IList<ConferenceDelegate> Delegates
 		{
 			get
 			{
-				return Container.Instances<ConferenceDelegate>().Where(w => w.Conference.ConferenceId == this.ConferenceId && w.IsObserver == false).OrderBy(o => o.Worker.Name).ToList();
+				return Container.Instances<ConferenceDelegate>().Where(w => w.Conference.ConferenceId == this.ConferenceId && w.DelegateType == TypeOfDeletegate.প্রতিনিধি).OrderBy(o => o.Worker.Name).ToList();
 			}
 		}
 
 		[MemberOrder(80), NotMapped]
 		[DisplayName("পর্যবেক্ষক")]
 		//[Eagerly(EagerlyAttribute.Do.Rendering)]
-		[TableView(false, "Worker", "Asar")]
+		[TableView(false, "Worker", "DelegateFee","Asar")]
 		public IList<ConferenceDelegate> ObserverDelegate
 		{
 			get
 			{
-				return Container.Instances<ConferenceDelegate>().Where(w => w.Conference.ConferenceId == this.ConferenceId && w.IsObserver == true).OrderBy(o => o.Worker.Name).ToList();
+				return Container.Instances<ConferenceDelegate>().Where(w => w.Conference.ConferenceId == this.ConferenceId && w.DelegateType == TypeOfDeletegate.পর্যবেক্ষক).OrderBy(o => o.Worker.Name).ToList();
 			}
 		}
-		#endregion
 
-		#region Complex Properties
-		#region AuditFields (AuditFields)
-		private AuditFields _auditFields = new AuditFields();
+        [MemberOrder(80), NotMapped]
+        [DisplayName("শাখা আসর")]
+        //[Eagerly(EagerlyAttribute.Do.Rendering)]
+        [TableView(false, "Name", "CommitteeType", "AsarStatus")]
+        public IList<Asar> ShakaAsars
+        {
+            get
+            {
+                IList<Asar> asars = Container.Instances<ConferenceDelegate>().Where(w => w.Conference.ConferenceId == this.ConferenceId && w.Worker.Asar is ShakhaAsar).Select(s=>s.Worker.Asar).OrderBy(o => o.Name).Distinct().ToList();
+                return asars;
+            }
+        }
+
+        [MemberOrder(90), NotMapped]
+        [DisplayName("উপজেলা আসর")]
+        //[Eagerly(EagerlyAttribute.Do.Rendering)]
+        [TableView(false, "Name", "CommitteeType")]
+        public IList<Asar> UpojelaAsars
+        {
+            get
+            {
+                IList<Asar> asars = Container.Instances<ConferenceDelegate>().Where(w => w.Conference.ConferenceId == this.ConferenceId && w.Worker.Asar is UpojelaAsar).Select(s => s.Worker.Asar).OrderBy(o => o.Name).Distinct().ToList();
+                return asars;
+            }
+        }
+
+        [MemberOrder(100), NotMapped]
+        [DisplayName("জেলা আসর")]
+        //[Eagerly(EagerlyAttribute.Do.Rendering)]
+        [TableView(false, "Name", "CommitteeType")]
+        public IList<Asar> JelaAsars
+        {
+            get
+            {
+                IList<Asar> asars = Container.Instances<ConferenceDelegate>().Where(w => w.Conference.ConferenceId == this.ConferenceId && w.Worker.Asar is JelaAsar).Select(s => s.Worker.Asar).OrderBy(o => o.Name).Distinct().ToList();
+                return asars;
+            }
+        }
+        #endregion
+
+        #region Complex Properties
+        #region AuditFields (AuditFields)
+        private AuditFields _auditFields = new AuditFields();
 
 		[MemberOrder(250)]
 		[Required]
@@ -134,7 +174,7 @@ namespace KhelaGhar.AMS.Model.Domain.Conferences
 
 		#region Navigation Properties
 		
-		[MemberOrder(50), Required]
+		[MemberOrder(10), Required]
 		[DisplayName("আসর")]
 		public virtual Asar Asar { get; set; }
 		#endregion
@@ -163,11 +203,12 @@ namespace KhelaGhar.AMS.Model.Domain.Conferences
 		#endregion
 
 		#region Add Delegate
-		public void AddDelegate (Worker worker, bool isObserver)
+		public void AddDelegate (Worker worker, decimal delegateFee, TypeOfDeletegate delegateType)
 		{
 			ConferenceDelegate confDelegate = Container.NewTransientInstance<ConferenceDelegate>();
 			confDelegate.Worker = worker;
-			confDelegate.IsObserver = isObserver;
+            confDelegate.DelegateFee = delegateFee;
+			confDelegate.DelegateType = delegateType;
 			confDelegate.Conference = this;
 			Container.Persist(ref confDelegate);
 		}
@@ -175,7 +216,10 @@ namespace KhelaGhar.AMS.Model.Domain.Conferences
 		[PageSize(10)]
 		public IQueryable<Worker> AutoComplete0AddDelegate ([MinLength(1)] string name)
 		{
-			return Container.Instances<Worker>().Where(w => w.Name.Contains(name) && w.Asar.AsarId == this.Asar.AsarId).OrderBy(o => o.Name);
+            if(this.Asar is KendrioAsar)
+                return Container.Instances<Worker>().Where(w => w.Name.Contains(name)).OrderBy(o => o.Name);
+
+            return Container.Instances<Worker>().Where(w => w.Name.Contains(name) && w.Asar.AsarId == this.Asar.AsarId).OrderBy(o => o.Name);
 		}
 		#endregion
 

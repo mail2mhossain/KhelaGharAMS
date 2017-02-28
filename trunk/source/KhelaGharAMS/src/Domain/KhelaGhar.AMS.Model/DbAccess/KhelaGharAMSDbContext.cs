@@ -51,11 +51,12 @@ namespace KhelaGhar.AMS.Model.DbAccess
 
 		protected override void OnModelCreating (DbModelBuilder modelBuilder)
 		{
-			//Initialisation
-			//Use the Naked Objects > DbInitialiser template to add an initialiser, then reference thus:
-			//Database.SetInitializer(new DropCreateDatabaseIfModelChanges<KhelaGharAMSDbContext>());
-			Database.SetInitializer(new KhelaGharAMSDbInitialiser());
-			modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            //Initialisation
+            //Use the Naked Objects > DbInitialiser template to add an initialiser, then reference thus:
+            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<KhelaGharAMSDbContext>());
+            //Database.SetInitializer(new KhelaGharAMSDbInitialiser());
+            Database.SetInitializer<KhelaGharAMSDbContext>(null);
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 			//Mappings
 			//Use the Naked Objects > DbMapping template to create mapping classes & reference them thus:
 			//modelBuilder.Configurations.Add(new EmployeeMapping());
