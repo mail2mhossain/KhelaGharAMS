@@ -200,10 +200,19 @@ namespace KhelaGhar.AMS.Model.Domain.Conferences
 			}
 			return committee;
 		}
-		#endregion
 
-		#region Add Delegate
-		public void AddDelegate (Worker worker, decimal delegateFee, string receiptNo, TypeOfDeletegate delegateType)
+        public bool HideCreateFullCommittee ()
+        {
+            Conference conference = Container.Instances<Conference>().OrderByDescending(o => o.EndDate).FirstOrDefault();
+
+            if (conference.ConferenceId != this.ConferenceId)
+                return true;
+            return false;
+        }
+        #endregion
+
+        #region Add Delegate
+        public void AddDelegate (Worker worker, decimal delegateFee, string receiptNo, TypeOfDeletegate delegateType)
 		{
 			ConferenceDelegate confDelegate = Container.NewTransientInstance<ConferenceDelegate>();
 			confDelegate.Worker = worker;
@@ -222,9 +231,18 @@ namespace KhelaGhar.AMS.Model.Domain.Conferences
 
             return Container.Instances<Worker>().Where(w => w.Name.Contains(name) && w.Asar.AsarId == this.Asar.AsarId).OrderBy(o => o.Name);
 		}
-		#endregion
 
-		private Committee GetCurrentCommittee ()
+        public bool HideAddDelegate ()
+        {
+            Conference conference = Container.Instances<Conference>().OrderByDescending(o => o.EndDate).FirstOrDefault();
+
+            if (conference.ConferenceId != this.ConferenceId)
+                return true;
+            return false;
+        }
+        #endregion
+
+        private Committee GetCurrentCommittee ()
 		{
 			Committee committee = Container.Instances<Committee>().Where(w => w.Asar.AsarId == this.Asar.AsarId && w.DateOfExpiration == null).FirstOrDefault();
 

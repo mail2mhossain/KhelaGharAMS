@@ -149,7 +149,11 @@ namespace KhelaGhar.AMS.Model.Domain.Asars
 		#endregion
 		public static void Menu (IMenu menu)
 		{
-			IMenu sub = menu.CreateSubMenu("সম্মেলন");
+            IMenu sub = menu.CreateSubMenu("কর্মী");
+            sub.AddAction("AddWorker");
+            sub.AddAction("ShowAllWorkers");
+
+            sub = menu.CreateSubMenu("সম্মেলন");
 			sub.AddAction("NewConference");
 			sub.AddAction("ShowAllConferences");
 		}

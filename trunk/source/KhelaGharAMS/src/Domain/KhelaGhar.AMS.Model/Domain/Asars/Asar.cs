@@ -225,5 +225,4 @@ namespace KhelaGhar.AMS.Model.Domain.Asars
 		}
 		#endregion
 	}
-
 }

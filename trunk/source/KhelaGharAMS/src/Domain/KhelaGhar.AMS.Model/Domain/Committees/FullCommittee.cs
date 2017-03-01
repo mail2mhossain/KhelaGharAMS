@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace KhelaGhar.AMS.Model.Domain.Committees
-    {
+{
     [DisplayName("পূর্ণাঙ্গ কমিটি")]
-    public class FullCommittee: Committee 
-        {
-        }
+    public class FullCommittee : Committee
+    {
     }
+}
