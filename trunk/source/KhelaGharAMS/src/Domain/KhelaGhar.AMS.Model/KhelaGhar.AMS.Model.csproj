@@ -98,7 +98,9 @@
     <Compile Include="Domain\Features\FeatureType.cs" />
     <Compile Include="Domain\Features\RoleFeatures.cs" />
     <Compile Include="Domain\Members\Member.cs" />
+    <Compile Include="Domain\Shared\Address.cs" />
     <Compile Include="Domain\Shared\AuditFields.cs" />
+    <Compile Include="Domain\UserAccounts\User.cs" />
     <Compile Include="Domain\Workers\Worker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AsarRepository.cs" />
@@ -111,6 +113,7 @@
     <Compile Include="Domain\UserAccounts\UserClaims.cs" />
     <Compile Include="Domain\UserAccounts\UserLogins.cs" />
     <Compile Include="Domain\UserAccounts\UserRoles.cs" />
+    <Compile Include="Repository\UserAccountRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

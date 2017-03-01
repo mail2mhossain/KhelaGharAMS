@@ -48,21 +48,20 @@ namespace KhelaGhar.AMS.Model.Domain.Features
 		{
 			AddLoginUser = 1,
 			ShowAllUsers = 2,
-
 			AddRole = 3,
 			EditRole = 4,
 			ShowAllRoles = 5,
-
 			AddFeatures = 6,
 			RemoveFeatures = 7,
-
 			AssignRoleToUser = 8,
-
 			ChangePassword = 9,
-
-			ShowAllFeatureTypes = 10
-
-		}
+			ShowAllFeatureTypes = 10,
+            AddAddress = 11,
+            EditAddress = 12,
+            AddUser = 13,
+            EditUser = 14,
+            ShowFeatures = 15
+        }
 		public enum SetupFeatureEnum
 		{
 			CreateDesignation = 1,

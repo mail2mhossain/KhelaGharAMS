@@ -112,24 +112,28 @@ namespace KhelaGharAMS
 			//return new ProfileConfiguration<MyProfiler>() { EventsToProfile = events };
 		}
 
-		/// <summary>
-		/// Return an array of IMenus (obtained via the factory, then configured) to
-		/// specify the Main Menus for the application. If none are returned then
-		/// the Main Menus will be derived automatically from the Services.
-		/// </summary>
-		public static IMenu[] MainMenus (IMenuFactory factory)
-		{
-			var setupMenu = factory.NewMenu<SetupRepository>();
-			SetupRepository.Menu(setupMenu);
+        /// <summary>
+        /// Return an array of IMenus (obtained via the factory, then configured) to
+        /// specify the Main Menus for the application. If none are returned then
+        /// the Main Menus will be derived automatically from the Services.
+        /// </summary>
+        public static IMenu[] MainMenus (IMenuFactory factory)
+        {
+            var setupMenu = factory.NewMenu<SetupRepository>();
+            SetupRepository.Menu(setupMenu);
 
-			var asarMenu = factory.NewMenu<AsarRepository>();
-			AsarRepository.Menu(asarMenu);
+            var asarMenu = factory.NewMenu<AsarRepository>();
+            AsarRepository.Menu(asarMenu);
 
-			return new IMenu[] {
+            var asarUser = factory.NewMenu<UserAccountRepository>();
+            UserAccountRepository.Menu(asarUser);
+
+            return new IMenu[] {
                 //factory.NewMenu<CentralKhelaGharRepository>(true),
                 asarMenu,
-                setupMenu
-						};
-		}
+                setupMenu,
+                asarUser
+                        };
+        }
 	}
 }
