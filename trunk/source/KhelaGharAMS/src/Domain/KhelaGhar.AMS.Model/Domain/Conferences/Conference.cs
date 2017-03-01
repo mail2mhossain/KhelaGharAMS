@@ -203,12 +203,13 @@ namespace KhelaGhar.AMS.Model.Domain.Conferences
 		#endregion
 
 		#region Add Delegate
-		public void AddDelegate (Worker worker, decimal delegateFee, TypeOfDeletegate delegateType)
+		public void AddDelegate (Worker worker, decimal delegateFee, string receiptNo, TypeOfDeletegate delegateType)
 		{
 			ConferenceDelegate confDelegate = Container.NewTransientInstance<ConferenceDelegate>();
 			confDelegate.Worker = worker;
             confDelegate.DelegateFee = delegateFee;
 			confDelegate.DelegateType = delegateType;
+            confDelegate.ReceiptNo = receiptNo;
 			confDelegate.Conference = this;
 			Container.Persist(ref confDelegate);
 		}
