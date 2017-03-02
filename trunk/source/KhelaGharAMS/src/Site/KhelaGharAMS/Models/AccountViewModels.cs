@@ -49,8 +49,8 @@ namespace KhelaGharAMS.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
+        [Display(Name = "Login Id")]
+        //[EmailAddress]
         public string Email { get; set; }
 
         [Required]

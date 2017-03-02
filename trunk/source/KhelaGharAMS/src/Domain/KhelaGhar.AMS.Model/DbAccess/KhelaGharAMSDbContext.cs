@@ -40,7 +40,9 @@ namespace KhelaGhar.AMS.Model.DbAccess
 		public DbSet<OrganizationalTour> OrganizationalTours { get; set; }
 		public DbSet<Note> Notes { get; set; }
 		public DbSet<Meeting> Meetings { get; set; }
-		public DbSet<Role> Roles { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Role> Roles { get; set; }
 		public DbSet<LoginUser> LoginUsers { get; set; }
 		public DbSet<UserRoles> UserRoles { get; set; }
 		public DbSet<UserLogins> UserLogins { get; set; }

@@ -41,7 +41,7 @@ namespace KhelaGhar.AMS.Model.DbAccess
 			LoginUser loginUser = CreateAdminUser(role);
 			AssignRoleToAdminUser(loginUser, role);
 
-			FeatureType userManagementFeatureType = CreateFeatureType(FeatureType.FeatureTypeEnum.UserManagement);
+            FeatureType userManagementFeatureType = CreateFeatureType(FeatureType.FeatureTypeEnum.UserManagement);
 			CreateUserAccountFeature(userManagementFeatureType, role);
 
 			FeatureType areaFeatureType = CreateFeatureType(FeatureType.FeatureTypeEnum.Area);
@@ -105,23 +105,45 @@ namespace KhelaGhar.AMS.Model.DbAccess
 		}
 		private LoginUser CreateAdminUser (Role role)
 		{
-			LoginUser user = new LoginUser();
-			user.Id = Guid.NewGuid().ToString();
-			user.UserName = "admin@gmail.com";
-			user.Email = "admin@gmail.com";
-			user.EmailConfirmed = false;
-			user.PasswordHash = PasswordHash.HashPassword("123456");
-			user.SecurityStamp = Guid.NewGuid().ToString();
-			user.PhoneNumberConfirmed = false;
-			user.TwoFactorEnabled = false;
-			user.LockoutEnabled = false;
-			user.AccessFailedCount = 0;
+            string userCode = "762854";
 
-			_context.LoginUsers.Add(user);
+            User user = new User();
+            user.UserCode = userCode;
+            user.FirstName = "Mosharraf";
+            user.LastName = "Hossain";
+            user.MobileNo = "+8801713032885";
+            user.Email = "mail2mhossain@gmail.com";
+            user.AuditFields.InsertedBy = "Automated";
+            user.AuditFields.InsertedDateTime = DateTime.Now;
+            user.AuditFields.LastUpdatedBy = "Automated";
+            user.AuditFields.LastUpdatedDateTime = DateTime.Now;
+            _context.Users.Add(user);
 
-			return user;
+            LoginUser loginUser = CreateLoginUser(userCode, "123456");
+
+            user.LoginUser = loginUser;
+
+            return loginUser;
 		}
-		private void AssignRoleToAdminUser (LoginUser adminUser, Role role)
+        private LoginUser CreateLoginUser (string userCode, string password)
+        {
+            LoginUser loginUser = new LoginUser();
+            loginUser.Id = Guid.NewGuid().ToString();
+            loginUser.UserName = userCode;
+            loginUser.Email = userCode;
+            loginUser.EmailConfirmed = false;
+            loginUser.PasswordHash = PasswordHash.HashPassword("123456");
+            loginUser.SecurityStamp = Guid.NewGuid().ToString();
+            loginUser.PhoneNumberConfirmed = false;
+            loginUser.TwoFactorEnabled = false;
+            loginUser.LockoutEnabled = false;
+            loginUser.AccessFailedCount = 0;
+
+            _context.LoginUsers.Add(loginUser);
+
+            return loginUser;
+        }
+        private void AssignRoleToAdminUser (LoginUser adminUser, Role role)
 		{
 			UserRoles userRole = new UserRoles();
 			userRole.LoginUser = adminUser;
