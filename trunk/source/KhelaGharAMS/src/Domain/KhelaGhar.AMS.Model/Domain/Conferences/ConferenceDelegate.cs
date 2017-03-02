@@ -52,8 +52,10 @@ namespace KhelaGhar.AMS.Model.Domain.Conferences
             প্রতিনিধি = 1,
             পর্যবেক্ষক = 2
         }
-        [StringLength(150)]
+        [StringLength(150), Optionally]
         public virtual string ReceiptNo { get; set; }
+        [Mask("d"), Optionally]
+        public virtual DateTime? ReceiptDate { get; set; }
         #endregion
 
         #region Get Properties

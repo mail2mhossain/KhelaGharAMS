@@ -1,4 +1,4 @@
-USE [PDB_METER]
+USE [KhelaGharAMS]
 GO
 
 /****** Object:  Table [dbo].[Users]    Script Date: 3/1/2017 10:06:18 AM ******/
