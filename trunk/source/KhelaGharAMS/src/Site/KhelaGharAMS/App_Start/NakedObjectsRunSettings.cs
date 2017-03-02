@@ -52,6 +52,7 @@ namespace KhelaGharAMS
 										typeof(LoggedInUserInfoRepository),
 										typeof(AsarRepository),
 										typeof(SetupRepository),
+                                        typeof(UserAccountRepository),
 										typeof(AllEnums)
 								};
 			}

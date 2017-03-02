@@ -14,7 +14,7 @@ using KhelaGhar.AMS.Model.Domain.MasterData;
 
 namespace KhelaGhar.AMS.Model.DbAccess
 {
-	public class KhelaGharAMSDbInitialiser : DropCreateDatabaseIfModelChanges<KhelaGharAMSDbContext>
+	public class KhelaGharAMSDbInitialiser : CreateDatabaseIfNotExists<KhelaGharAMSDbContext>
 	{
 		private KhelaGharAMSDbContext _context;
 
