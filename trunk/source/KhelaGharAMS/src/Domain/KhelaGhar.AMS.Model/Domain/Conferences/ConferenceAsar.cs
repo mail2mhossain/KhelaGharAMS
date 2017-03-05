@@ -1,7 +1,5 @@
 ﻿using KhelaGhar.AMS.Model.Domain.Asars;
-using KhelaGhar.AMS.Model.Domain.Members;
 using KhelaGhar.AMS.Model.Domain.Shared;
-using KhelaGhar.AMS.Model.Domain.Workers;
 using NakedObjects;
 using System;
 using System.Collections.Generic;
@@ -11,13 +9,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static KhelaGhar.AMS.Model.Domain.Committees.Committee;
 using static KhelaGhar.AMS.Model.Domain.Conferences.Conference;
 
 namespace KhelaGhar.AMS.Model.Domain.Conferences
 {
-    //[DisplayName("প্রতিনিধি")]
-    [DisplayName("Delegate")]
-    public class ConferenceDelegate
+    public class ConferenceAsar
     {
         #region Injected Services
         public IDomainObjectContainer Container { set; protected get; }
@@ -44,27 +41,15 @@ namespace KhelaGhar.AMS.Model.Domain.Conferences
         #region Primitive Properties
 
         [Key, NakedObjectsIgnore]
-        public virtual int DelegateId { get; set; }
+        public virtual int ConferenceAsarId { get; set; }
         [DisplayName("প্রতিনিধি/পর্যবেক্ষক"), MemberOrder(40), Required]
         public virtual TypeOfDeletegate DelegateType { get; set; }
-        public virtual decimal DelegateFee { get; set; }
+        public virtual decimal RegistrationFee { get; set; }
         
         [StringLength(150), Optionally]
         public virtual string ReceiptNo { get; set; }
         [Mask("d"), Optionally]
         public virtual DateTime? ReceiptDate { get; set; }
-        #endregion
-
-        #region Get Properties
-        [MemberOrder(20), NotMapped]
-        [DisplayName("আসর")]
-        public Asar Asar
-        {
-            get
-            {
-                return this.Worker.Asar;
-            }
-        }
         #endregion
 
         #region Complex Properties
@@ -90,9 +75,30 @@ namespace KhelaGhar.AMS.Model.Domain.Conferences
 
         #endregion
 
+        #region Get Properties
+        [MemberOrder(60), NotMapped]
+        [DisplayName("নাম")]
+        public string Name
+        {
+            get
+            {
+                return Asar.Name;
+            }
+        }
+        [MemberOrder(60), NotMapped]
+        [DisplayName("কমিটির ধরণ")]
+        public TypeOfCommittee CommitteeType
+        {
+            get
+            {
+                return Asar.CommitteeType;
+            }
+        }
+        #endregion
+
         #region Navigation Properties
-        [DisplayName("মেম্বার"), MemberOrder(10), Required]
-        public virtual Worker Worker { get; set; }
+        [DisplayName("আসর"), MemberOrder(10), Required]
+        public virtual Asar Asar { get; set; }
 
         [MemberOrder(100), NakedObjectsIgnore]
         [DisplayName("সম্মেলন"), Required]

@@ -110,7 +110,7 @@ namespace KhelaGhar.AMS.Model.Domain.Asars
 
 		#region Add Worker (Action)
 		[DisplayName("নতুন কর্মী")]
-		public void AddWorker (string নাম, [RegEx(Validation = @"^(?:\+88|01)?\d{11}\r?$", Message = "Not a valid mobile no")]string মোবাইল, [RegEx(Validation = @"^[\-\w\.]+@[\-\w\.]+\.[A-Za-z]+$", Message = "Not a valid email address"), Optionally]string ইমেইল, [Mask("d"), Optionally] DateTime? জন্মতারিখ)
+		public void AddWorker (string নাম, [RegEx(Validation = @"^(?:\+88|01)?\d{11}\r?$", Message = "Not a valid mobile no"), Optionally]string মোবাইল, [RegEx(Validation = @"^[\-\w\.]+@[\-\w\.]+\.[A-Za-z]+$", Message = "Not a valid email address"), Optionally]string ইমেইল, [Mask("d"), Optionally] DateTime? জন্মতারিখ)
 		{
 			Worker worker = Container.NewTransientInstance<Worker>();
 			worker.Name = নাম;
@@ -122,25 +122,25 @@ namespace KhelaGhar.AMS.Model.Domain.Asars
 		}
 		public string Validate1AddWorker (string মোবাইল)
 		{
-			string mobile = মোবাইল.Right(11);
+			//string mobile = মোবাইল.Right(11);
 
-			Worker worker = Container.Instances<Worker>().Where(w => w.MobileNo.Contains(mobile)).FirstOrDefault();
-			if (worker != null)
-			{
-				return "এই কর্মী " + worker.Asar.Name + " এ কাজ করছেন।";
-			}
+			//Worker worker = Container.Instances<Worker>().Where(w => w.MobileNo.Contains(mobile)).FirstOrDefault();
+			//if (worker != null)
+			//{
+			//	return "এই কর্মী " + worker.Asar.Name + " এ কাজ করছেন।";
+			//}
 			return null;
 		}
 		public string Validate2AddWorker (string ইমেইল)
 		{
-			if (!String.IsNullOrEmpty(ইমেইল))
-			{
-				Worker worker = Container.Instances<Worker>().Where(w => w.Email.Contains(ইমেইল)).FirstOrDefault();
-				if (worker != null)
-				{
-					return "এই কর্মী " + worker.Asar.Name + " এ কাজ করছেন।";
-				}
-			}
+			//if (!String.IsNullOrEmpty(ইমেইল))
+			//{
+			//	Worker worker = Container.Instances<Worker>().Where(w => w.Email.Contains(ইমেইল)).FirstOrDefault();
+			//	if (worker != null)
+			//	{
+			//		return "এই কর্মী " + worker.Asar.Name + " এ কাজ করছেন।";
+			//	}
+			//}
 			return null;
 		}
 		#endregion

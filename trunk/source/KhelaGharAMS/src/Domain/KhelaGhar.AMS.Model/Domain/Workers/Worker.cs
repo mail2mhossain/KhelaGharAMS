@@ -54,7 +54,7 @@ namespace KhelaGhar.AMS.Model.Domain.Workers
 
 		[MemberOrder(20)]
 		[DisplayName("মোবাইল নং")]
-		[MaxLength(25), Required]
+		[MaxLength(25), Optionally]
 		[Description("Example: +8801523456789")]
 		[RegEx(Validation = @"^(?:\+88|01)?\d{11}\r?$", Message = "Not a valid mobile no")]
 		public virtual string MobileNo { get; set; }

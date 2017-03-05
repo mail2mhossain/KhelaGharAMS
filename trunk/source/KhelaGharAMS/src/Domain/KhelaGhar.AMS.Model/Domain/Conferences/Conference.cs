@@ -71,10 +71,15 @@ namespace KhelaGhar.AMS.Model.Domain.Conferences
 		[DisplayName("Location"), Optionally]
 		[MaxLength(250)]
 		public virtual string Location { get; set; }
-		#endregion
+        public enum TypeOfDeletegate
+        {
+            প্রতিনিধি = 1,
+            পর্যবেক্ষক = 2
+        }
+        #endregion
 
-		#region Get Properties
-		[MemberOrder(60), NotMapped]
+        #region Get Properties
+        [MemberOrder(60), NotMapped]
 		[DisplayName("কমিটি")]
 		public Committee Committee
 		{
@@ -111,38 +116,36 @@ namespace KhelaGhar.AMS.Model.Domain.Conferences
         [MemberOrder(80), NotMapped]
         [DisplayName("শাখা আসর")]
         //[Eagerly(EagerlyAttribute.Do.Rendering)]
-        [TableView(false, "Name", "CommitteeType", "AsarStatus")]
-        public IList<Asar> ShakaAsars
+        [TableView(false, "Name", "CommitteeType", "DelegateType")]
+        public IList<ConferenceAsar> ShakaAsars
         {
             get
             {
-                IList<Asar> asars = Container.Instances<ConferenceDelegate>().Where(w => w.Conference.ConferenceId == this.ConferenceId && w.Worker.Asar is ShakhaAsar).Select(s=>s.Worker.Asar).OrderBy(o => o.Name).Distinct().ToList();
+                IList<ConferenceAsar> asars = Container.Instances<ConferenceAsar>().Where(w => w.Conference.ConferenceId == this.ConferenceId && w.Asar is ShakhaAsar).OrderBy(o => o.Asar.Name).Distinct().ToList();
                 return asars;
             }
         }
 
         [MemberOrder(90), NotMapped]
         [DisplayName("উপজেলা আসর")]
-        //[Eagerly(EagerlyAttribute.Do.Rendering)]
-        [TableView(false, "Name", "CommitteeType")]
-        public IList<Asar> UpojelaAsars
+        [TableView(false, "Name", "CommitteeType", "DelegateType")]
+        public IList<ConferenceAsar> UpojelaAsars
         {
             get
             {
-                IList<Asar> asars = Container.Instances<ConferenceDelegate>().Where(w => w.Conference.ConferenceId == this.ConferenceId && w.Worker.Asar is UpojelaAsar).Select(s => s.Worker.Asar).OrderBy(o => o.Name).Distinct().ToList();
+                IList<ConferenceAsar> asars = Container.Instances<ConferenceAsar>().Where(w => w.Conference.ConferenceId == this.ConferenceId && w.Asar is UpojelaAsar).OrderBy(o => o.Asar.Name).Distinct().ToList();
                 return asars;
             }
         }
 
         [MemberOrder(100), NotMapped]
         [DisplayName("জেলা আসর")]
-        //[Eagerly(EagerlyAttribute.Do.Rendering)]
-        [TableView(false, "Name", "CommitteeType")]
-        public IList<Asar> JelaAsars
+        [TableView(false, "Name", "CommitteeType", "DelegateType")]
+        public IList<ConferenceAsar> JelaAsars
         {
             get
             {
-                IList<Asar> asars = Container.Instances<ConferenceDelegate>().Where(w => w.Conference.ConferenceId == this.ConferenceId && w.Worker.Asar is JelaAsar).Select(s => s.Worker.Asar).OrderBy(o => o.Name).Distinct().ToList();
+                IList<ConferenceAsar> asars = Container.Instances<ConferenceAsar>().Where(w => w.Conference.ConferenceId == this.ConferenceId && w.Asar is JelaAsar).OrderBy(o => o.Asar.Name).Distinct().ToList();
                 return asars;
             }
         }
@@ -233,6 +236,33 @@ namespace KhelaGhar.AMS.Model.Domain.Conferences
 		}
 
         public bool HideAddDelegate ()
+        {
+            Conference conference = Container.Instances<Conference>().OrderByDescending(o => o.EndDate).FirstOrDefault();
+
+            if (conference.ConferenceId != this.ConferenceId)
+                return true;
+            return false;
+        }
+        #endregion
+
+        #region Register Shakha Asar
+        public void RegisterAsar (Asar asar, decimal registrationFee, string receiptNo, DateTime? receiptDate, TypeOfDeletegate delegateType)
+        {
+            ConferenceAsar confAsar = Container.NewTransientInstance<ConferenceAsar>();
+            confAsar.Asar = asar;
+            confAsar.RegistrationFee = registrationFee;
+            confAsar.DelegateType = delegateType;
+            confAsar.ReceiptNo = receiptNo;
+            confAsar.Conference = this;
+            Container.Persist(ref confAsar);
+        }
+        [PageSize(10)]
+        public IQueryable<Asar> AutoComplete0RegisterAsar ([MinLength(1)] string name)
+        {
+            return Container.Instances<Asar>().Where(A => A.Name.Contains(name)).OrderBy(o => o.Name);
+        }
+
+        public bool HideRegisterAsar ()
         {
             Conference conference = Container.Instances<Conference>().OrderByDescending(o => o.EndDate).FirstOrDefault();
 

@@ -91,6 +91,7 @@
     <Compile Include="Domain\Committees\ConvenerCommittee.cs" />
     <Compile Include="Domain\Committees\FullCommittee.cs" />
     <Compile Include="Domain\Conferences\Conference.cs" />
+    <Compile Include="Domain\Conferences\ConferenceAsar.cs" />
     <Compile Include="Domain\Conferences\ConferenceDelegate.cs" />
     <Compile Include="Domain\MasterData\MasterActivity.cs" />
     <Compile Include="Domain\MasterData\Designation.cs" />

@@ -37,7 +37,8 @@ namespace KhelaGhar.AMS.Model.DbAccess
 		public DbSet<CommitteeMember> CommitteeMembers { get; set; }
 		public DbSet<Conference> Conferences { get; set; }
 		public DbSet<ConferenceDelegate> Delegates { get; set; }
-		public DbSet<OrganizationalTour> OrganizationalTours { get; set; }
+        public DbSet<ConferenceAsar> ConferenceAsars { get; set; }
+        public DbSet<OrganizationalTour> OrganizationalTours { get; set; }
 		public DbSet<Note> Notes { get; set; }
 		public DbSet<Meeting> Meetings { get; set; }
         public DbSet<Address> Addresses { get; set; }
