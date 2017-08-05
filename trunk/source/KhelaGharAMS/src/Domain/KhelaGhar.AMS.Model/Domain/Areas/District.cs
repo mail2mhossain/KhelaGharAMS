@@ -1,4 +1,5 @@
-﻿using NakedObjects;
+﻿using KhelaGhar.AMS.Model.Domain.Asars;
+using NakedObjects;
 using NakedObjects.Menu;
 using System;
 using System.Collections.Generic;
@@ -13,8 +14,9 @@ namespace KhelaGhar.AMS.Model.Domain.Areas
 	[DisplayName("জেলা")]
 	public class District : Area
 	{
-		#region Get Properties
-		[MemberOrder(70), NotMapped]
+        #region Get Properties
+
+        [MemberOrder(70), NotMapped]
 		[DisplayName("উপজেলাসমূহ")]
 		[Eagerly(EagerlyAttribute.Do.Rendering)]
 		[TableView(true, "Name", "Description")]

@@ -192,7 +192,7 @@ namespace KhelaGhar.AMS.Model.Repository
         [DisplayName("সকল মহানগর কমিটি")]
         [Eagerly(EagerlyAttribute.Do.Rendering)]
         [TableView(true, "DateOfEstablishment", "LastConferenceDate", "LastConferenceDate", "TotalMembers", "AddressLine", "SubDistrict", "AsarStatus", "CommitteeType", "AllActivities")]
-        public IList<MohanagarAsar> ShowAllMohanagarAsar (MetropolitanCity city)
+        public IList<MohanagarAsar> ShowAllMohanagarAsar ()
         {
             return Container.Instances<MohanagarAsar>().ToList();
         }
