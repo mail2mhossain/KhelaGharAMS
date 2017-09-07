@@ -210,7 +210,6 @@ namespace KhelaGhar.AMS.Model.Repository
 		//[MemberOrder(Sequence = "240", Name = "জেলা")]
 		//[AuthorizeAction(Roles = "AMSAdmin")]
 		[DisplayName("নাম দিয়ে খোঁজ")]
-		[ExcludeFromFindMenu]
 		public District ByDistrictName (District জেলা)
 		{
 			return জেলা;
@@ -305,14 +304,12 @@ namespace KhelaGhar.AMS.Model.Repository
 		//[MemberOrder(Sequence = "340", Name = "উপজেলা")]
 		//[AuthorizeAction(Roles = "AMSAdmin")]
 		[DisplayName("নাম দিয়ে খোঁজ")]
-		[ExcludeFromFindMenu]
 		public SubDistrict BySubDistrictName (SubDistrict উপজেলা)
 		{
 			return উপজেলা;
 		}
 
 		[PageSize(10)]
-		[NakedObjectsIgnore]
 		public IQueryable<SubDistrict> AutoComplete0BySubDistrictName ([MinLength(1)] string name)
 		{
 			IQueryable<SubDistrict> subdists = Container.Instances<SubDistrict>().Where(w => w.Name.StartsWith(name));
@@ -343,6 +340,7 @@ namespace KhelaGhar.AMS.Model.Repository
 			MetropolitanCity city = Container.NewTransientInstance<MetropolitanCity>();
 			city.Name = cityName;
 			city.Parent = division;
+            Container.Persist(ref city);
 			return city;
 		}
 
@@ -351,7 +349,7 @@ namespace KhelaGhar.AMS.Model.Repository
 			return Container.Instances<Division>().ToList();
 		}
 
-		public string Validate0AddMetropolitanCity (string cityName, Division division)
+		public string ValidateAddMetropolitanCity (string cityName, Division division)
 		{
 			MetropolitanCity city = Container.Instances<MetropolitanCity>().Where(w => w.Name == cityName && w.Parent.AreaId == division.AreaId).FirstOrDefault();
 

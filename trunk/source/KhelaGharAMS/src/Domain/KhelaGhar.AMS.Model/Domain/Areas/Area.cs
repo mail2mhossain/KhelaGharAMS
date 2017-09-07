@@ -10,6 +10,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static KhelaGhar.AMS.Model.Domain.Asars.ShakhaAsar;
+using static KhelaGhar.AMS.Model.Domain.Committees.Committee;
 
 namespace KhelaGhar.AMS.Model.Domain.Areas
 {
@@ -165,7 +167,32 @@ namespace KhelaGhar.AMS.Model.Domain.Areas
 
 			return "";
 		}
-		#endregion
+        #endregion
 
-	}
+        #region Behavior
+        #region New Asar
+        [MemberOrder(Sequence = "20")]
+        //[AuthorizeAction(Roles = "AMSAdmin")]
+        [DisplayName("নতুন শাখা আসর")]
+        public ShakhaAsar CreateAsar ([MaxLength(250)]string নাম, [Optionally]DateTime? প্রতিষ্ঠার_তারিখ, StatusOfAsar আসরের_অবস্থা, TypeOfCommittee কমিটির_ধরণ, [MultiLine(NumberOfLines = 3, Width = 50), Optionally]string ঠিকানা)
+        {
+            ShakhaAsar asar = Container.NewTransientInstance<ShakhaAsar>();
+            asar.Name = নাম;
+            asar.DateOfEstablishment = প্রতিষ্ঠার_তারিখ;
+            asar.AsarStatus = আসরের_অবস্থা;
+            asar.CommitteeType = কমিটির_ধরণ;
+            asar.AddressLine = ঠিকানা;
+            asar.Area = this;
+
+            Container.Persist(ref asar);
+            return asar;
+        }
+
+        public string Validate0CreateAsar (string নাম)
+        {
+            return AsarRepository.Validate0CreateAsar(নাম);
+        }
+        #endregion
+        #endregion
+    }
 }

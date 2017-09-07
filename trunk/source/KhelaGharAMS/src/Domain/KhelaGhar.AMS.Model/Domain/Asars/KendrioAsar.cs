@@ -50,49 +50,16 @@ namespace KhelaGhar.AMS.Model.Domain.Asars
 		}
 		#endregion
 
-		#region Last Conference Date
-		[MemberOrder(20), NotMapped]
-		[DisplayName("সর্বশেষ সম্মেলনের তারিখ")]
-		[Mask("d")]
-		public DateTime? LastConferenceDate
-		{
-			get
-			{
-				Conference conference = Container.Instances<Conference>().Where(w => w.Asar.AsarId == this.AsarId).OrderByDescending(o => o.StartDate).FirstOrDefault();
-
-				if (conference != null)
-				{
-					return conference.StartDate;
-				}
-				return null;
-			}
-		}
-
-		////public bool HideLastConferenceDate ()
-		////{
-		////	if (this.LastConferenceDate != null)
-		////	{
-		////		return false;
-		////	}
-		////	else
-		////	{
-		////		return true;
-		////	}
-		////}
-		#endregion
-
 		#region সক্রিয় আসরসমূহ
 		[MemberOrder(110), NotMapped]
 		//[Eagerly(EagerlyAttribute.Do.Rendering)]
-		[DisplayName("সক্রিয় আসরসমূহ")]
-		[TableView(true, "Name", "DateOfEstablishment", "TotalMembers", "Workers", "CommitteeType")]
-		public IList<ShakhaAsar> AllActiveAsars
+		[DisplayName("সক্রিয় আসর")]
+		//[TableView(true, "Name", "DateOfEstablishment", "TotalMembers", "Workers", "CommitteeType")]
+		public int AllActiveAsars
 		{
 			get
 			{
-				List<int> allchildrenids = AsarRepository.GetAllChildrenIds();
-
-				return Container.Instances<ShakhaAsar>().Where(d => allchildrenids.Contains(d.Area.AreaId) && (int)d.AsarStatus == (int)ShakhaAsar.StatusOfAsar.সচল).OrderBy(o => o.Name).ToList();
+				return Container.Instances<ShakhaAsar>().Where(d => d.AsarStatus == ShakhaAsar.StatusOfAsar.সচল).OrderBy(o => o.Name).Count();
 			}
 		}
 		#endregion
@@ -100,15 +67,13 @@ namespace KhelaGhar.AMS.Model.Domain.Asars
 		#region নতুন আসরসমূহ
 		[MemberOrder(120), NotMapped]
 		//[Eagerly(EagerlyAttribute.Do.Rendering)]
-		[DisplayName("নতুন আসরসমূহ")]
-		[TableView(true, "Name", "DateOfEstablishment", "TotalMembers", "Kormies", "CommitteeType")]
-		public IList<ShakhaAsar> AllNewAsars
+		[DisplayName("নতুন আসর")]
+		//[TableView(true, "Name", "DateOfEstablishment", "TotalMembers", "Kormies", "CommitteeType")]
+		public int AllNewAsars
 		{
 			get
 			{
-				List<int> allchildrenids = AsarRepository.GetAllChildrenIds();
-
-				return Container.Instances<ShakhaAsar>().Where(d => allchildrenids.Contains(d.Area.AreaId) && (int)d.AsarStatus == (int)ShakhaAsar.StatusOfAsar.নতুন).OrderBy(o => o.Name).ToList();
+				return Container.Instances<ShakhaAsar>().Where(d => d.AsarStatus == ShakhaAsar.StatusOfAsar.নতুন).OrderBy(o => o.Name).Count();
 			}
 		}
 		#endregion
@@ -116,15 +81,13 @@ namespace KhelaGhar.AMS.Model.Domain.Asars
 		#region পুনর্জাগরিত আসরসমূহ
 		[MemberOrder(130), NotMapped]
 		//[Eagerly(EagerlyAttribute.Do.Rendering)]
-		[DisplayName("পুনর্জাগরিত আসরসমূহ")]
-		[TableView(true, "Name", "DateOfEstablishment", "TotalMembers", "Kormies", "CommitteeType")]
-		public IList<ShakhaAsar> AllRevivedAsars
+		[DisplayName("পুনর্জাগরিত আসর")]
+		//[TableView(true, "Name", "DateOfEstablishment", "TotalMembers", "Kormies", "CommitteeType")]
+		public int AllRevivedAsars
 		{
 			get
 			{
-				List<int> allchildrenids = AsarRepository.GetAllChildrenIds();
-
-				return Container.Instances<ShakhaAsar>().Where(d => allchildrenids.Contains(d.Area.AreaId) && (int)d.AsarStatus == (int)ShakhaAsar.StatusOfAsar.পুনর্জাগরণ).OrderBy(o => o.Name).ToList();
+				return Container.Instances<ShakhaAsar>().Where(d => d.AsarStatus == ShakhaAsar.StatusOfAsar.পুনর্জাগরণ).OrderBy(o => o.Name).Count();
 			}
 		}
 		#endregion
@@ -132,15 +95,13 @@ namespace KhelaGhar.AMS.Model.Domain.Asars
 		#region নিষ্ক্রিয় আসরসমূহ
 		[MemberOrder(140), NotMapped]
 		//[Eagerly(EagerlyAttribute.Do.Rendering)]
-		[DisplayName("নিষ্ক্রিয় আসরসমূহ")]
-		[TableView(true, "Name", "DateOfEstablishment", "TotalMembers", "Kormies", "CommitteeType")]
-		public IList<ShakhaAsar> AllInactiveAsars
+		[DisplayName("নিষ্ক্রিয় আসর")]
+		//[TableView(true, "Name", "DateOfEstablishment", "TotalMembers", "Kormies", "CommitteeType")]
+		public int AllInactiveAsars
 		{
 			get
 			{
-				List<int> allchildrenids = AsarRepository.GetAllChildrenIds();
-
-				return Container.Instances<ShakhaAsar>().Where(d => allchildrenids.Contains(d.Area.AreaId) && (int)d.AsarStatus == (int)ShakhaAsar.StatusOfAsar.নিষ্ক্রিয়).OrderBy(o => o.Name).ToList();
+				return Container.Instances<ShakhaAsar>().Where(d => d.AsarStatus == ShakhaAsar.StatusOfAsar.নিষ্ক্রিয়).OrderBy(o => o.Name).Count();
 			}
 		}
 		#endregion

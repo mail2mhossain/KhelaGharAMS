@@ -292,13 +292,18 @@ namespace KhelaGhar.AMS.Model.Repository
 		}
 		public string Validate0CreateAsar (string নাম)
 		{
-			Asar asar = Container.Instances<Asar>().Where(w => w.Name == নাম).FirstOrDefault();
+            string asarName = ConcateString(নাম);
+            if(!asarName.Contains("খেলাঘরআসর"))
+            {
+                asarName = asarName + "খেলাঘরআসর";
+            }
+            Asar asar = Container.Instances<Asar>().ToList().Where(w => ConcateString(w.Name) == asarName).FirstOrDefault();
 
 			if (asar != null)
 			{
 				if (asar.Area != null)
 				{
-					return asar.Area + " তে এই নামে শাখা আসর আছে।";
+					return asar.Area.Name + " এ এই নামে শাখা আসর আছে।";
 				}
 				else
 				{
@@ -307,6 +312,17 @@ namespace KhelaGhar.AMS.Model.Repository
 			}
 			return null;
 		}
+        private string ConcateString(string name)
+        {
+            string[] asarNameArray = name.Split(' ');
+
+            string asarName = String.Empty;
+            foreach (string s in asarNameArray)
+            {
+                asarName = asarName + s.Trim();
+            }
+            return asarName;
+        }
         #endregion
 
         #region Show All Shakha Asar

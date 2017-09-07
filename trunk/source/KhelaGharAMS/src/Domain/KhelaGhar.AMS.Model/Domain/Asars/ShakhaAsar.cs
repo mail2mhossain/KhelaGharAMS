@@ -56,37 +56,6 @@ namespace KhelaGhar.AMS.Model.Domain.Asars
         }
         #endregion
 
-        #region Last Conference Date
-        [MemberOrder(30), NotMapped]
-        [DisplayName("সর্বশেষ সম্মেলনের তারিখ")]
-        [Mask("d")]
-        public DateTime? LastConferenceDate
-        {
-            get
-            {
-                Conference conference = Container.Instances<Conference>().Where(w => w.Asar.AsarId == this.AsarId).OrderByDescending(o => o.StartDate).FirstOrDefault();
-
-                if (conference != null)
-                {
-                    return conference.StartDate;
-                }
-                return null;
-            }
-        }
-
-        //public bool HideLastConferenceDate ()
-        //{
-        //	if (this.LastConferenceDate != null)
-        //	{
-        //		return false;
-        //	}
-        //	else
-        //	{
-        //		return true;
-        //	}
-        //}
-        #endregion
-
         #region Weekly Activities
         [MemberOrder(65), NotMapped]
         [DisplayName("সাপ্তাহিক কার্যক্রম")]
