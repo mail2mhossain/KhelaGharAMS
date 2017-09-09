@@ -95,7 +95,7 @@ namespace KhelaGhar.AMS.Model.Repository
 			if(jelaAsar == null)
 			{
 				jelaAsar = Container.NewTransientInstance<JelaAsar>();
-				jelaAsar.Name = জেলা.Name + " খেলাঘর আসর";
+				jelaAsar.Name = জেলা.Name + " জেলা খেলাঘর আসর";
 				jelaAsar.CommitteeType = TypeOfCommittee.কমিটিবিহীন;
 				jelaAsar.Area = জেলা;
 
@@ -210,7 +210,7 @@ namespace KhelaGhar.AMS.Model.Repository
             if (upojelaAsar == null)
             {
                 upojelaAsar = Container.NewTransientInstance<UpojelaAsar>();
-                upojelaAsar.Name = উপজেলা.Name + " খেলাঘর আসর";
+                upojelaAsar.Name = উপজেলা.Name + " উপজেলা খেলাঘর আসর";
                 upojelaAsar.CommitteeType = TypeOfCommittee.কমিটিবিহীন;
                 upojelaAsar.Area = উপজেলা;
 

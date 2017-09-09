@@ -14,6 +14,7 @@ using static KhelaGhar.AMS.Model.Domain.Conferences.Conference;
 
 namespace KhelaGhar.AMS.Model.Domain.Conferences
 {
+    [DisplayName("আসর")]
     public class ConferenceAsar
     {
         #region Injected Services
