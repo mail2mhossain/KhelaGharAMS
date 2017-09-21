@@ -14,7 +14,7 @@ namespace KhelaGharAmsApi.Controllers
   public class AsarController : ApiController
   {
     [HttpGet]
-    [Route("appsapi/Asar")]
+    [Route("Asar")]
     public IHttpActionResult GetAsar(string name)
     {
       IList<AsarInfo> asarList = new List<AsarInfo>();
