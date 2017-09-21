@@ -9,35 +9,35 @@ using System.Threading.Tasks;
 
 namespace KhelaGhar.AMS.Model.Domain.Shared
 {
-    [ComplexType]
-    public class AuditFields
-    {
-        #region InsertedBy (String)
-        [MemberOrder(130)]
-        [NakedObjectsIgnore, Required]
-        public virtual string InsertedBy { get; set; }
+  [ComplexType]
+  public class AuditFields
+  {
+    #region InsertedBy (String)
+    [MemberOrder(130)]
+    [NakedObjectsIgnore, Required]
+    public virtual string InsertedBy { get; set; }
 
-        #endregion
+    #endregion
 
-        #region InsertedDateTime (DateTime)
-        [MemberOrder(140), Mask("g")]
-        [NakedObjectsIgnore, Required]
-        public virtual DateTime InsertedDateTime { get; set; }
+    #region InsertedDateTime (DateTime)
+    [MemberOrder(140), Mask("g")]
+    [NakedObjectsIgnore, Required]
+    public virtual DateTime InsertedDateTime { get; set; }
 
-        #endregion
+    #endregion
 
-        #region LastUpdatedBy (String)
-        [MemberOrder(150)]
-        [NakedObjectsIgnore, Required]
-        public virtual string LastUpdatedBy { get; set; }
+    #region LastUpdatedBy (String)
+    [MemberOrder(150)]
+    [NakedObjectsIgnore, Required]
+    public virtual string LastUpdatedBy { get; set; }
 
-        #endregion
+    #endregion
 
-        #region LastUpdatedDateTime (DateTime)
-        [MemberOrder(160), Mask("g")]
-        [NakedObjectsIgnore, Required]
-        public virtual DateTime LastUpdatedDateTime { get; set; }
+    #region LastUpdatedDateTime (DateTime)
+    [MemberOrder(160), Mask("g")]
+    [NakedObjectsIgnore, Required]
+    public virtual DateTime LastUpdatedDateTime { get; set; }
 
-        #endregion
-    }
+    #endregion
+  }
 }

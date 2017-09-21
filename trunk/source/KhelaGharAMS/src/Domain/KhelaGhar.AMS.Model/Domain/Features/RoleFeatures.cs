@@ -10,24 +10,24 @@ using System.Threading.Tasks;
 
 namespace KhelaGhar.AMS.Model.Domain.Features
 {
-    public class RoleFeatures
-    {
-        #region Primitive Properties
-        [Key, Column(Order = 0)]
-        [NakedObjectsIgnore]
-        [ForeignKey("Feature")]
-        public virtual int FeatureId { get; set; }
-        [Key, Column(Order = 1)]
-        [NakedObjectsIgnore]
-        [ForeignKey("Role")]
-        public virtual string RoleId { get; set; }
-        #endregion
+  public class RoleFeatures
+  {
+    #region Primitive Properties
+    [Key, Column(Order = 0)]
+    [NakedObjectsIgnore]
+    [ForeignKey("Feature")]
+    public virtual int FeatureId { get; set; }
+    [Key, Column(Order = 1)]
+    [NakedObjectsIgnore]
+    [ForeignKey("Role")]
+    public virtual string RoleId { get; set; }
+    #endregion
 
-        #region Navigation Properties
-        [MemberOrder(40), Disabled]
-        public virtual Feature Feature { get; set; }
-        [MemberOrder(50), Disabled]
-        public virtual Role Role { get; set; }
-        #endregion
-    }
+    #region Navigation Properties
+    [MemberOrder(40), Disabled]
+    public virtual Feature Feature { get; set; }
+    [MemberOrder(50), Disabled]
+    public virtual Role Role { get; set; }
+    #endregion
+  }
 }

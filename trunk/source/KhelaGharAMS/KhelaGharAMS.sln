@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KhelaGhar.AMS.Utility", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KhelaGhar.AMS.Model", "src\Domain\KhelaGhar.AMS.Model\KhelaGhar.AMS.Model.csproj", "{BB43AB7D-D263-4AFA-8787-7A1862DA5C96}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{54DD28D6-7E9D-452E-98F5-EC6030E94386}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

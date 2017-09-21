@@ -9,25 +9,25 @@ using System.Threading.Tasks;
 
 namespace KhelaGhar.AMS.Model.Domain.UserAccounts
 {
-    [Table("AspNetUserRoles")]
-    public class UserRoles
-    {
-        #region Primitive Properties
-        [Key, Column(Order = 0)]
-        [NakedObjectsIgnore]
-        [ForeignKey("LoginUser")]
-        public virtual string UserId { get; set; }
-        [Key, Column(Order = 1)]
-        [NakedObjectsIgnore]
-        [ForeignKey("Role")]
-        public virtual string RoleId { get; set; }
-        #endregion
+  [Table("AspNetUserRoles")]
+  public class UserRoles
+  {
+    #region Primitive Properties
+    [Key, Column(Order = 0)]
+    [NakedObjectsIgnore]
+    [ForeignKey("LoginUser")]
+    public virtual string UserId { get; set; }
+    [Key, Column(Order = 1)]
+    [NakedObjectsIgnore]
+    [ForeignKey("Role")]
+    public virtual string RoleId { get; set; }
+    #endregion
 
-        #region Navigation Properties
-        [MemberOrder(40), Disabled]
-        public virtual LoginUser LoginUser { get; set; }
-        [MemberOrder(50), Disabled]
-        public virtual Role Role { get; set; }
-        #endregion
-    }
+    #region Navigation Properties
+    [MemberOrder(40), Disabled]
+    public virtual LoginUser LoginUser { get; set; }
+    [MemberOrder(50), Disabled]
+    public virtual Role Role { get; set; }
+    #endregion
+  }
 }

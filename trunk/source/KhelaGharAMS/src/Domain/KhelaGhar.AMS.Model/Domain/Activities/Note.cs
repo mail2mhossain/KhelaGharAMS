@@ -7,19 +7,19 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace KhelaGhar.AMS.Model.Domain.Activities
-	{
-		[Table("Notes")]
-		public class Note : Activity
-		{
-			#region Behavior
-			#endregion
+{
+  [Table("Notes")]
+  public class Note : Activity
+  {
+    #region Behavior
+    #endregion
 
-			#region Menu
-			public static void Menu( IMenu menu )
-				{
-				menu.AddAction("AddOrChangeAttachment");
-				menu.AddAction("RemoveAttachment");
-				}
-			#endregion
-		}
-	}
+    #region Menu
+    public static void Menu(IMenu menu)
+    {
+      menu.AddAction("AddOrChangeAttachment");
+      menu.AddAction("RemoveAttachment");
+    }
+    #endregion
+  }
+}

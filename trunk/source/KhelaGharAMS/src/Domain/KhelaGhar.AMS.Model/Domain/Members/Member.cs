@@ -8,7 +8,7 @@ using KhelaGhar.AMS.Model.Domain.Shared;
 using KhelaGhar.AMS.Model.Domain.Asars;
 
 namespace KhelaGhar.AMS.Model.Domain.Members
-    {
+{
   [DisplayName("সভ্য")]
   public class Member
   {
@@ -61,7 +61,7 @@ namespace KhelaGhar.AMS.Model.Domain.Members
     [DisplayName("মোবাইল নং")]
     [MaxLength(25), Optionally]
     public virtual string MobileNo { get; set; }
-      
+
     [MemberOrder(50)]
     [DisplayName("শিক্ষা প্রতিষ্ঠানের নাম")]
     [MaxLength(250), Optionally]
@@ -80,7 +80,7 @@ namespace KhelaGhar.AMS.Model.Domain.Members
     [DisplayName("রক্তের গ্রুপ")]
     [MaxLength(10)]
     public virtual string BloodGroup { get; set; }
-    
+
     public IList<string> ChoicesBloodGroup()
     {
       return AllEnums.GetBloodGroup();
@@ -90,7 +90,7 @@ namespace KhelaGhar.AMS.Model.Domain.Members
     [DisplayName("বর্তমান ঠিকানা")]
     [MaxLength(250), MultiLine(NumberOfLines = 3, Width = 50)]
     public virtual string PresentAddress { get; set; }
-      
+
     #endregion
 
     #region Complex Properties
@@ -121,7 +121,7 @@ namespace KhelaGhar.AMS.Model.Domain.Members
     [DisplayName("আসর")]
     [Required]
     public virtual Asar Asar { get; set; }
-      
+
     #endregion
 
     //Add properties with 'propv', collections with 'coll', actions with 'act' shortcuts

@@ -19,11 +19,11 @@ namespace KhelaGhar.AMS.Model.Repository
 
     #endregion
 
-    
-      #region GetDhakaZilla
-     
-      #endregion
-      
+
+    #region GetDhakaZilla
+
+    #endregion
+
     // 'fact' shortcut to add a factory method, 
     // 'alli' for an all-instances method
     // 'find' for a method to find a single object by query

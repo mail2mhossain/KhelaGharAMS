@@ -10,15 +10,15 @@ using KhelaGhar.AMS.Model.Domain.Committees;
 
 namespace KhelaGhar.AMS.Model.Repository
 {
-    [DisplayName("কেন্দ্রীয় খেলাঘর")]
-    public class CentralKhelaGharRepository : AbstractFactoryAndRepository
-    {
-        #region Injected Services
-        // This region should contain properties to hold references to any services required by the
-        // object.  Use the 'injs' shortcut to add a new service.
+  [DisplayName("কেন্দ্রীয় খেলাঘর")]
+  public class CentralKhelaGharRepository : AbstractFactoryAndRepository
+  {
+    #region Injected Services
+    // This region should contain properties to hold references to any services required by the
+    // object.  Use the 'injs' shortcut to add a new service.
 
-        #endregion      
-        
+    #endregion
 
-    }
+
+  }
 }

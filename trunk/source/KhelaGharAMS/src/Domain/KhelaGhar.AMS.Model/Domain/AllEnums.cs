@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 
 namespace KhelaGhar.AMS.Model.Domain
-  {
+{
   public class AllEnums
-    {
+  {
     public enum ActionTypes
-      {
+    {
       Insert = 1,
       Update = 2,
       Delete = 3
-      }
+    }
 
     public enum AreaType
-      {
+    {
       Division = 1, //Division
       District = 2, //Inactive
       SubDistrict = 3, //New
@@ -24,26 +24,26 @@ namespace KhelaGhar.AMS.Model.Domain
       City = 6,
       Thana = 7,
       Ward = 8
-      }
+    }
 
     public enum KormiStatus
-      {
+    {
       সক্রিয় = 1, //Active
       নিষ্ক্রিয় = 2 //Inactive
-      }
+    }
 
     public enum TopLevelRoles
-      {
+    {
       ADMIN = 1,
       AMS_ADMIN = 2,
       MANAGEMENT = 3
-      }
+    }
     public const string ADMIN = "Admin";
     public const string AMS_ADMIN = "AMSAdmin";
     public const string MANAGEMENT = "Management";
 
-    public static IList<string> GetCommitteeType ()
-      {
+    public static IList<string> GetCommitteeType()
+    {
       IList<string> types = new List<string>();
 
       types.Add("কমিটিহীন");
@@ -51,10 +51,10 @@ namespace KhelaGhar.AMS.Model.Domain
       types.Add("আহ্বায়ক");
 
       return types;
-      }
+    }
 
-    public static IList<string> GetBloodGroup ()
-      {
+    public static IList<string> GetBloodGroup()
+    {
       IList<string> types = new List<string>();
 
       types.Add("A+");
@@ -67,6 +67,6 @@ namespace KhelaGhar.AMS.Model.Domain
       types.Add("O-");
 
       return types;
-      }
     }
   }
+}

@@ -9,19 +9,19 @@ using System.Threading.Tasks;
 
 namespace KhelaGhar.AMS.Model.Domain.Areas
 {
-	[DisplayName("উপজেলা")]
-	public class SubDistrict : Area
-	{
-		#region Get Properties
-		[MemberOrder(80), NotMapped]
-		[DisplayName("জেলা")]
-		public District District
-		{
-			get
-			{
-				return Container.Instances<District>().Where(w => w.AreaId == this.Parent.AreaId).FirstOrDefault();
-			}
-		}
-		#endregion
-	}
+  [DisplayName("উপজেলা")]
+  public class SubDistrict : Area
+  {
+    #region Get Properties
+    [MemberOrder(80), NotMapped]
+    [DisplayName("জেলা")]
+    public District District
+    {
+      get
+      {
+        return Container.Instances<District>().Where(w => w.AreaId == this.Parent.AreaId).FirstOrDefault();
+      }
+    }
+    #endregion
+  }
 }

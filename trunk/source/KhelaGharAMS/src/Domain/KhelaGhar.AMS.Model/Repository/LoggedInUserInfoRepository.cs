@@ -9,23 +9,23 @@ using System.Threading.Tasks;
 
 namespace KhelaGhar.AMS.Model.Repository
 {
-    public class LoggedInUserInfoRepository : AbstractFactoryAndRepository
+  public class LoggedInUserInfoRepository : AbstractFactoryAndRepository
+  {
+    IList<Feature> _features = new List<Feature>();
+
+    public IList<Feature> GetFeatureListByLoginUser()
     {
-        IList<Feature> _features = new List<Feature>();
+      if (_features.Count > 0)
+        return _features;
 
-        public IList<Feature> GetFeatureListByLoginUser()
-        {
-            if (_features.Count > 0)
-                return _features;
+      LoginUser user = (from f in Container.Instances<LoginUser>()
+                        where f.Email == Container.Principal.Identity.Name
+                        select f).FirstOrDefault();
 
-            LoginUser user = (from f in Container.Instances<LoginUser>()
-                              where f.Email == Container.Principal.Identity.Name
-                              select f).FirstOrDefault();
+      if (user != null)
+        _features = user.Role.Features;
 
-            if (user != null)
-                _features = user.Role.Features;
-
-            return _features;
-        }
+      return _features;
     }
+  }
 }
