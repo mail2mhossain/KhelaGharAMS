@@ -18,7 +18,7 @@ namespace KhelaGhar.AMS.Model.Repository
     }
     public IList<Asar> GetAsarByName(string name)
     {
-      if (name.Length < 3)
+      if (name.Length <= 3)
       {
         return _dbContext.Asars
                .Include(a => a.Area)
