@@ -22,24 +22,27 @@ namespace KhelaGharAmsApi.Controllers
       {
         ApiRepository repo = new ApiRepository(dbContext);
         asarList = MapAsar(repo.GetAsarByName(name));
-        return Content(HttpStatusCode.Found, asarList);
+        return Content(HttpStatusCode.OK, asarList);
       }
     }
 
     private IList<AsarInfo> MapAsar(IList<Asar> list)
     {
       IList<AsarInfo> asarList = new List<AsarInfo>();
-      foreach(ShakhaAsar asar in list)
+      foreach(Asar asar in list)
       {
-        AsarInfo info = new AsarInfo();
-        info.AsarName = asar.Name;
-        info.CommitteeType = asar.CommitteeType.ToString();
-        info.AsarStatus = asar.AsarStatus.ToString();
-        info.AddressLine = asar.AddressLine;
-        info.Subdistrict = asar.Area.Name;
-        info.District = asar.Area.Parent.Name;
+        if (asar is ShakhaAsar)
+        {
+          AsarInfo info = new AsarInfo();
+          info.AsarName = asar.Name;
+          info.CommitteeType = asar.CommitteeType.ToString();
+          info.AsarStatus = ((ShakhaAsar)asar).AsarStatus.ToString();
+          info.AddressLine = asar.AddressLine;
+          info.Subdistrict = asar.Area.Name;
+          info.District = asar.Area.Parent.Name;
 
-        asarList.Add(info);
+          asarList.Add(info);
+        }
       }
       return asarList;
     }

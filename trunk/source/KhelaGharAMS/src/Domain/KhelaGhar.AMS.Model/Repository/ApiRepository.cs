@@ -18,12 +18,24 @@ namespace KhelaGhar.AMS.Model.Repository
     }
     public IList<Asar> GetAsarByName(string name)
     {
-      return _dbContext.Asars
-             .Include(a => a.Area)
-             .Include(p => p.Area.Parent)
-             .Where(w => w.Name.Contains(name))
-             .OrderBy(o => o.Name)
-             .ToList().ToList();
+      if (name.Length < 3)
+      {
+        return _dbContext.Asars
+               .Include(a => a.Area)
+               .Include(p => p.Area.Parent)
+               .Where(w => w.Name.StartsWith(name))
+               .OrderBy(o => o.Name)
+               .ToList().ToList();
+      }
+      else
+      {
+        return _dbContext.Asars
+               .Include(a => a.Area)
+               .Include(p => p.Area.Parent)
+               .Where(w => w.Name.Contains(name))
+               .OrderBy(o => o.Name)
+               .ToList().ToList();
+      }
     }
   }
 }
