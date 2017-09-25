@@ -4,10 +4,11 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="KhelagharMobileApps.Views.MainPage"
-             Title="MainPage">
+             Title="কেন্দ্রীয় খেলাঘর আসর">
     <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        <Label TextColor="#77d065" FontSize = "20" Text="আসরের নাম" />
         <Entry Text="{Binding TextToSearch}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" />
-        <Button Command="{Binding SearchCommand}" Text="Search"/>
+        <Button Command="{Binding SearchCommand}" Text="খোঁজ"/>
 
         <ListView ItemsSource="{Binding Path=Asars}"
               CachingStrategy="RecycleElement"
