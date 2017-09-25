@@ -9,6 +9,6 @@ namespace KhelagharMobileApps.Core.Services
 {
   public interface IKgApiService
   {
-    Task<List<AsarInfo>> GetAsars(string name);
+    Task<List<AsarInfo>> GetAsars(string queryUrl);
   }
 }

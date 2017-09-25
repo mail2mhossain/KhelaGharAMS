@@ -15,7 +15,7 @@ namespace KhelagharMobileApps.Core.Services
     }
     public async Task<List<AsarInfo>> GetAsars(string name)
     {
-      return await Get<List<AsarInfo>>($"Asar?name={name}");
+      return await Get<List<AsarInfo>>(name);
     }
   }
 }

@@ -13,23 +13,31 @@ namespace KhelagharMobileApps.ViewModels
 {
   public class MainPageViewModel : BindableBase, INavigationAware
   {
-    private string _title;
-    private string _queryUrl = "Asar?name=আনন্দ";
+    private string _textToSearch = "";
+    //private string _queryUrl = "Asar?name=আনন্দ";
+    private string _queryUrl = "Asar?name=";
     private ObservableCollection<AsarInfo> _asarList;
     private readonly IKgApiService _apiService;
+    public DelegateCommand SearchCommand { get; set; }
     public MainPageViewModel(IKgApiService apiService)
     {
       _apiService = apiService;
+      SearchCommand = new DelegateCommand(Search);
+    }
+    private async void Search()
+    {
+      IList<AsarInfo> asars = await _apiService.GetAsars(_queryUrl+ _textToSearch);
+      Asars = new ObservableCollection<AsarInfo>(asars);
+    }
+    public string TextToSearch
+    {
+      get { return _textToSearch; }
+      set { SetProperty(ref _textToSearch, value); }
     }
     public ObservableCollection<AsarInfo> Asars
     {
       get { return _asarList; }
       set { SetProperty(ref _asarList, value); }
-    }
-    public string Title
-    {
-      get { return _title; }
-      set { SetProperty(ref _title, value); }
     }
     public void OnNavigatedFrom(NavigationParameters parameters)
     {
@@ -39,12 +47,11 @@ namespace KhelagharMobileApps.ViewModels
     {
       
     }
-    public void OnNavigatedTo(NavigationParameters parameters)
+    public async void OnNavigatedTo(NavigationParameters parameters)
     {
-      Task.Delay(1);
-      IList<AsarInfo> asars = DataService.GetDataFromService(_queryUrl);
-      if (parameters.ContainsKey("title"))
-        Title = (string)parameters["title"] + " and Prism. Asars= " + asars.Count;
+      //await Task.Delay(1);
+      //IList<AsarInfo> asars = await _apiService.GetAsars(_queryUrl);
+      //Asars = new ObservableCollection<AsarInfo>(asars);
     }
   }
 }

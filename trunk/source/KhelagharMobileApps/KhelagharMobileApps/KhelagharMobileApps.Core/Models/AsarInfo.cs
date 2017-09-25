@@ -21,7 +21,12 @@ namespace KhelagharMobileApps.Core.Models
     public string Secretary { get; set; }
     public string SecretaryMobileNo { get; set; }
     public string SecretaryEmailAddress { get; set; }
-
+    public string Jela
+    {
+      get
+      {
+        return Subdistrict + ", " + District + " জেলা";
+      }
+    }
   }
-
 }

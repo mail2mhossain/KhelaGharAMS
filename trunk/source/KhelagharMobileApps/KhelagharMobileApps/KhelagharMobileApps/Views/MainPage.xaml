@@ -5,7 +5,26 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="KhelagharMobileApps.Views.MainPage"
              Title="MainPage">
-  <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-    <Label Text="{Binding Title}" />
-  </StackLayout>
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        <Entry Text="{Binding TextToSearch}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" />
+        <Button Command="{Binding SearchCommand}" Text="Search"/>
+
+        <ListView ItemsSource="{Binding Path=Asars}"
+              CachingStrategy="RecycleElement"
+              RowHeight="90">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="8">
+                            <Label Text="{Binding AsarName}"
+                               FontAttributes="Bold" />
+                            <Label Text="{Binding AddressLine}" />
+                            <Label Text="{Binding Jela}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+    
 </ContentPage>
