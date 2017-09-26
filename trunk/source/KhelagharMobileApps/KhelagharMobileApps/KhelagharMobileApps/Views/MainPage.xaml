@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:behaviors="clr-namespace:Corcav.Behaviors;assembly=Corcav.Behaviors"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="KhelagharMobileApps.Views.MainPage"
              Title="কেন্দ্রীয় খেলাঘর আসর">
@@ -25,7 +26,11 @@
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
+            <behaviors:Interaction.Behaviors>
+                <behaviors:BehaviorCollection>
+                    <behaviors:EventToCommand EventName="ItemTapped" Command="{Binding GoToDetailPage}" PassEventArgument="True" />
+                </behaviors:BehaviorCollection>
+            </behaviors:Interaction.Behaviors>
         </ListView>
     </StackLayout>
-    
 </ContentPage>

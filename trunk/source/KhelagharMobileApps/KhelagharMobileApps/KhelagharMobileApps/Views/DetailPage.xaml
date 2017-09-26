@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="KhelagharMobileApps.Views.DetailPage"
+             Title="{Binding Path=SelectedAsar.AsarName}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{Binding Path=SelectedAsar.AsarName}" LineBreakMode="WordWrap" FontSize="13" TextColor="#98a6ad" Margin="15" />
+            <Label Text="{Binding Path=SelectedAsar.CommitteeType}" LineBreakMode="WordWrap" FontSize="13" TextColor="#98a6ad" Margin="15" />
+            <Label Text="{Binding Path=SelectedAsar.AsarStatus}" LineBreakMode="WordWrap" FontSize="13" TextColor="#98a6ad" Margin="15" />
+            <Label Text="{Binding Path=SelectedAsar.AddressLine}" LineBreakMode="WordWrap" FontSize="13" TextColor="#98a6ad" Margin="15" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
