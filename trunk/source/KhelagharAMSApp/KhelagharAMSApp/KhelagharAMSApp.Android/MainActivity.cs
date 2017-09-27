@@ -12,7 +12,7 @@ using KhelagharAMSApp.Services;
 
 namespace KhelagharAMSApp.Droid
 {
-  [Activity(Label = "Khelaghar AMS App", MainLauncher = true, Icon = "@drawable/icon")]
+  [Activity(Label = "Khelaghar AMS App", MainLauncher = false, Icon = "@drawable/icon")]
   public class MainActivity : Activity
 	{
     private string _queryUrl = "Asar?name=";
