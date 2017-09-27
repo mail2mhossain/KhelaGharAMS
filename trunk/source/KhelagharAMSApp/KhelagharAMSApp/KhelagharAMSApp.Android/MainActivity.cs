@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Linq;
 using Android.App;
 using Android.Content;
 using Android.Runtime;
@@ -17,6 +17,8 @@ namespace KhelagharAMSApp.Droid
 	{
     private string _queryUrl = "Asar?name=";
     private ListView _asarList;
+    private IList<AsarInfo> _asarInfoList = new List<AsarInfo>();
+    IList<string> _asars = new List<string>();
 
     protected override void OnCreate (Bundle bundle)
 		{
@@ -36,10 +38,9 @@ namespace KhelagharAMSApp.Droid
       if (!String.IsNullOrEmpty(asarNameEntry.Text))
       {
         IKgApiService apiService = new KgApiService();
-        IList<AsarInfo> asarInfoList = await apiService.GetAsars(_queryUrl + asarNameEntry.Text);
-        IList<string> asars = new List<string>();
+        _asarInfoList = await apiService.GetAsars(_queryUrl + asarNameEntry.Text);
 
-        foreach (AsarInfo asar in asarInfoList)
+        foreach (AsarInfo asar in _asarInfoList)
         {
           string asarNameWithAddress = asar.AsarName;
           if (!String.IsNullOrEmpty(asar.AddressLine))
@@ -54,12 +55,20 @@ namespace KhelagharAMSApp.Droid
             asarNameWithAddress = asarNameWithAddress + asar.Subdistrict;
             asarNameWithAddress = asarNameWithAddress + ", " + asar.District;
           }
-          asars.Add(asarNameWithAddress);
+          _asars.Add(asarNameWithAddress);
         }
-        ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, asars);
+        ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, _asars);
         _asarList.Adapter = adapter;
+        _asarList.ItemClick += asarList_ItemClick;
       }
     }
+    private void asarList_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+    {
+      string selectedAsar = _asars[e.Position];
+      string[] asarName = selectedAsar.Split('\n');
+      AsarInfo asar = _asarInfoList.Where(w => w.AsarName == asarName[0]).FirstOrDefault();
+    }
+
     public override void OnBackPressed()
     {
       Finish();
