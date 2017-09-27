@@ -45,10 +45,19 @@ namespace KhelagharAMSApp.Droid
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int ic_smart_meter = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int SplashScreen = 2130837505;
+			public const int Icon = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int input_border = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int kg_logo = 2130837507;
+			
+			// aapt resource value: 0x7f020004
+			public const int SplashScreen = 2130837508;
 			
 			static Drawable()
 			{
@@ -63,23 +72,53 @@ namespace KhelagharAMSApp.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060003
-			public const int AsarNameEntry = 2131099651;
+			// aapt resource value: 0x7f06000d
+			public const int AsarNameEntry = 2131099661;
 			
-			// aapt resource value: 0x7f060002
-			public const int AsarNameLabel = 2131099650;
+			// aapt resource value: 0x7f06000c
+			public const int AsarNameLabel = 2131099660;
 			
-			// aapt resource value: 0x7f060001
-			public const int AsarNameSearchLabel = 2131099649;
+			// aapt resource value: 0x7f06000b
+			public const int AsarNameSearchLabel = 2131099659;
+			
+			// aapt resource value: 0x7f06000e
+			public const int AsarSearchBtn = 2131099662;
+			
+			// aapt resource value: 0x7f060009
+			public const int LogInButton = 2131099657;
+			
+			// aapt resource value: 0x7f060008
+			public const int RelativeLayoutButton = 2131099656;
+			
+			// aapt resource value: 0x7f060007
+			public const int TextErrorMessage = 2131099655;
+			
+			// aapt resource value: 0x7f060006
+			public const int TextPassword = 2131099654;
 			
 			// aapt resource value: 0x7f060004
-			public const int AsarSearchBtn = 2131099652;
-			
-			// aapt resource value: 0x7f060005
-			public const int listView = 2131099653;
+			public const int TextUsername = 2131099652;
 			
 			// aapt resource value: 0x7f060000
-			public const int relativeLayout1 = 2131099648;
+			public const int img_kg_logo = 2131099648;
+			
+			// aapt resource value: 0x7f060002
+			public const int img_khelaghar = 2131099650;
+			
+			// aapt resource value: 0x7f060001
+			public const int kg_text = 2131099649;
+			
+			// aapt resource value: 0x7f06000f
+			public const int listView = 2131099663;
+			
+			// aapt resource value: 0x7f06000a
+			public const int relativeLayout1 = 2131099658;
+			
+			// aapt resource value: 0x7f060005
+			public const int relativeLayoutPassword = 2131099653;
+			
+			// aapt resource value: 0x7f060003
+			public const int relativeLayoutUsername = 2131099651;
 			
 			static Id()
 			{
@@ -95,7 +134,10 @@ namespace KhelagharAMSApp.Droid
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Main = 2130903040;
+			public const int LoginLayout = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int Main = 2130903041;
 			
 			static Layout()
 			{

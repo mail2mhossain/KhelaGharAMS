@@ -22,7 +22,7 @@ namespace KhelagharAMSApp.Droid.Activities
 
       // Create your application here
       Thread.Sleep(2000);
-      StartActivity(typeof(MainActivity));
+      StartActivity(typeof(LoginActivity));
     }
   }
 }

@@ -32,11 +32,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Exceptions\KGAppsApiException.cs" />
+    <Compile Include="MobileAPIUrl.cs" />
     <Compile Include="Models\AsarInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BaseProvider.cs" />
     <Compile Include="Services\IKgApiService.cs" />
     <Compile Include="Services\KgApiService.cs" />
+    <Compile Include="Services\LoginService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
