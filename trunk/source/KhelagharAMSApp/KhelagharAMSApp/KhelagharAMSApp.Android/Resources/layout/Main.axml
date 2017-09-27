@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <RelativeLayout
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout1"
+        android:background="#545454">
+        <TextView
+            android:text="আসরের নাম দিয়ে খোঁজ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/AsarNameSearchLabel"
+            android:layout_marginLeft="10dp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+        <TextView
+            android:text="আসরের নাম"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/AsarNameSearchLabel"
+            android:id="@+id/AsarNameLabel"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp" />
+        <EditText
+            android:inputType="text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/AsarNameLabel"
+            android:id="@+id/AsarNameEntry"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:width="165dp" />
+        <Button
+            android:text="আসর খোঁজ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/AsarNameEntry"
+            android:id="@+id/AsarSearchBtn"
+            android:layout_marginLeft="20dp"
+            android:layout_alignBottom="@id/AsarNameEntry"
+            android:width="165dp" />
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fastScrollEnabled="true" />
+</LinearLayout>
