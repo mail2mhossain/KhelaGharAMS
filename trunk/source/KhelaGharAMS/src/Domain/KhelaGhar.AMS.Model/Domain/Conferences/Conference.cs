@@ -246,12 +246,12 @@ namespace KhelaGhar.AMS.Model.Domain.Conferences
     #endregion
 
     #region Register Shakha Asar
-    public void RegisterAsar(Asar asar, decimal registrationFee, string receiptNo, DateTime? receiptDate, TypeOfDeletegate delegateType)
+    public void RegisterAsar(Asar asar, decimal registrationFee, [Optionally]string receiptNo, [Optionally] DateTime? receiptDate)
     {
       ConferenceAsar confAsar = Container.NewTransientInstance<ConferenceAsar>();
       confAsar.Asar = asar;
       confAsar.RegistrationFee = registrationFee;
-      confAsar.DelegateType = delegateType;
+      confAsar.DelegateType = TypeOfDeletegate.প্রতিনিধি;
       confAsar.ReceiptNo = receiptNo;
       confAsar.Conference = this;
       Container.Persist(ref confAsar);
