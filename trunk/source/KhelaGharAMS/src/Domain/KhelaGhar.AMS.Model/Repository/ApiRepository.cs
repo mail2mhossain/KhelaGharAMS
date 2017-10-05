@@ -38,5 +38,25 @@ namespace KhelaGhar.AMS.Model.Repository
                .ToList().ToList();
       }
     }
+    public IList<Asar> GetAsarBySubdistrict(string sub)
+    {
+      return _dbContext.Asars
+               .Include(a => a.Area)
+               .Include(p => p.Area.Parent)
+               .Include(pp => pp.Area.Parent.Parent)
+               .Where(w => w.Area.Name.StartsWith(sub.Trim()))
+               .OrderBy(o => o.Name)
+               .ToList().ToList();
+    }
+    public IList<Asar> GetAsarByDistrict(string district)
+    {
+      return _dbContext.Asars
+               .Include(a => a.Area)
+               .Include(p => p.Area.Parent)
+               .Include(pp => pp.Area.Parent.Parent)
+               .Where(w => w.Area.Parent.Name.StartsWith(district.Trim()))
+               .OrderBy(o => o.Name)
+               .ToList().ToList();
+    }
   }
 }

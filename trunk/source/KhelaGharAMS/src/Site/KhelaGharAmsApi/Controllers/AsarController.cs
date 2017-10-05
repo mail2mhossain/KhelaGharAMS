@@ -27,6 +27,31 @@ namespace KhelaGharAmsApi.Controllers
       }
     }
 
+    [HttpGet]
+    [Route("Upojela")]
+    public IHttpActionResult GetAsarBySubdistrcit(string upojela)
+    {
+      IList<AsarInfo> asarList = new List<AsarInfo>();
+      using (KhelaGharAMSDbContext dbContext = new KhelaGharAMSDbContext())
+      {
+        ApiRepository repo = new ApiRepository(dbContext);
+        asarList = MapAsar(repo.GetAsarBySubdistrict(upojela));
+        return Content(HttpStatusCode.OK, asarList);
+      }
+    }
+
+    [HttpGet]
+    [Route("Jela")]
+    public IHttpActionResult GetAsarByDistrcit(string jela)
+    {
+      IList<AsarInfo> asarList = new List<AsarInfo>();
+      using (KhelaGharAMSDbContext dbContext = new KhelaGharAMSDbContext())
+      {
+        ApiRepository repo = new ApiRepository(dbContext);
+        asarList = MapAsar(repo.GetAsarByDistrict(jela));
+        return Content(HttpStatusCode.OK, asarList);
+      }
+    }
     private IList<AsarInfo> MapAsar(IList<Asar> list)
     {
       IList<AsarInfo> asarList = new List<AsarInfo>();
