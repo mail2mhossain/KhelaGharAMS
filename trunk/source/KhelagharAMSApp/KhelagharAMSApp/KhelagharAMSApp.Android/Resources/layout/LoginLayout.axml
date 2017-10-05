@@ -39,7 +39,7 @@
         android:layout_height="50dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:layout_below="@id/img_khelaghar"
+        android:layout_below="@id/kg_text"
         android:id="@+id/relativeLayoutUsername">
         <EditText
             android:id="@+id/TextUsername"
