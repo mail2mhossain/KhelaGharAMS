@@ -25,13 +25,13 @@
         android:layout_below="@id/img_kg_logo"
         android:layout_marginBottom="10dp"
         android:textStyle="bold" />
-    <!--<ImageView
+    <ImageView
         android:src="@drawable/ic_smart_meter"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_below="@id/kg_text"
         android:layout_marginBottom="10dp"
-        android:id="@+id/img_khelaghar" />-->
+        android:id="@+id/img_khelaghar" />
     <RelativeLayout
         android:minWidth="20px"
         android:minHeight="20px"
@@ -39,7 +39,7 @@
         android:layout_height="50dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:layout_below="@id/kg_text"
+        android:layout_below="@id/img_khelaghar"
         android:id="@+id/relativeLayoutUsername">
         <EditText
             android:id="@+id/TextUsername"
