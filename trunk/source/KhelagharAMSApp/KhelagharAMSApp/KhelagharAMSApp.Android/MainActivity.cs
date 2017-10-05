@@ -15,7 +15,7 @@ namespace KhelagharAMSApp.Droid
   [Activity(Label = "Khelaghar AMS App", MainLauncher = false, Icon = "@drawable/icon")]
   public class MainActivity : Activity
 	{
-    private string _queryUrl = "Asar?name=";
+    //private string _queryUrl = "Asar?name=";
     private ListView _asarList;
 
     protected override void OnCreate (Bundle bundle)
@@ -26,7 +26,8 @@ namespace KhelagharAMSApp.Droid
 			SetContentView (Resource.Layout.Main);
       _asarList = FindViewById<ListView>(Resource.Id.listView);
       Button button = FindViewById<Button>(Resource.Id.AsarSearchBtn);
-
+      RadioButton asarRadioButton = FindViewById<RadioButton>(Resource.Id.radio_asar);
+      asarRadioButton.Checked = true;
       button.Click += Button_Click;
     }
     private async void Button_Click(object sender, EventArgs e)
@@ -35,13 +36,16 @@ namespace KhelagharAMSApp.Droid
 
       if (!String.IsNullOrEmpty(asarNameEntry.Text))
       {
+        RadioGroup radioGroup = FindViewById<RadioGroup>(Resource.Id.radio_search_group);
+        RadioButton radioButton = FindViewById<RadioButton>(radioGroup.CheckedRadioButtonId);
         IKgApiService apiService = new KgApiService();
-        IList<AsarInfo> asarInfoList = await apiService.GetAsars(_queryUrl + asarNameEntry.Text);
+        string queryUrl = GetQueryUrl(radioButton);
+        IList<AsarInfo> asarInfoList = await apiService.GetAsars(queryUrl + asarNameEntry.Text);
         IList<string> asars = new List<string>();
-
+        int i = 1;
         foreach (AsarInfo asar in asarInfoList)
         {
-          string asarNameWithAddress = asar.AsarName;
+          string asarNameWithAddress = GetSerialNo(i) + asar.AsarName;
           if (!String.IsNullOrEmpty(asar.AddressLine))
           {
             asarNameWithAddress = asarNameWithAddress + System.Environment.NewLine + asar.AddressLine;
@@ -55,10 +59,36 @@ namespace KhelagharAMSApp.Droid
             asarNameWithAddress = asarNameWithAddress + ", " + asar.District;
           }
           asars.Add(asarNameWithAddress);
+          i = i + 1;
         }
         ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, asars);
         _asarList.Adapter = adapter;
       }
+    }
+
+    private string GetQueryUrl(RadioButton radioButton)
+    {
+      string queryUrl = "Asar?name=";
+      switch (radioButton.Id)
+      {
+        case Resource.Id.radio_asar:
+          queryUrl = "Asar?name=";
+          return queryUrl;
+        case Resource.Id.radio_upojela:
+          queryUrl = "Upojela?upojela=";
+          return queryUrl;
+        case Resource.Id.radio_jela:
+          queryUrl = "Jela?jela=";
+          return queryUrl;
+      }
+      return queryUrl;
+    }
+
+    private string GetSerialNo(int serialNo)
+    {
+      if (serialNo < 10)
+        return "0" + serialNo + ". ";
+      return serialNo + ". ";
     }
     public override void OnBackPressed()
     {
