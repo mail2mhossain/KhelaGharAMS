@@ -23,7 +23,8 @@ namespace KhelaGhar.AMS.Model.Repository
         return _dbContext.Asars
                .Include(a => a.Area)
                .Include(p => p.Area.Parent)
-               .Where(w => w.Name.StartsWith(name))
+               .Include(pp => pp.Area.Parent.Parent)
+               .Where(w => w.Name.StartsWith(name.Trim()))
                .OrderBy(o => o.Name)
                .ToList().ToList();
       }
@@ -32,7 +33,7 @@ namespace KhelaGhar.AMS.Model.Repository
         return _dbContext.Asars
                .Include(a => a.Area)
                .Include(p => p.Area.Parent)
-               .Where(w => w.Name.Contains(name))
+               .Where(w => w.Name.Contains(name.Trim()))
                .OrderBy(o => o.Name)
                .ToList().ToList();
       }
