@@ -25,12 +25,12 @@ namespace KhelagharAMSApp.Droid
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
       _asarList = FindViewById<ListView>(Resource.Id.listView);
-      Button button = FindViewById<Button>(Resource.Id.AsarSearchBtn);
+      Button searchButton = FindViewById<Button>(Resource.Id.AsarSearchBtn);
       RadioButton asarRadioButton = FindViewById<RadioButton>(Resource.Id.radio_asar);
       asarRadioButton.Checked = true;
-      button.Click += Button_Click;
+      searchButton.Click += SearchButton_Click;
     }
-    private async void Button_Click(object sender, EventArgs e)
+    private async void SearchButton_Click(object sender, EventArgs e)
     {
       EditText asarNameEntry = FindViewById<EditText>(Resource.Id.AsarNameEntry);
 
