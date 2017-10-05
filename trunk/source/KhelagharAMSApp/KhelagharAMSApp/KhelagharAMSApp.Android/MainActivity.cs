@@ -41,31 +41,51 @@ namespace KhelagharAMSApp.Droid
         IKgApiService apiService = new KgApiService();
         string queryUrl = GetQueryUrl(radioButton);
         IList<AsarInfo> asarInfoList = await apiService.GetAsars(queryUrl + asarNameEntry.Text);
-        IList<string> asars = new List<string>();
-        int i = 1;
-        foreach (AsarInfo asar in asarInfoList)
-        {
-          string asarNameWithAddress = GetSerialNo(i) + asar.AsarName;
-          if (!String.IsNullOrEmpty(asar.AddressLine))
-          {
-            asarNameWithAddress = asarNameWithAddress + System.Environment.NewLine + asar.AddressLine;
-            asarNameWithAddress = asarNameWithAddress + System.Environment.NewLine + asar.Subdistrict;
-            asarNameWithAddress = asarNameWithAddress + ", " + asar.District;
-          }
-          else
-          {
-            asarNameWithAddress = asarNameWithAddress + System.Environment.NewLine;
-            asarNameWithAddress = asarNameWithAddress + asar.Subdistrict;
-            asarNameWithAddress = asarNameWithAddress + ", " + asar.District;
-          }
-          asars.Add(asarNameWithAddress);
-          i = i + 1;
-        }
+        IList<string> asars = GetFormattedAsarList(asarInfoList);
         ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, asars);
         _asarList.Adapter = adapter;
       }
     }
-
+    private IList<string> GetFormattedAsarList(IList<AsarInfo> asarInfoList)
+    {
+      IList<string> asars = new List<string>();
+      int i = 1;
+      foreach (AsarInfo asar in asarInfoList)
+      {
+        string asarNameWithAddress = GetSerialNo(i) + asar.AsarName;
+        if (!String.IsNullOrEmpty(asar.AddressLine))
+        {
+          asarNameWithAddress = asarNameWithAddress + System.Environment.NewLine + asar.AddressLine;
+          asarNameWithAddress = asarNameWithAddress + System.Environment.NewLine + asar.Subdistrict;
+          if (asar.District != null)
+          {
+            asarNameWithAddress = asarNameWithAddress + ", " + asar.District;
+            asarNameWithAddress = asarNameWithAddress + ", " + asar.Division;
+          }
+          else
+          {
+            asarNameWithAddress = asarNameWithAddress + ", " + asar.Division;
+          }
+        }
+        else
+        {
+          asarNameWithAddress = asarNameWithAddress + System.Environment.NewLine;
+          asarNameWithAddress = asarNameWithAddress + asar.Subdistrict;
+          if (asar.District != null)
+          {
+            asarNameWithAddress = asarNameWithAddress + ", " + asar.District;
+            asarNameWithAddress = asarNameWithAddress + ", " + asar.Division;
+          }
+          else
+          {
+            asarNameWithAddress = asarNameWithAddress + ", " + asar.Division;
+          }
+        }
+        asars.Add(asarNameWithAddress);
+        i = i + 1;
+      }
+      return asars;
+    }
     private string GetQueryUrl(RadioButton radioButton)
     {
       string queryUrl = "Asar?name=";
@@ -83,7 +103,6 @@ namespace KhelagharAMSApp.Droid
       }
       return queryUrl;
     }
-
     private string GetSerialNo(int serialNo)
     {
       if (serialNo < 10)
