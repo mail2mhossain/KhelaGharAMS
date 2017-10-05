@@ -11,7 +11,7 @@ namespace KhelagharAMSApp.Services
   {
     public KgApiService()
     {
-      _baseUrl = "http://appsapi.khelaghar.net/";
+      _baseUrl = MobileAPIUrl.Url;
     }
     public async Task<List<AsarInfo>> GetAsars(string name)
     {

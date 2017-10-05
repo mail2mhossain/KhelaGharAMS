@@ -8,6 +8,6 @@ namespace KhelagharAMSApp
 {
   public class MobileAPIUrl
   {
-    public static string Url = "http://mobileapi.bpdb-smartmeter.com/appsapi/"; // BPDB Live Server
+    public static string Url = "http://appsapi.khelaghar.net/"; 
   }
 }
