@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.Connectivity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -14,6 +15,11 @@ namespace KhelagharAMSApp.Services
     {
       try
       {
+        if(!CrossConnectivity.Current.IsConnected)
+        {
+          success = "Failure";
+          return success;
+        }
         string LoginUrl = MobileAPIUrl.Url + "Login?username=" + username + "&password=" + password;
         Task.Run(() => LoadDataAsync(LoginUrl, authenticationUserName, authenticationUserPassword)).Wait();
       }

@@ -1,4 +1,5 @@
 ﻿using KhelagharAMSApp.Models;
+using Plugin.Connectivity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,10 @@ namespace KhelagharAMSApp.Services
     }
     public async Task<List<AsarInfo>> GetAsars(string name)
     {
+      if (!CrossConnectivity.Current.IsConnected)
+      {
+        return new List<AsarInfo>();
+      }
       return await Get<List<AsarInfo>>(name);
     }
   }
