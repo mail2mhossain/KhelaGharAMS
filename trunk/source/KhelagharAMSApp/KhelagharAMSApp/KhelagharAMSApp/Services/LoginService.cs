@@ -14,7 +14,7 @@ namespace KhelagharAMSApp.Services
     {
       try
       {
-        string LoginUrl = MobileAPIUrl.Url + "Profile/CheckLogin?username=" + username + "&password=" + password;
+        string LoginUrl = MobileAPIUrl.Url + "Login?username=" + username + "&password=" + password;
         Task.Run(() => LoadDataAsync(LoginUrl, authenticationUserName, authenticationUserPassword)).Wait();
       }
       catch (Exception ex)

@@ -72,17 +72,17 @@ namespace KhelagharAMSApp.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f06000d
-			public const int AsarNameEntry = 2131099661;
+			// aapt resource value: 0x7f060011
+			public const int AsarNameEntry = 2131099665;
 			
-			// aapt resource value: 0x7f06000c
-			public const int AsarNameLabel = 2131099660;
+			// aapt resource value: 0x7f060010
+			public const int AsarNameLabel = 2131099664;
 			
 			// aapt resource value: 0x7f06000b
 			public const int AsarNameSearchLabel = 2131099659;
 			
-			// aapt resource value: 0x7f06000e
-			public const int AsarSearchBtn = 2131099662;
+			// aapt resource value: 0x7f060012
+			public const int AsarSearchBtn = 2131099666;
 			
 			// aapt resource value: 0x7f060009
 			public const int LogInButton = 2131099657;
@@ -108,8 +108,20 @@ namespace KhelagharAMSApp.Droid
 			// aapt resource value: 0x7f060001
 			public const int kg_text = 2131099649;
 			
+			// aapt resource value: 0x7f060013
+			public const int listView = 2131099667;
+			
+			// aapt resource value: 0x7f06000d
+			public const int radio_asar = 2131099661;
+			
 			// aapt resource value: 0x7f06000f
-			public const int listView = 2131099663;
+			public const int radio_jela = 2131099663;
+			
+			// aapt resource value: 0x7f06000c
+			public const int radio_search_group = 2131099660;
+			
+			// aapt resource value: 0x7f06000e
+			public const int radio_upojela = 2131099662;
 			
 			// aapt resource value: 0x7f06000a
 			public const int relativeLayout1 = 2131099658;

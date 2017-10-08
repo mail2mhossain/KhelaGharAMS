@@ -13,15 +13,37 @@
         android:id="@+id/relativeLayout1"
         android:background="#545454">
         <TextView
-            android:text="আসরের নাম দিয়ে খোঁজ"
+            android:text="আসর খোঁজ"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/AsarNameSearchLabel"
             android:layout_marginLeft="10dp"
             android:textColor="@android:color/white"
             android:textStyle="bold" />
+        <RadioGroup
+            android:id="@+id/radio_search_group"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_toRightOf="@id/AsarNameSearchLabel">
+            <RadioButton
+                android:id="@+id/radio_asar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="আসর" />
+            <RadioButton
+                android:id="@+id/radio_upojela"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="উপজেলা" />
+            <RadioButton
+                android:id="@+id/radio_jela"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="জেলা" />
+        </RadioGroup>
         <TextView
-            android:text="আসরের নাম"
+            android:text="আসর/উপজেলা/জেলার নাম"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/AsarNameSearchLabel"
