@@ -1,4 +1,5 @@
-﻿using KhelagharAMSApp.Models;
+﻿using Acr.UserDialogs;
+using KhelagharAMSApp.Models;
 using Plugin.Connectivity;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace KhelagharAMSApp.Services
     {
       if (!CrossConnectivity.Current.IsConnected)
       {
+        await UserDialogs.Instance.AlertAsync("You are offline");
         return new List<AsarInfo>();
       }
       return await Get<List<AsarInfo>>(name);

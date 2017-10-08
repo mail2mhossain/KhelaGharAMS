@@ -1,6 +1,7 @@
 ﻿{
   "dependencies": {
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+    "Plugin.UserDialogs": "1.0.0",
     "Xam.Plugin.Connectivity": "3.0.3",
     "Xamarin.Forms": "2.3.3.193"
   },

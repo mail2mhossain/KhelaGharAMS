@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using KhelagharAMSApp.Services;
+using Acr.UserDialogs;
 
 namespace KhelagharAMSApp.Droid.Activities
 {
@@ -30,6 +31,7 @@ namespace KhelagharAMSApp.Droid.Activities
       base.OnCreate(savedInstanceState);
       SetContentView(Resource.Layout.LoginLayout);
       // Create your application here
+      UserDialogs.Init(this);
       FindViews();
       HandleEvents();
     }
@@ -91,7 +93,7 @@ namespace KhelagharAMSApp.Droid.Activities
     }
     private void ProgressBar()
     {
-      ProgressDialog progressDialog = new ProgressDialog(this);
+      Android.App.ProgressDialog progressDialog = new Android.App.ProgressDialog(this);
       progressDialog.SetCancelable(true);
       progressDialog.SetMessage("Logging in...");
       progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);

@@ -1,4 +1,5 @@
-﻿using Plugin.Connectivity;
+﻿using Acr.UserDialogs;
+using Plugin.Connectivity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace KhelagharAMSApp.Services
       {
         if(!CrossConnectivity.Current.IsConnected)
         {
+          UserDialogs.Instance.AlertAsync("You are offline");
           success = "Failure";
           return success;
         }

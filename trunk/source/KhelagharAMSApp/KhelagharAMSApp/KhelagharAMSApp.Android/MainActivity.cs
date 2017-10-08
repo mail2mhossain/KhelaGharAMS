@@ -9,6 +9,7 @@ using Android.OS;
 using KhelagharAMSApp.Models;
 using System.Collections.Generic;
 using KhelagharAMSApp.Services;
+using Acr.UserDialogs;
 
 namespace KhelagharAMSApp.Droid
 {
@@ -29,6 +30,7 @@ namespace KhelagharAMSApp.Droid
       RadioButton asarRadioButton = FindViewById<RadioButton>(Resource.Id.radio_asar);
       asarRadioButton.Checked = true;
       searchButton.Click += SearchButton_Click;
+      UserDialogs.Init(this);
     }
     private async void SearchButton_Click(object sender, EventArgs e)
     {
