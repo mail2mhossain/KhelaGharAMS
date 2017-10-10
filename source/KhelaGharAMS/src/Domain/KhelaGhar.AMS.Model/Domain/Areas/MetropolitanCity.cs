@@ -1,4 +1,5 @@
 ﻿using NakedObjects;
+using NakedObjects.Menu;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,13 @@ namespace KhelaGhar.AMS.Model.Domain.Areas
       {
         return Container.Instances<Division>().Where(w => w.AreaId == this.Parent.AreaId).FirstOrDefault();
       }
+    }
+    #endregion
+
+    #region Menu
+    public static void Menu (IMenu menu)
+    {
+      menu.AddAction("CreateAsar");
     }
     #endregion
   }
