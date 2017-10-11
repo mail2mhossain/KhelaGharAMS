@@ -18,6 +18,7 @@ namespace KhelagharMobileApps.ViewModels
     //private string _queryUrl = "Asar?name=আনন্দ";
     private string _queryUrl = "Asar?name=";
     private ObservableCollection<AsarInfo> _asarList;
+    private int _asarCount;
     private readonly IKgApiService _apiService;
     private readonly INavigationService _navigationService;
     public DelegateCommand SearchCommand { get; set; }
@@ -32,6 +33,7 @@ namespace KhelagharMobileApps.ViewModels
     {
       IList<AsarInfo> asars = await _apiService.GetAsars(_queryUrl+ _textToSearch);
       Asars = new ObservableCollection<AsarInfo>(asars);
+      AsarCount = asars.Count;
     }
     public DelegateCommand<ItemTappedEventArgs> GoToDetailPage
     {
@@ -58,6 +60,11 @@ namespace KhelagharMobileApps.ViewModels
     {
       get { return _asarList; }
       set { SetProperty(ref _asarList, value); }
+    }
+    public int AsarCount
+    {
+      get { return _asarCount; }
+      set { SetProperty(ref _asarCount, value); }
     }
     public void OnNavigatedFrom(NavigationParameters parameters)
     {
