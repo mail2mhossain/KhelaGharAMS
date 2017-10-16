@@ -1,5 +1,6 @@
 ﻿using KhelagharMobileApps.Core.Models;
 using KhelagharMobileApps.Core.Services;
+using Plugin.Connectivity;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
@@ -31,7 +32,11 @@ namespace KhelagharMobileApps.ViewModels
     }
     private async void Search()
     {
-      IList<AsarInfo> asars = await _apiService.GetAsars(_queryUrl+ _textToSearch);
+      if (!CrossConnectivity.Current.IsConnected)
+      {
+        return;
+      }
+      IList<AsarInfo> asars = await _apiService.GetAsars(_queryUrl + _textToSearch);
       Asars = new ObservableCollection<AsarInfo>(asars);
       AsarCount = asars.Count;
     }
