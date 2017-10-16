@@ -16,8 +16,8 @@
       </StackLayout>
       <StackLayout Orientation="Horizontal">
         <Entry Margin="20,0" Text="{Binding TextToSearch}" 
-               HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="200" />
-      <Button Margin="20,0" Command="{Binding SearchCommand}" Text="Search" WidthRequest="125"
+               HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="175" />
+      <Button Margin="20,0" Command="{Binding SearchCommand}" Text="Search" 
                 HorizontalOptions="FillAndExpand"/>
       </StackLayout>
     
