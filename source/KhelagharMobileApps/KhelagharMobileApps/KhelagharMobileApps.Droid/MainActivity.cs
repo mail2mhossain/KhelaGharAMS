@@ -8,6 +8,8 @@ using Android.Widget;
 using Android.OS;
 using DryIoc;
 using Prism.DryIoc;
+using Acr.UserDialogs;
+using Xamarin.Forms;
 
 namespace KhelagharMobileApps.Droid
 {
@@ -20,6 +22,8 @@ namespace KhelagharMobileApps.Droid
       ToolbarResource = Resource.Layout.toolbar;
 
       base.OnCreate(bundle);
+
+      UserDialogs.Init(() => (Activity)Forms.Context);
 
       global::Xamarin.Forms.Forms.Init(this, bundle);
       LoadApplication(new App(new AndroidInitializer()));

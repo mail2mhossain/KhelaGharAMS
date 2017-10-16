@@ -1,4 +1,5 @@
-﻿using KhelagharMobileApps.Core.Models;
+﻿using Acr.UserDialogs;
+using KhelagharMobileApps.Core.Models;
 using KhelagharMobileApps.Core.Services;
 using Plugin.Connectivity;
 using Prism.Commands;
@@ -34,6 +35,7 @@ namespace KhelagharMobileApps.ViewModels
     {
       if (!CrossConnectivity.Current.IsConnected)
       {
+        await UserDialogs.Instance.AlertAsync("ইনটারনেট সংযোগ নাই। ইন্টারনেট সংযোগ দিন।");
         return;
       }
       IList<AsarInfo> asars = await _apiService.GetAsars(_queryUrl + _textToSearch);
