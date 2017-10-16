@@ -17,8 +17,6 @@ namespace KhelagharMobileApps.ViewModels
   public class MainPageViewModel : BindableBase, INavigationAware
   {
     private string _textToSearch = "";
-    //private string _queryUrl = "Asar?name=আনন্দ";
-    private string _queryUrl = "Asar?name=";
     private IList<string> _searchOptions = new List<string>();
     private string _selectedOption = String.Empty;
     private ObservableCollection<AsarInfo> _asarList;
@@ -32,6 +30,11 @@ namespace KhelagharMobileApps.ViewModels
       _apiService = apiService;
       _navigationService = navigationService;
       SearchCommand = new DelegateCommand(Search);
+
+      SetAsarSearchOption();
+    }
+    private void SetAsarSearchOption()
+    {
       _searchOptions.Add(AsarSearchOptions.SearchByAsar);
       _searchOptions.Add(AsarSearchOptions.SearchByUpojela);
       _searchOptions.Add(AsarSearchOptions.SearchByJela);
