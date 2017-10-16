@@ -7,7 +7,11 @@
              x:Class="KhelagharMobileApps.Views.MainPage"
              Title="কেন্দ্রীয় খেলাঘর আসর">
     <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-        <Label Margin="20,0" TextColor="#77d065" FontSize = "20" Text="আসরের নাম" />
+        <Label Margin="20,0" TextColor="#77d065" FontSize = "20" Text="আসর খোঁজ" />
+        <Picker Margin="20,0" Title="আসর খোঁজ"
+              ItemsSource="{Binding SearchOptions}"
+              SelectedItem="{Binding SelectedOption}" />
+
         <Entry Margin="20,0" Text="{Binding TextToSearch}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" />
         <Button Margin="20,0" Command="{Binding SearchCommand}" Text="খোঁজ"/>
         <Label Margin="25,0" Text="{Binding AsarCount, StringFormat='{0} টি আসর'}" />
