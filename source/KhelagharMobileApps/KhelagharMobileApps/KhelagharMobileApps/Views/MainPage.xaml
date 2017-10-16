@@ -7,13 +7,21 @@
              x:Class="KhelagharMobileApps.Views.MainPage"
              Title="কেন্দ্রীয় খেলাঘর আসর">
     <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-        <Label Margin="20,0" TextColor="#77d065" FontSize = "20" Text="আসর খোঁজ" />
-        <Picker Margin="20,0" Title="আসর খোঁজ"
-              ItemsSource="{Binding SearchOptions}"
-              SelectedItem="{Binding SelectedOption}" />
-
-        <Entry Margin="20,0" Text="{Binding TextToSearch}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" />
-        <Button Margin="20,0" Command="{Binding SearchCommand}" Text="খোঁজ"/>
+      <StackLayout Orientation="Horizontal">
+        <Label Margin="20,0" Text="আসর খোঁজ" TextColor="#77d065"
+            HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="150" />
+        <Picker HorizontalOptions="FillAndExpand" Title="আসর খোঁজ"
+                ItemsSource="{Binding SearchOptions}"
+                SelectedItem="{Binding SelectedOption}" />
+      </StackLayout>
+      <StackLayout Orientation="Horizontal">
+        <Entry Margin="20,0" Text="{Binding TextToSearch}" 
+               HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="200" />
+      <Button Margin="20,0" Command="{Binding SearchCommand}" Text="Search" WidthRequest="125"
+                HorizontalOptions="FillAndExpand"/>
+      </StackLayout>
+    
+        
         <Label Margin="25,0" Text="{Binding AsarCount, StringFormat='{0} টি আসর'}" />
         <ListView Margin="20,0" ItemsSource="{Binding Path=Asars}"
               CachingStrategy="RecycleElement"
