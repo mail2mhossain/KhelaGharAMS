@@ -49,7 +49,7 @@ namespace KhelagharMobileApps.ViewModels
         return;
       }
       string queryUrl = GetQueryUrl();
-      IList<AsarInfo> asars = await _apiService.GetAsars(queryUrl + _textToSearch); //"আনন্দ");//
+      IList<AsarInfo> asars = await _apiService.GetAsars(queryUrl + _textToSearch); //_textToSearch   "আনন্দ"
       Asars = new ObservableCollection<AsarInfo>(asars);
       AsarCount = asars.Count;
     }
