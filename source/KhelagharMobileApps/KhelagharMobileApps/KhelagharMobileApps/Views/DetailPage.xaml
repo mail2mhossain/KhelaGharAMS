@@ -11,6 +11,8 @@
             <Label Text="{Binding Path=SelectedAsar.CommitteeType}" LineBreakMode="WordWrap" FontSize="13" TextColor="#98a6ad" Margin="15" />
             <Label Text="{Binding Path=SelectedAsar.AsarStatus}" LineBreakMode="WordWrap" FontSize="13" TextColor="#98a6ad" Margin="15" />
             <Label Text="{Binding Path=SelectedAsar.AddressLine}" LineBreakMode="WordWrap" FontSize="13" TextColor="#98a6ad" Margin="15" />
+            <Button Margin="20,0" Command="{Binding CallCommand}" Text="Call" 
+                HorizontalOptions="FillAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

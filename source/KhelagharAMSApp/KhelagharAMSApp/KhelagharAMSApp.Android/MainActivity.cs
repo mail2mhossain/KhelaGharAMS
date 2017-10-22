@@ -18,6 +18,7 @@ namespace KhelagharAMSApp.Droid
 	{
     //private string _queryUrl = "Asar?name=";
     private ListView _asarList;
+    private IList<AsarInfo> _asarInfoList = new List<AsarInfo>();
 
     protected override void OnCreate (Bundle bundle)
 		{
@@ -26,11 +27,19 @@ namespace KhelagharAMSApp.Droid
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
       _asarList = FindViewById<ListView>(Resource.Id.listView);
+      _asarList.ItemClick += OnListItemClick;
       Button searchButton = FindViewById<Button>(Resource.Id.AsarSearchBtn);
       RadioButton asarRadioButton = FindViewById<RadioButton>(Resource.Id.radio_asar);
       asarRadioButton.Checked = true;
       searchButton.Click += SearchButton_Click;
       UserDialogs.Init(this);
+    }
+    private void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e)
+    {
+      if (_asarInfoList.Count > 0)
+      {
+        AsarInfo item = _asarInfoList[e.Position];
+      }
     }
     private async void SearchButton_Click(object sender, EventArgs e)
     {
@@ -42,8 +51,8 @@ namespace KhelagharAMSApp.Droid
         RadioButton radioButton = FindViewById<RadioButton>(radioGroup.CheckedRadioButtonId);
         IKgApiService apiService = new KgApiService();
         string queryUrl = GetQueryUrl(radioButton);
-        IList<AsarInfo> asarInfoList = await apiService.GetAsars(queryUrl + asarNameEntry.Text);
-        IList<string> asars = GetFormattedAsarList(asarInfoList);
+        IList<AsarInfo> asarInfoList = await apiService.GetAsars(queryUrl + asarNameEntry.Text); //"আনন্দ");//
+        IList<string> asars = GetFormattedAsarList(_asarInfoList);
         ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, asars);
         _asarList.Adapter = adapter;
       }
