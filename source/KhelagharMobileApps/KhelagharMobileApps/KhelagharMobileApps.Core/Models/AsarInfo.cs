@@ -21,11 +21,76 @@ namespace KhelagharMobileApps.Core.Models
     public string Secretary { get; set; }
     public string SecretaryMobileNo { get; set; }
     public string SecretaryEmailAddress { get; set; }
-    public string Jela
+    
+    public string Address
     {
       get
       {
-        return Subdistrict + ", " + District + " জেলা";
+        string address = String.IsNullOrEmpty(AddressLine) ? Subdistrict : AddressLine +  Environment.NewLine + Subdistrict;
+        if (District != null)
+        {
+          address = address + ", জেলা-" + District;
+          address = address + ", বিভাগ-" + Division;
+        }
+        else
+        {
+          address = address + ", বিভাগ-" + Division;
+        }
+        return address;
+      }
+    }
+    public string AddressForDetailView
+    {
+      get
+      {
+        string address = String.IsNullOrEmpty(AddressLine) ? Subdistrict : AddressLine + ", " + Subdistrict;
+        if (District != null)
+        {
+          address = address + ", জেলা-" + District;
+          address = address + ", বিভাগ-" + Division;
+        }
+        else
+        {
+          address = address + ", বিভাগ-" + Division;
+        }
+        return address;
+      }
+    }
+    public string DisplayCommitteeType
+    {
+      get
+      {
+        return "কমিটির ধরণ - " + CommitteeType;
+      }
+    }
+    public string DisplayAsarStatus
+    {
+      get
+      {
+        return "আসরের অবস্থা - " + AsarStatus;
+      }
+    }
+    public string SecretaryMobile
+    {
+      get
+      {
+        return "মোবাইল নং - " + SecretaryMobileNo;
+      }
+    }
+    public string SecretaryName
+    {
+      get
+      {
+        return "সাধারণ সম্পাদক - " + Secretary ;
+      }
+    }
+    public bool HasMobileNo
+    {
+      get
+      {
+        if (this.SecretaryMobileNo != null)
+          return true;
+        return false;
       }
     }
   }

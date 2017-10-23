@@ -6,7 +6,7 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="KhelagharMobileApps.Views.MainPage"
              Title="কেন্দ্রীয় খেলাঘর আসর">
-    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+    <StackLayout HorizontalOptions="CenterAndExpand">
       <StackLayout Orientation="Horizontal">
         <Label Margin="20,0" Text="আসর খোঁজ" TextColor="#77d065"
             HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="150" />
@@ -17,23 +17,19 @@
       <StackLayout Orientation="Horizontal">
         <Entry Margin="20,0" Text="{Binding TextToSearch}" 
                HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="175" />
-      <Button Margin="20,0" Command="{Binding SearchCommand}" Text="Search" 
+        <Button Margin="10,0" Command="{Binding SearchCommand}" Text="Search" 
                 HorizontalOptions="FillAndExpand"/>
       </StackLayout>
-    
-        
-        <Label Margin="25,0" Text="{Binding AsarCount, StringFormat='{0} টি আসর'}" />
-        <ListView Margin="20,0" ItemsSource="{Binding Path=Asars}"
-              CachingStrategy="RecycleElement"
-              RowHeight="90">
+      <Label Margin="20,0" Text="{Binding AsarCount, StringFormat='{0} টি আসর'}" />
+      <ListView Margin="20,0" ItemsSource="{Binding Path=Asars}"
+              CachingStrategy="RecycleElement" RowHeight="75">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Margin="8">
+                        <StackLayout Spacing = "0" Margin="4">
                             <Label Text="{Binding AsarName}"
                                FontAttributes="Bold" />
-                            <Label Text="{Binding AddressLine}" />
-                            <Label Text="{Binding Jela}" />
+                            <Label Text="{Binding Address}" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
