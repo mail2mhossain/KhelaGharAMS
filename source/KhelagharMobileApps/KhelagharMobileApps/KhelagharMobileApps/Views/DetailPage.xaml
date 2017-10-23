@@ -5,7 +5,7 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="KhelagharMobileApps.Views.DetailPage"
              Title="{Binding Path=SelectedAsar.AsarName}">
-    <Grid x:Name="controlGrid" RowSpacing="5" ColumnSpacing="5">
+    <Grid x:Name="controlGrid" HorizontalOptions="FillAndExpand" VerticalOptions="Start" RowSpacing="5" ColumnSpacing="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="25" />
             <RowDefinition Height="25" />

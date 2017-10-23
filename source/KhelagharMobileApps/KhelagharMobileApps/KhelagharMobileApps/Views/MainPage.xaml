@@ -15,7 +15,7 @@
                 SelectedItem="{Binding SelectedOption}" />
       </StackLayout>
       <StackLayout Orientation="Horizontal">
-        <Entry Margin="20,0" Text="{Binding TextToSearch}" 
+        <Entry Margin="20,0" Text="{Binding TextToSearch}" Placeholder="এখানে লিখুন"
                HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="175" />
         <Button Margin="10,0" Command="{Binding SearchCommand}" Text="Search" 
                 HorizontalOptions="FillAndExpand"/>
