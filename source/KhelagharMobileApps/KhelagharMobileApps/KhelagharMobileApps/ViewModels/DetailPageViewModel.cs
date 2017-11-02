@@ -1,5 +1,8 @@
 ﻿using Acr.UserDialogs;
 using KhelagharMobileApps.Core.Models;
+using KhelagharMobileApps.Core.Services;
+using Plugin.ExternalMaps;
+using Plugin.Geolocator.Abstractions;
 using Plugin.Messaging;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -13,16 +16,25 @@ namespace KhelagharMobileApps.ViewModels
   public class DetailPageViewModel : BindableBase, INavigationAware
   {
     private AsarInfo _selectedAsar;
+    private Position _position = null;
+    private string _geoLocation = String.Empty;
     private string _committeeType = String.Empty;
     public DelegateCommand CallCommand { get; set; }
+    public DelegateCommand NavigateTo { get; set; }
     public AsarInfo SelectedAsar
     {
       get { return _selectedAsar; }
       set { SetProperty(ref _selectedAsar, value);}
     }
+    public string GeoLocation
+    {
+      get { return _geoLocation; }
+      set { SetProperty(ref _geoLocation, value); }
+    }
     public DetailPageViewModel()
     {
       CallCommand = new DelegateCommand(MakeACall);
+      NavigateTo = new DelegateCommand(NavigateToMap);
     }
     private async void MakeACall()
     {
@@ -59,6 +71,11 @@ namespace KhelagharMobileApps.ViewModels
       //  emailMessenger.SendEmail(email);
       //}
     }
+    private void NavigateToMap()
+    {
+      if(_position !=null)
+        CrossExternalMaps.Current.NavigateTo("AplombTech", _position.Latitude + 1, _position.Longitude);
+    }
     public void OnNavigatedFrom(NavigationParameters parameters)
     {
     }
@@ -66,9 +83,12 @@ namespace KhelagharMobileApps.ViewModels
     {
       SelectedAsar = parameters["show"] as AsarInfo;
     }
-    public void OnNavigatingTo(NavigationParameters parameters)
+    public async void OnNavigatingTo(NavigationParameters parameters)
     {
-      
+      LocationFinder finder = new LocationFinder();
+      _position = await finder.GetCurrentLocation();
+      if (_position != null)
+        GeoLocation = "Lat-" + _position.Latitude + ", Lon-" + _position.Longitude;
     }
   }
 }

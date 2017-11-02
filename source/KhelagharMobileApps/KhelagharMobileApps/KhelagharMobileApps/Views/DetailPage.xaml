@@ -5,55 +5,48 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="KhelagharMobileApps.Views.DetailPage"
              Title="{Binding Path=SelectedAsar.AsarName}">
-    <Grid x:Name="controlGrid" HorizontalOptions="FillAndExpand" VerticalOptions="Start" RowSpacing="5" ColumnSpacing="5">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="25" />
-            <RowDefinition Height="25" />
-            <RowDefinition Height="30" />
-            <RowDefinition Height="25" />
-            <RowDefinition Height="25" />
+    
+        <Grid x:Name="controlGrid" HorizontalOptions="FillAndExpand" VerticalOptions="Start" RowSpacing="5" ColumnSpacing="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="25" />
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
-        <Label Text="{Binding Path=SelectedAsar.AsarName}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+            <Label Text="{Binding Path=SelectedAsar.AsarName}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
                FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" />
-        <Label Margin="10,0" Text="{Binding Path= SelectedAsar.DisplayCommitteeType}" Grid.Row="1" Grid.Column="0" FontSize="13" TextColor="Black"
+            <Label Margin="10,0" Text="{Binding Path= SelectedAsar.DisplayCommitteeType}" Grid.Row="1" Grid.Column="0" FontSize="13" TextColor="Black"
                HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
-        <Label Margin="10,0" Text="{Binding Path= SelectedAsar.DisplayAsarStatus}" Grid.Row="1" Grid.Column="1" FontSize="13" TextColor="Black"
+            <Label Margin="10,0" Text="{Binding Path= SelectedAsar.DisplayAsarStatus}" Grid.Row="1" Grid.Column="1" FontSize="13" TextColor="Black"
                HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
-        <Label Margin="10,0" Text="{Binding Path=SelectedAsar.AddressForDetailView}" 
+            <Label Margin="10,0" Text="{Binding Path=SelectedAsar.AddressForDetailView}" 
                Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" LineBreakMode="WordWrap"
                FontSize="13" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
-        <Label Margin="10,0" Text="{Binding Path=SelectedAsar.SecretaryName}" 
+            <Label Margin="10,0" Text="{Binding Path=SelectedAsar.SecretaryName}" 
                Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" LineBreakMode="WordWrap"
                FontSize="13" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
-        <Label Margin="10,0" Text="{Binding Path= SelectedAsar.SecretaryMobile}" 
+            <Label Margin="10,0" Text="{Binding Path= SelectedAsar.SecretaryMobile}" 
                Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
                FontSize="13" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
-        <Button Margin="10,0" Command="{Binding CallCommand}" IsVisible="{Binding Path= SelectedAsar.HasMobileNo}"
+            <Button Margin="10,0" Command="{Binding CallCommand}" IsVisible="{Binding Path= SelectedAsar.HasMobileNo}"
                 Text="Call" FontSize="10" WidthRequest = "50" HeightRequest = "35"
                 Grid.Row="3" Grid.Column="1" Grid.RowSpan="2"
                 HorizontalOptions="Center" VerticalOptions="End"/>
+        <Label Margin="10,0" Text="{Binding Path= GeoLocation}" FontSize="13" TextColor="Black" 
+                       Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Start"/>
+        <Button Margin="10,0" Command="{Binding NavigateTo}" 
+                Text="Navigate To" FontSize="10" WidthRequest = "25" HeightRequest = "35"
+                Grid.Row="5" Grid.Column="1" VerticalOptions="End"/>
     </Grid>
-    <ContentPage.Content>
         
-        <StackLayout Spacing = "0" HorizontalOptions= "CenterAndExpand">
-            <Label Text="{Binding Path=SelectedAsar.AsarName}" FontSize="20" FontAttributes="Bold" TextColor="Black" Margin="10" 
-                   HorizontalOptions="Center" VerticalOptions="Center"/>
-            <StackLayout Spacing = "0" Orientation="Horizontal">
-                <Label Text="{Binding Path= SelectedAsar.DisplayCommitteeType}" FontSize="13" TextColor="Black" Margin="2"
+   
+    <!--<StackLayout Spacing = "0" Orientation="Horizontal">
+        <Label Text="{Binding Path= GeoLocation}" FontSize="13" TextColor="Black" Margin="2"
                        HorizontalOptions="Start"/>
-                <Label Text="{Binding Path= SelectedAsar.DisplayAsarStatus}" FontSize="13" TextColor="Black"  Margin="2"
-                       HorizontalOptions="EndAndExpand"/>
-            </StackLayout>
-            <Label Text="{Binding Path=SelectedAsar.AddressForDetailView}" LineBreakMode="WordWrap"
-                   FontSize="13" TextColor="Black" Margin="2"/>
-            <Label Text="{Binding Path=SelectedAsar.SecretaryName}" FontSize="13" TextColor="Black" Margin="2"/>
-            <StackLayout Spacing = "0" Orientation="Horizontal">
-                <Label Text="{Binding Path= SelectedAsar.SecretaryMobile}" FontSize="13" TextColor="Black" Margin="2"
-                       HorizontalOptions="Start"/>
-                <Button Margin="2"  Command="{Binding CallCommand}" IsVisible="{Binding Path= SelectedAsar.HasMobileNo}"
-                        Text="Call" FontSize="10" WidthRequest = "50" HeightRequest = "35"
+        <Button Margin="2"  Command="{Binding CallCommand}" IsVisible="{Binding Path= SelectedAsar.HasMobileNo}"
+                        Text="Update Location" FontSize="10" WidthRequest = "150" HeightRequest = "35"
                         HorizontalOptions="EndAndExpand"/>
-            </StackLayout>
-        </StackLayout>
-    </ContentPage.Content>
+    </StackLayout>-->
 </ContentPage>
