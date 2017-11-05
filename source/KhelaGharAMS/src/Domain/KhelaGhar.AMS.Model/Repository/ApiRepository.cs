@@ -58,5 +58,14 @@ namespace KhelaGhar.AMS.Model.Repository
                .OrderBy(o => o.Name)
                .ToList().ToList();
     }
+    public void UpdateGeoLocation(Asar asar, decimal latitude, decimal longitude)
+    {
+      asar.Latitude = latitude;
+      asar.Longitude = longitude;
+    }
+    public Asar GetAsar(int asarId)
+    {
+      return _dbContext.Asars.Include(x=>x.Area).Where(w => w.AsarId == asarId).FirstOrDefault(); 
+    }
   }
 }

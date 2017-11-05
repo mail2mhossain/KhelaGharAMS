@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using KhelaGhar.AMS.Model.Domain.Asars;
 using KhelaGhar.AMS.Model.Domain.Areas;
+using System.Data.Entity.Validation;
 
 namespace KhelaGharAmsApi.Controllers
 {
@@ -55,7 +56,7 @@ namespace KhelaGharAmsApi.Controllers
     private IList<AsarInfo> MapAsar(IList<Asar> list)
     {
       IList<AsarInfo> asarList = new List<AsarInfo>();
-      foreach(Asar asar in list)
+      foreach (Asar asar in list)
       {
         if (asar is ShakhaAsar)
         {
@@ -83,5 +84,25 @@ namespace KhelaGharAmsApi.Controllers
       }
       return asarList;
     }
+
+    [HttpPost]
+    [Route("UpdateGeoLocation")]
+    public IHttpActionResult UpdateGeoLocation(int asarId, decimal latitude, decimal longitude)
+    {
+      using (KhelaGharAMSDbContext dbContext = new KhelaGharAMSDbContext())
+      {
+        ApiRepository repo = new ApiRepository(dbContext);
+        Asar asar = repo.GetAsar(asarId);
+        if(asar != null)
+        {
+          repo.UpdateGeoLocation(asar, latitude, longitude);
+          dbContext.SaveChanges();
+         
+          return Content(HttpStatusCode.OK, "Update Success");
+        }
+        return NotFound();
+      }
+    }
   }
+
 }
