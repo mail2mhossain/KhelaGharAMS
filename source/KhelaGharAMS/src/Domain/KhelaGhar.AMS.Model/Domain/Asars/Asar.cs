@@ -62,6 +62,10 @@ namespace KhelaGhar.AMS.Model.Domain.Asars
     [DisplayName("ঠিকানা")]
     [MaxLength(350)]
     public virtual string AddressLine { get; set; }
+    [Optionally, NakedObjectsIgnore]
+    public virtual decimal Latitude { get; set; }
+    [Optionally, NakedObjectsIgnore]
+    public virtual decimal Longitude { get; set; }
 
     #endregion
 

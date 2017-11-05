@@ -36,8 +36,18 @@
                 HorizontalOptions="Center" VerticalOptions="End"/>
         </Grid>
         <StackLayout Spacing = "0" Orientation="Horizontal">
-            <Label Margin="10,0" Text="{Binding Path= GeoLocation}" FontSize="13" TextColor="Black" 
+            <Label Margin="10,0" Text="Latitude" FontSize="13" TextColor="Black" 
                        HorizontalOptions="Start"/>
+            <Label Margin="10,0" Text="{Binding Path= SelectedAsar.Latitude}" FontSize="13" TextColor="Black" 
+                       HorizontalOptions="End"/>
+            <Label Margin="10,0" Text="Longitude" FontSize="13" TextColor="Black" 
+                       HorizontalOptions="Start"/>
+            <Label Margin="10,0" Text="{Binding Path= SelectedAsar.Longitude}" FontSize="13" TextColor="Black" 
+                       HorizontalOptions="End"/>
+            
+            <Button Margin="20,0"  Command="{Binding UpdateLocationCommand}" 
+                        Text="Update Location" FontSize="10" WidthRequest = "90" HeightRequest = "35"
+                        HorizontalOptions="Start"/>
             <Button Margin="20,0"  Command="{Binding NavigateTo}" 
                         Text="Navigate To" FontSize="10" WidthRequest = "90" HeightRequest = "35"
                         HorizontalOptions="End"/>
