@@ -60,6 +60,7 @@ namespace KhelaGharAmsApi.Controllers
         if (asar is ShakhaAsar)
         {
           AsarInfo info = new AsarInfo();
+          info.AsarId = asar.AsarId;
           info.AsarName = asar.Name;
           info.CommitteeType = asar.CommitteeType.ToString();
           info.AsarStatus = ((ShakhaAsar)asar).AsarStatus.ToString();
@@ -75,7 +76,8 @@ namespace KhelaGharAmsApi.Controllers
             info.Subdistrict = asar.Area.Name;
             info.Division = asar.Area.Parent.Name;
           }
-
+          info.Latitude = asar.Latitude ?? 0;
+          info.Longitude = asar.Longitude ?? 0;
           asarList.Add(info);
         }
       }

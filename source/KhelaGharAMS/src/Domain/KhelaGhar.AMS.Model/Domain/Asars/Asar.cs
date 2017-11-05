@@ -63,9 +63,9 @@ namespace KhelaGhar.AMS.Model.Domain.Asars
     [MaxLength(350)]
     public virtual string AddressLine { get; set; }
     [Optionally, NakedObjectsIgnore]
-    public virtual decimal Latitude { get; set; }
+    public virtual decimal? Latitude { get; set; }
     [Optionally, NakedObjectsIgnore]
-    public virtual decimal Longitude { get; set; }
+    public virtual decimal? Longitude { get; set; }
 
     #endregion
 
