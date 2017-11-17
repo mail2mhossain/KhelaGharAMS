@@ -65,6 +65,7 @@ namespace KhelaGharAmsApi.Controllers
           info.AsarName = asar.Name;
           info.CommitteeType = asar.CommitteeType.ToString();
           info.AsarStatus = ((ShakhaAsar)asar).AsarStatus.ToString();
+          info.Contacts = asar.Contacts;
           info.AddressLine = asar.AddressLine;
           if (asar.Area is SubDistrict)
           {
