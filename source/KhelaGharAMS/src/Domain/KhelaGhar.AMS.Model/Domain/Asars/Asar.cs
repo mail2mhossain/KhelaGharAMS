@@ -58,6 +58,11 @@ namespace KhelaGhar.AMS.Model.Domain.Asars
     [DisplayName("কমিটির ধরণ"), MemberOrder(40), Required]
     public virtual TypeOfCommittee CommitteeType { get; set; }
 
+    [MemberOrder(245), MultiLine(NumberOfLines = 3, Width = 50), Optionally]
+    [DisplayName("যোগাযোগ")]
+    [MaxLength(300)]
+    public virtual string Contacts { get; set; }
+
     [MemberOrder(250), MultiLine(NumberOfLines = 3, Width = 50), Optionally]
     [DisplayName("ঠিকানা")]
     [MaxLength(350)]

@@ -5,10 +5,13 @@ using NakedObjects.Menu;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static KhelaGhar.AMS.Model.Domain.Asars.ShakhaAsar;
+using static KhelaGhar.AMS.Model.Domain.Committees.Committee;
 
 namespace KhelaGhar.AMS.Model.Domain.Asars
 {
@@ -118,6 +121,7 @@ namespace KhelaGhar.AMS.Model.Domain.Asars
     #endregion
     public static void Menu(IMenu menu)
     {
+      menu.AddAction("CreateAsar");
       IMenu sub = menu.CreateSubMenu("কর্মী");
       sub.AddAction("AddWorker");
       sub.AddAction("ShowAllWorkers");
@@ -126,5 +130,25 @@ namespace KhelaGhar.AMS.Model.Domain.Asars
       sub.AddAction("NewConference");
       sub.AddAction("ShowAllConferences");
     }
+    #region Behavior
+    #region New Asar
+    [MemberOrder(Sequence = "20")]
+    //[AuthorizeAction(Roles = "AMSAdmin")]
+    [DisplayName("নতুন শাখা আসর")]
+    public ShakhaAsar CreateAsar([MaxLength(250)]string নাম, [Optionally]DateTime? প্রতিষ্ঠার_তারিখ,
+      StatusOfAsar আসরের_অবস্থা, TypeOfCommittee কমিটির_ধরণ,
+      [MultiLine(NumberOfLines = 3, Width = 50), Optionally]string যোগাযোগ,
+      [MultiLine(NumberOfLines = 3, Width = 50), Optionally]string ঠিকানা)
+    {
+      ShakhaAsar asar = AsarRepository.CreateAsar(নাম, প্রতিষ্ঠার_তারিখ, আসরের_অবস্থা, কমিটির_ধরণ, যোগাযোগ, ঠিকানা, this.Area);
+
+      return asar;
+    }
+    public string Validate0CreateAsar(string নাম)
+    {
+      return AsarRepository.Validate0CreateAsar(নাম);
+    }
+    #endregion
+    #endregion
   }
 }

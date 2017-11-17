@@ -264,13 +264,17 @@ namespace KhelaGhar.AMS.Model.Repository
     [MemberOrder(Sequence = "20")]
     //[AuthorizeAction(Roles = "AMSAdmin")]
     [DisplayName("নতুন শাখা আসর")]
-    public ShakhaAsar CreateAsar([MaxLength(250)]string নাম, [Optionally]DateTime? প্রতিষ্ঠার_তারিখ, StatusOfAsar আসরের_অবস্থা, TypeOfCommittee কমিটির_ধরণ, [MultiLine(NumberOfLines = 3, Width = 50), Optionally]string ঠিকানা, Area উপজেলা_মহানগর)
+    public ShakhaAsar CreateAsar([MaxLength(250)]string নাম, [Optionally]DateTime? প্রতিষ্ঠার_তারিখ, 
+      StatusOfAsar আসরের_অবস্থা, TypeOfCommittee কমিটির_ধরণ,
+      [MultiLine(NumberOfLines = 3, Width = 50), Optionally]string যোগাযোগ,
+      [MultiLine(NumberOfLines = 3, Width = 50), Optionally]string ঠিকানা, Area উপজেলা_মহানগর)
     {
       ShakhaAsar asar = Container.NewTransientInstance<ShakhaAsar>();
       asar.Name = নাম;
       asar.DateOfEstablishment = প্রতিষ্ঠার_তারিখ;
       asar.AsarStatus = আসরের_অবস্থা;
       asar.CommitteeType = কমিটির_ধরণ;
+      asar.Contacts = যোগাযোগ;
       asar.AddressLine = ঠিকানা;
       asar.Area = উপজেলা_মহানগর;
 
@@ -279,7 +283,7 @@ namespace KhelaGhar.AMS.Model.Repository
     }
 
     [PageSize(10)]
-    public IQueryable<Area> AutoComplete5CreateAsar([MinLength(1)] string name)
+    public IQueryable<Area> AutoComplete6CreateAsar([MinLength(1)] string name)
     {
       List<int> areaIds = (from area in Container.Instances<SubDistrict>()
                            select area.AreaId).ToList();
