@@ -90,7 +90,9 @@ namespace KhelaGhar.AMS.Model.Domain.Committees
     {
       get
       {
-        return Container.Instances<CommitteeMember>().Where(w => w.Committee.CommitteeId == this.CommitteeId).OrderBy(o => o.Designation.DesignationOrder).ToList();
+        IList<CommitteeMember> members = Container.Instances<CommitteeMember>().Where(w => w.Committee.CommitteeId == this.CommitteeId).ToList();
+        if (members.Count == 0) return members;
+        return members.OrderBy(o => o.Designation.DesignationOrder).ToList();
       }
     }
     #endregion

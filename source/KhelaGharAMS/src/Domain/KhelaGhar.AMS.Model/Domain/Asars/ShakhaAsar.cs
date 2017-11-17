@@ -212,6 +212,7 @@ namespace KhelaGhar.AMS.Model.Domain.Asars
       sub.AddAction("ShowAllWorkers");
 
       sub = menu.CreateSubMenu("কমিটি");
+      sub.AddAction("RunningCommittee");
       sub.AddAction("CreateConvenerCommittee");
       sub.AddAction("ShowCommitteeMembers");
       //sub.AddAction("ShowAllCommittees");

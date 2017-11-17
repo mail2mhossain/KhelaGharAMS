@@ -31,9 +31,9 @@ namespace KhelaGhar.AMS.Model.Repository
 
     public static void Menu(IMenu menu)
     {
-      //menu.CreateSubMenu("পদবী")
-      //		.AddAction("CreateDesignation")
-      //		.AddAction("AllDesignation");
+      menu.CreateSubMenu("পদবী")
+          .AddAction("CreateDesignation")
+          .AddAction("AllDesignation");
       menu.CreateSubMenu("মেট্রোপলিটন শহর")
           .AddAction("AddMetropolitanCity")
           .AddAction("AllCities");

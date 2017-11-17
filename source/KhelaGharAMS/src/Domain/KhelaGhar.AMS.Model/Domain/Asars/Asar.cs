@@ -187,11 +187,22 @@ namespace KhelaGhar.AMS.Model.Domain.Asars
     #endregion
 
     #region Create Convener Committee
+    [DisplayName("বর্তমান কমিটি")]
+    public Committee RunningCommittee()
+    {
+      return GetCurrentCommittee();
+    }
+    public bool HideRunningCommittee()
+    {
+      Committee currentCommittee = GetCurrentCommittee();
+      if (currentCommittee == null) return true;
+      return false;
+    }
     [DisplayName("আহ্বায়ক কমিটি গঠন")]
     public ConvenerCommittee CreateConvenerCommittee(DateTime dateOfFormation)
     {
       ConvenerCommittee committee = Container.NewTransientInstance<ConvenerCommittee>();
-      committee.DateOfExpiration = dateOfFormation;
+      committee.DateOfFormation = dateOfFormation;
       committee.CommitteeType = TypeOfCommittee.আহ্বায়ক;
       committee.Asar = this;
       Container.Persist(ref committee);
@@ -205,16 +216,18 @@ namespace KhelaGhar.AMS.Model.Domain.Asars
       }
       return committee;
     }
-    //public bool HideConvenerCommittee()
-    //{
-    //  IList<Committee> committees = Container.Instances<Committee>().Where(w => w.Asar.AsarId == this.AsarId).ToList();
+    public bool HideCreateConvenerCommittee()
+    {
+      Committee currentCommittee = GetCurrentCommittee();
 
-    //  if(committees.Count > 0)
-    //  {
-    //    return true;
-    //  }
-    //  return false;
-    //}
+      if (currentCommittee != null)
+      {
+        if (DateTime.Today.DayDifference(currentCommittee.DateOfFormation) > 90)
+          return false;
+        return true;
+      }
+      return false;
+    }
     #endregion
 
     #region Show Current Committee Members
@@ -223,8 +236,14 @@ namespace KhelaGhar.AMS.Model.Domain.Asars
     [TableView(false, "Worker", "Designation")]
     public IList<CommitteeMember> ShowCommitteeMembers()
     {
+      IList<CommitteeMember> members = new List<CommitteeMember>();
       Committee committee = GetCurrentCommittee();
-      return Container.Instances<CommitteeMember>().Where(w => w.Committee.CommitteeId == committee.CommitteeId).OrderBy(o => o.Designation.DesignationOrder).ToList();
+      if(committee!=null)
+      {
+        members = Container.Instances<CommitteeMember>().Where(w => w.Committee.CommitteeId == committee.CommitteeId).ToList();
+        if(members.Count>0) return members.OrderBy(o => o.Designation.DesignationOrder).ToList();
+      }
+      return members;
     }
     #endregion
 
@@ -240,6 +259,11 @@ namespace KhelaGhar.AMS.Model.Domain.Asars
       Container.Persist(ref conference);
       return conference;
     }
+    public bool HideNewConference()
+    {
+      if (IsConferenceTime()) return false;
+      return true;
+    }
     #endregion
 
     #region Show All Conferences
@@ -252,9 +276,28 @@ namespace KhelaGhar.AMS.Model.Domain.Asars
     #endregion
     private Committee GetCurrentCommittee()
     {
-      Committee committee = Container.Instances<Committee>().Where(w => w.Asar.AsarId == this.AsarId && w.DateOfExpiration != null).FirstOrDefault();
+      Committee committee = Container.Instances<Committee>().Where(w => w.Asar.AsarId == this.AsarId && w.DateOfExpiration == null).FirstOrDefault();
 
       return committee;
+    }
+    private bool IsConferenceTime()
+    {
+      Committee currentCommittee = GetCurrentCommittee();
+
+      if (currentCommittee != null)
+      {
+        if (currentCommittee is ConvenerCommittee)
+        {
+          if (DateTime.Today.DayDifference(currentCommittee.DateOfFormation) > 90)
+            return true;
+        }
+        if (currentCommittee is FullCommittee)
+        {
+          if (DateTime.Today.MonthDifference(currentCommittee.DateOfFormation) > 24)
+            return true;
+        }
+      }
+      return false;
     }
     #endregion
   }

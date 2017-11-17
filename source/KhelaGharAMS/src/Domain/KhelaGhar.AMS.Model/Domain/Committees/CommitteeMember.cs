@@ -43,7 +43,7 @@ namespace KhelaGhar.AMS.Model.Domain.Committees
     [Key, NakedObjectsIgnore]
     public virtual int CommitteeMemberId { get; set; }
 
-    public virtual string Responsibilities { get; set; }
+    //public virtual string Responsibilities { get; set; }
 
     [DisplayName("মেম্বার"), MemberOrder(10), Required]
     public virtual Worker Worker { get; set; }
