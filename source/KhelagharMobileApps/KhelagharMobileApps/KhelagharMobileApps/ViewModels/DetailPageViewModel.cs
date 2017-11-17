@@ -21,6 +21,7 @@ namespace KhelagharMobileApps.ViewModels
     private string _committeeType = String.Empty;
     public DelegateCommand CallCommand { get; set; }
     public DelegateCommand NavigateTo { get; set; }
+    public DelegateCommand UpdateLocationCommand { get; set; }
     public AsarInfo SelectedAsar
     {
       get { return _selectedAsar; }
@@ -35,7 +36,15 @@ namespace KhelagharMobileApps.ViewModels
     {
       CallCommand = new DelegateCommand(MakeACall);
       NavigateTo = new DelegateCommand(NavigateToMap);
+      UpdateLocationCommand = new DelegateCommand(UpdateLocation);
     }
+
+    private void UpdateLocation()
+    {
+      int id = _selectedAsar.AsarId;
+
+    }
+
     private async void MakeACall()
     {
       // Make Phone Call

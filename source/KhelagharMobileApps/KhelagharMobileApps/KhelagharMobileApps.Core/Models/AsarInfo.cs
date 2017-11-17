@@ -8,6 +8,7 @@ namespace KhelagharMobileApps.Core.Models
 {
   public class AsarInfo
   {
+    public int AsarId { get; set; }
     public string AsarName { get; set; }
     public string CommitteeType { get; set; }
     public string AsarStatus { get; set; }
@@ -21,6 +22,8 @@ namespace KhelagharMobileApps.Core.Models
     public string Secretary { get; set; }
     public string SecretaryMobileNo { get; set; }
     public string SecretaryEmailAddress { get; set; }
+    public decimal Latitude { get; set; }
+    public decimal Longitude { get; set; }
     
     public string Address
     {

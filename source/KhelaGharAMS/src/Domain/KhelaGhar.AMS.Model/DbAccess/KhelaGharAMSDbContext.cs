@@ -71,6 +71,8 @@ namespace KhelaGhar.AMS.Model.DbAccess
 
       //modelBuilder.Properties<DateTime>()
       //.Configure(c => c.HasColumnType("datetime2"));
+      modelBuilder.Entity<Asar>().Property(asar => asar.Latitude).HasPrecision(18, 10);
+      modelBuilder.Entity<Asar>().Property(asar => asar.Longitude).HasPrecision(18, 10);
     }
   }
 }
