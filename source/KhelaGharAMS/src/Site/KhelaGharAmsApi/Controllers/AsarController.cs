@@ -11,6 +11,7 @@ using KhelaGhar.AMS.Model.Domain.Asars;
 using KhelaGhar.AMS.Model.Domain.Areas;
 using System.Data.Entity.Validation;
 using KhelaGhar.AMS.Model.Domain.Workers;
+using KhelaGhar.AMS.Model.Domain.Committees;
 
 namespace KhelaGharAmsApi.Controllers
 {
@@ -82,13 +83,28 @@ namespace KhelaGharAmsApi.Controllers
         }
         info.Contacts = asar.Contacts;
         info.AddressLine = asar.AddressLine;
-        Worker worker = repo.GetRunningCommittee(asar.AsarId);
-        if (worker != null)
+        IList<CommitteeMember> workers = repo.GetRunningCommittee(asar.AsarId);
+        
+        if (workers.Count > 0)
         {
-          info.Secretary = worker.Name;
-          info.SecretaryMobileNo = worker.MobileNo;
-          info.SecretaryEmailAddress = worker.Email;
+          Worker president = workers.Where(w => w.Designation.DesignationOrder == 1)
+                                     .Select(s=>s.Worker).FirstOrDefault();
+          if (president != null)
+          {
+            info.President = president.Name;
+            info.PresidentMobileNo = president.MobileNo;
+            info.PresidentEmailAddress = president.Email;
+          }
+          Worker secretary = workers.Where(w => w.Designation.DesignationOrder != 1)
+                                     .Select(s => s.Worker).FirstOrDefault();
+          if (secretary != null)
+          {
+            info.Secretary = secretary.Name;
+            info.SecretaryMobileNo = secretary.MobileNo;
+            info.SecretaryEmailAddress = secretary.Email;
+          }
         }
+        
         if (asar.Area is SubDistrict)
         {
           info.Subdistrict = asar.Area.Name;

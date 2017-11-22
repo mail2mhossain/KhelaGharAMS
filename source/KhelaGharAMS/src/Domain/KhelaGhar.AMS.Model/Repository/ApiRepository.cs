@@ -70,9 +70,9 @@ namespace KhelaGhar.AMS.Model.Repository
     {
       return _dbContext.Asars.Include(x=>x.Area).Where(w => w.AsarId == asarId).FirstOrDefault(); 
     }
-    public Worker GetRunningCommittee(int asarId)
+    public IList<CommitteeMember> GetRunningCommittee(int asarId)
     {
-      Worker worker = null;
+      IList<CommitteeMember> workers = new List<CommitteeMember>();
       Committee runningCommittee = _dbContext.Committees.Where(w => w.Asar.AsarId == asarId
                                                                && w.DateOfExpiration == null)
                                                         .FirstOrDefault();
@@ -86,15 +86,21 @@ namespace KhelaGhar.AMS.Model.Repository
         {
           if (runningCommittee.CommitteeType == Committee.TypeOfCommittee.আহ্বায়ক)
           {
-            worker = members.Where(w => w.Designation.DesignationOrder == 1).Select(s => s.Worker).FirstOrDefault();
+            workers = members.Where(w => w.Designation.DesignationOrder == 1 ||
+                                         w.Designation.DesignationOrder == 2)
+                             .OrderBy(o=>o.Designation.DesignationOrder)
+                             .ToList();
           }
           else
           {
-            worker = members.Where(w => w.Designation.DesignationOrder == 3).Select(s => s.Worker).FirstOrDefault();
+            workers = members.Where(w => w.Designation.DesignationOrder == 1 ||
+                                        w.Designation.DesignationOrder == 3)
+                             .OrderBy(o => o.Designation.DesignationOrder)
+                             .ToList();
           }
         }
       }
-      return worker;
+      return workers;
     }
 
     public IList<Area> GetAllUpojela()
