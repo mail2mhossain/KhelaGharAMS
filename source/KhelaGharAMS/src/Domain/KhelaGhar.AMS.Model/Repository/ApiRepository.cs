@@ -6,6 +6,9 @@ using System.Linq;
 using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
+using KhelaGhar.AMS.Model.Domain.Committees;
+using KhelaGhar.AMS.Model.Domain.Workers;
+using KhelaGhar.AMS.Model.Domain.Areas;
 
 namespace KhelaGhar.AMS.Model.Repository
 {
@@ -26,7 +29,7 @@ namespace KhelaGhar.AMS.Model.Repository
                .Include(pp => pp.Area.Parent.Parent)
                .Where(w => w.Name.StartsWith(name.Trim()))
                .OrderBy(o => o.Name)
-               .ToList().ToList();
+               .ToList();
       }
       else
       {
@@ -35,7 +38,7 @@ namespace KhelaGhar.AMS.Model.Repository
                .Include(p => p.Area.Parent)
                .Where(w => w.Name.Contains(name.Trim()))
                .OrderBy(o => o.Name)
-               .ToList().ToList();
+               .ToList();
       }
     }
     public IList<Asar> GetAsarBySubdistrict(string sub)
@@ -46,7 +49,7 @@ namespace KhelaGhar.AMS.Model.Repository
                .Include(pp => pp.Area.Parent.Parent)
                .Where(w => w.Area.Name.StartsWith(sub.Trim()))
                .OrderBy(o => o.Name)
-               .ToList().ToList();
+               .ToList();
     }
     public IList<Asar> GetAsarByDistrict(string district)
     {
@@ -54,9 +57,9 @@ namespace KhelaGhar.AMS.Model.Repository
                .Include(a => a.Area)
                .Include(p => p.Area.Parent)
                .Include(pp => pp.Area.Parent.Parent)
-               .Where(w => w.Area.Parent.Name.StartsWith(district.Trim()))
+               .Where(w => w.Area.Name.StartsWith(district.Trim()) || w.Area.Parent.Name.StartsWith(district.Trim()))
                .OrderBy(o => o.Name)
-               .ToList().ToList();
+               .ToList();
     }
     public void UpdateGeoLocation(Asar asar, decimal latitude, decimal longitude)
     {
@@ -66,6 +69,41 @@ namespace KhelaGhar.AMS.Model.Repository
     public Asar GetAsar(int asarId)
     {
       return _dbContext.Asars.Include(x=>x.Area).Where(w => w.AsarId == asarId).FirstOrDefault(); 
+    }
+    public Worker GetRunningCommittee(int asarId)
+    {
+      Worker worker = null;
+      Committee runningCommittee = _dbContext.Committees.Where(w => w.Asar.AsarId == asarId
+                                                               && w.DateOfExpiration == null)
+                                                        .FirstOrDefault();
+      if (runningCommittee != null)
+      {
+        IList<CommitteeMember> members = _dbContext.CommitteeMembers.Include(m=>m.Worker).Include(d=>d.Designation)
+                                                   .Where(w => w.Committee.CommitteeId == runningCommittee.CommitteeId)
+                                                   .OrderBy(o => o.Designation.DesignationOrder)
+                                                   .ToList();
+        if(members.Count > 0)
+        {
+          if (runningCommittee.CommitteeType == Committee.TypeOfCommittee.আহ্বায়ক)
+          {
+            worker = members.Where(w => w.Designation.DesignationOrder == 1).Select(s => s.Worker).FirstOrDefault();
+          }
+          else
+          {
+            worker = members.Where(w => w.Designation.DesignationOrder == 3).Select(s => s.Worker).FirstOrDefault();
+          }
+        }
+      }
+      return worker;
+    }
+
+    public IList<Area> GetAllUpojela()
+    {
+      return _dbContext.Areas
+               .Include(a => a.Parent)
+               .Include(p => p.Parent.Parent)
+               .OrderBy(o => o.Name)
+               .ToList();
     }
   }
 }

@@ -9,6 +9,7 @@ namespace KhelaGharAmsApi.ViewModel
   {
     public int AsarId { get; set; }
     public string AsarName { get; set; }
+    public string AsarType { get; set; }
     public string CommitteeType { get; set; }
     public string AsarStatus { get; set; }
     public string Contacts { get; set; }
