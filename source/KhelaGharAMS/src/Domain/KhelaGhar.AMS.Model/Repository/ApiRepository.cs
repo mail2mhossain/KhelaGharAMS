@@ -70,7 +70,7 @@ namespace KhelaGhar.AMS.Model.Repository
     {
       return _dbContext.Asars.Include(x=>x.Area).Where(w => w.AsarId == asarId).FirstOrDefault(); 
     }
-    public IList<CommitteeMember> GetRunningCommittee(int asarId)
+    public IList<CommitteeMember> GetFilteredRunningCommitteeMembers(int asarId)
     {
       IList<CommitteeMember> workers = new List<CommitteeMember>();
       Committee runningCommittee = _dbContext.Committees.Where(w => w.Asar.AsarId == asarId
@@ -102,7 +102,21 @@ namespace KhelaGhar.AMS.Model.Repository
       }
       return workers;
     }
-
+    public IList<CommitteeMember> GetRunningCommitteeMembers(int asarId)
+    {
+      IList<CommitteeMember> workers = new List<CommitteeMember>();
+      Committee runningCommittee = _dbContext.Committees.Where(w => w.Asar.AsarId == asarId
+                                                               && w.DateOfExpiration == null)
+                                                        .FirstOrDefault();
+      if (runningCommittee != null)
+      {
+        workers = _dbContext.CommitteeMembers.Include(m => m.Worker).Include(d => d.Designation)
+                            .Where(w => w.Committee.CommitteeId == runningCommittee.CommitteeId)
+                            .OrderBy(o => o.Designation.DesignationOrder)
+                            .ToList();
+      }
+      return workers;
+    }
     public IList<Area> GetAllUpojela()
     {
       return _dbContext.Areas
@@ -110,6 +124,13 @@ namespace KhelaGhar.AMS.Model.Repository
                .Include(p => p.Parent.Parent)
                .OrderBy(o => o.Name)
                .ToList();
+    }
+
+    public IList<Asar> GetAllAsar()
+    {
+      return _dbContext.Asars
+                       .OrderBy(o => o.Name)
+                       .ToList();
     }
   }
 }

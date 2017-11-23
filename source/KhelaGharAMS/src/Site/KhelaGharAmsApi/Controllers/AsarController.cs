@@ -42,7 +42,6 @@ namespace KhelaGharAmsApi.Controllers
         return Content(HttpStatusCode.OK, asarList);
       }
     }
-
     [HttpGet]
     [Route("Jela")]
     public IHttpActionResult GetAsarByDistrcit(string jela)
@@ -83,7 +82,7 @@ namespace KhelaGharAmsApi.Controllers
         }
         info.Contacts = asar.Contacts;
         info.AddressLine = asar.AddressLine;
-        IList<CommitteeMember> workers = repo.GetRunningCommittee(asar.AsarId);
+        IList<CommitteeMember> workers = repo.GetFilteredRunningCommitteeMembers(asar.AsarId);
         
         if (workers.Count > 0)
         {
@@ -96,7 +95,9 @@ namespace KhelaGharAmsApi.Controllers
             info.PresidentEmailAddress = president.Email;
           }
           Worker secretary = workers.Where(w => w.Designation.DesignationOrder != 1)
-                                     .Select(s => s.Worker).FirstOrDefault();
+                                     .Select(s => s.Worker)
+                                     .OrderBy(o=>o.Name)
+                                     .FirstOrDefault();
           if (secretary != null)
           {
             info.Secretary = secretary.Name;
@@ -191,6 +192,76 @@ namespace KhelaGharAmsApi.Controllers
 
       return upojelaList;
     }
-  }
 
+    [HttpGet]
+    [Route("AllAsar")]
+    public IHttpActionResult GetAllAsar()
+    {
+      IList<AsarInfo> asarList = new List<AsarInfo>();
+      using (KhelaGharAMSDbContext dbContext = new KhelaGharAMSDbContext())
+      {
+        ApiRepository repo = new ApiRepository(dbContext);
+        asarList = MapAllAsar(repo.GetAllAsar());
+        return Content(HttpStatusCode.OK, asarList);
+      }
+    }
+    private IList<AsarInfo> MapAllAsar(IList<Asar> list)
+    {
+      IList<AsarInfo> asarList = new List<AsarInfo>();
+      foreach (Asar asar in list)
+      {
+        AsarInfo info = new AsarInfo();
+        info.AsarId = asar.AsarId;
+        info.AsarName = asar.Name;
+        info.NameTosearch = asar.Name.Replace(" খেলাঘর আসর","");
+        info.CommitteeType = asar.CommitteeType.ToString();
+        if (asar is UpojelaAsar)
+        {
+          info.AsarType = "UpojelaAsar";
+        }
+        if (asar is JelaAsar)
+        {
+          info.AsarType = "JelaAsar";
+        }
+        if (asar is MohanagarAsar)
+        {
+          info.AsarType = "MohanagarAsar";
+        }
+        info.Contacts = asar.Contacts;
+        info.AddressLine = asar.AddressLine;
+        asarList.Add(info);
+      }
+
+      return asarList;
+    }
+
+    [HttpGet]
+    [Route("Committee")]
+    public IHttpActionResult GetCommitteeMembers(int asarId)
+    {
+      using (KhelaGharAMSDbContext dbContext = new KhelaGharAMSDbContext())
+      {
+        ApiRepository repo = new ApiRepository(dbContext);
+        IList<WorkerInfo> workers = MapWorkerInfo(repo.GetRunningCommitteeMembers(asarId));
+        return Content(HttpStatusCode.OK, workers);
+      }
+    }
+    private IList<WorkerInfo> MapWorkerInfo(IList<CommitteeMember> members)
+    {
+      IList<WorkerInfo> workers = new List<WorkerInfo>();
+      foreach(CommitteeMember member in members)
+      {
+        WorkerInfo worker = new WorkerInfo();
+        worker.WorkerId = member.Worker.WorkerId;
+        worker.Name = member.Worker.Name;
+        worker.Designation = member.Designation.Name;
+        worker.DesignationOrder = member.Designation.DesignationOrder;
+        worker.MobileNo = member.Worker.MobileNo;
+        worker.Email = member.Worker.Email;
+        worker.AddressLine = member.Worker.AddressLine;
+        workers.Add(worker);
+      }
+      return workers;
+    }
+  }
 }

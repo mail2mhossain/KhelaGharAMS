@@ -272,6 +272,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\AsarInfo.cs" />
     <Compile Include="ViewModel\UpojelaInfo.cs" />
+    <Compile Include="ViewModel\WorkerInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
