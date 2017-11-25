@@ -21,7 +21,7 @@ namespace KhelaGharAmsApi.Controllers
     [Route("Asar")]
     public IHttpActionResult GetAsar(string name)
     {
-      IList<AsarInfo> asarList = new List<AsarInfo>();
+      IList<AsarDetailInfo> asarList = new List<AsarDetailInfo>();
       using (KhelaGharAMSDbContext dbContext = new KhelaGharAMSDbContext())
       {
         ApiRepository repo = new ApiRepository(dbContext);
@@ -34,7 +34,7 @@ namespace KhelaGharAmsApi.Controllers
     [Route("Upojela")]
     public IHttpActionResult GetAsarBySubdistrcit(string upojela)
     {
-      IList<AsarInfo> asarList = new List<AsarInfo>();
+      IList<AsarDetailInfo> asarList = new List<AsarDetailInfo>();
       using (KhelaGharAMSDbContext dbContext = new KhelaGharAMSDbContext())
       {
         ApiRepository repo = new ApiRepository(dbContext);
@@ -46,7 +46,7 @@ namespace KhelaGharAmsApi.Controllers
     [Route("Jela")]
     public IHttpActionResult GetAsarByDistrcit(string jela)
     {
-      IList<AsarInfo> asarList = new List<AsarInfo>();
+      IList<AsarDetailInfo> asarList = new List<AsarDetailInfo>();
       using (KhelaGharAMSDbContext dbContext = new KhelaGharAMSDbContext())
       {
         ApiRepository repo = new ApiRepository(dbContext);
@@ -54,12 +54,12 @@ namespace KhelaGharAmsApi.Controllers
         return Content(HttpStatusCode.OK, asarList);
       }
     }
-    private IList<AsarInfo> MapAsar(IList<Asar> list, ApiRepository repo)
+    private IList<AsarDetailInfo> MapAsar(IList<Asar> list, ApiRepository repo)
     {
-      IList<AsarInfo> asarList = new List<AsarInfo>();
+      IList<AsarDetailInfo> asarList = new List<AsarDetailInfo>();
       foreach (Asar asar in list)
       {
-        AsarInfo info = new AsarInfo();
+        AsarDetailInfo info = new AsarDetailInfo();
         info.AsarId = asar.AsarId;
         info.AsarName = asar.Name;
         info.CommitteeType = asar.CommitteeType.ToString();
@@ -215,6 +215,12 @@ namespace KhelaGharAmsApi.Controllers
         info.AsarName = asar.Name;
         info.NameTosearch = asar.Name.Replace(" খেলাঘর আসর","");
         info.CommitteeType = asar.CommitteeType.ToString();
+        
+        if (asar is ShakhaAsar)
+        {
+          info.AsarType = "ShakhaAsar";
+          info.AsarStatus = ((ShakhaAsar)asar).AsarStatus.ToString();
+        }
         if (asar is UpojelaAsar)
         {
           info.AsarType = "UpojelaAsar";
